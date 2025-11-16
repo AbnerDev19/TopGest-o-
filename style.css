@@ -1,0 +1,400 @@
+/* style.css */
+
+/* 1. Definição da paleta de cores e fontes */
+:root {
+    --cor-branca-leve: #F5F5F5; 
+    --cor-branca-pura: #FFFFFF;
+    
+    --cor-azul-principal: #0056B3;
+    --cor-azul-escuro: #0A2A4E;   
+
+    --cor-texto-principal: #1d1d1f; 
+    --cor-texto-secundario: #555555;
+    --cor-texto-claro: #EFEFEF;
+
+    --cor-roxa-stepper: #5227FF; /* Cor da foto 'stepper' */
+
+    --font-principal: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 2. Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 3. Estilos Globais */
+body {
+    font-family: var(--font-principal);
+    background-color: var(--cor-branca-leve); 
+    color: var(--cor-texto-secundario);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto; 
+}
+
+h1, h2, h3, h4 {
+    color: var(--cor-texto-principal); 
+    margin-bottom: 0.8rem;
+    font-weight: 600; 
+}
+
+h3 {
+    color: var(--cor-azul-principal);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+/* 4. Header (Cabeçalho) - ATUALIZADO PARA LOGO */
+header {
+    /* MUDANÇA: Fundo escuro para combinar com a logo */
+    background-color: var(--cor-azul-escuro); 
+    padding: 0.5rem 0; /* Ajuste no padding */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; 
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img {
+    height: 45px; /* Ajuste a altura da sua logo */
+    width: auto;
+    display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+header nav li {
+    margin-left: 1.8rem;
+}
+
+header nav a {
+    /* MUDANÇA: Cor do texto para branco */
+    color: var(--cor-branca-leve);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--cor-branca-pura);
+}
+
+.cta-button-nav {
+    background-color: var(--cor-azul-principal);
+    color: var(--cor-branca-pura) !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px; /* Botão pílula */
+    transition: background-color 0.3s ease;
+}
+.cta-button-nav:hover {
+    background-color: #00408A; /* Azul mais escuro no hover */
+    color: var(--cor-branca-pura) !important;
+}
+
+/* 5. Seção Hero (Sem mudanças) */
+.hero {
+    position: relative;
+    padding: 0;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--cor-branca-pura);
+    background-image: url('https://images.unsplash.com/photo-1519010470956-6d877008eaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1eDIzN3wyMHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBtb2Rlcm58ZW58MHx8fHwxNzMxNzA5NjMwfDA&ixlib=rb-4.0.3&q=80&w=1920');
+    background-size: cover;
+    background-position: center center;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 42, 78, 0.6); 
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 6rem;
+    text-align: left;
+    max-width: 550px;
+    margin-left: 10%;
+}
+.hero h1 {
+    color: var(--cor-branca-pura);
+    font-size: 3.5rem; 
+    font-weight: 700;
+}
+.hero p {
+    font-size: 1.2rem;
+    color: var(--cor-texto-claro);
+}
+.hero-bottom-bar {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 86, 179, 0.9);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.5rem 0;
+}
+.hero-bottom-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--cor-branca-pura);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.cta-button-outline-light {
+    border: 2px solid var(--cor-branca-pura);
+    color: var(--cor-branca-pura);
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.cta-button-outline-light:hover {
+    background-color: var(--cor-branca-pura);
+    color: var(--cor-azul-principal);
+}
+
+
+/* 6. Seção Sobre Nós (Sem mudanças) */
+#sobre {
+    background-color: var(--cor-branca-pura);
+}
+.sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+.sobre-imagem {
+    height: 450px;
+    background-color: #e0e0e0; 
+    background-image: url('https://images.unsplash.com/photo-1556761175-59736f6230ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1eDIzN3wyMHwxfHNlYXJjaHwxfHxvZmZpY2UlMjBtZWV0aW5nfGVufDB8fHx8MTcxNzk2ODk1MHww&ixlib=rb-4.0.3&q=80&w=1080');
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+}
+
+
+/* 7. Seção Diferenciais (ATUALIZADA PARA ACCORDION) */
+#diferenciais {
+    background-color: var(--cor-branca-leve);
+}
+
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+.diferenciais-texto h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.diferenciais-texto p {
+    font-size: 1.2rem;
+    max-width: 450px;
+}
+
+.cta-button-outline {
+    border: 2px solid var(--cor-azul-principal);
+    color: var(--cor-azul-principal);
+    background-color: transparent;
+    padding: 0.8rem 1.8rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+}
+.cta-button-outline:hover {
+    background-color: var(--cor-azul-principal);
+    color: var(--cor-branca-pura);
+}
+
+/* --- NOVOS ESTILOS DO ACCORDION --- */
+.accordion {
+    width: 100%;
+}
+.accordion-item {
+    background-color: var(--cor-branca-pura);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden; /* Para o radius funcionar no content */
+}
+.accordion-header {
+    background: none;
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    text-align: left;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--cor-texto-principal);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.accordion-header:hover {
+    background-color: #f9f9f9;
+}
+.accordion-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--cor-azul-principal);
+    transition: transform 0.3s ease;
+}
+.accordion-header[aria-expanded="true"] .accordion-icon {
+    transform: rotate(45deg);
+}
+.accordion-content {
+    max-height: 0; /* Começa fechado */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.accordion-content p {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    margin-bottom: 0;
+    color: var(--cor-texto-secundario);
+}
+
+
+/* 8. NOVA SEÇÃO DE COTAÇÃO (STEPPER) */
+#cotacao {
+    background-color: var(--cor-branca-leve);
+    padding: 4rem 0 5rem 0;
+}
+.stepper-box {
+    max-width: 600px;
+    margin: 0 auto;
+    /* Visual da foto: escuro, cantos arredondados */
+    background-color: #1A1A23; /* Tom escuro levemente azulado */
+    color: #fff;
+    border-radius: 24px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.stepper-nav {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.step {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+.step.active {
+    background-color: var(--cor-roxa-stepper);
+    color: #fff;
+}
+.step-line {
+    flex: 1;
+    height: 2px;
+    background-color: #333;
+    margin: 0 0.5rem;
+}
+.stepper-content h2 {
+    color: var(--cor-roxa-stepper); /* Roxo da foto */
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.stepper-content p {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+.stepper-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+.cta-button-stepper {
+    background-color: var(--cor-roxa-stepper);
+    color: #fff;
+    padding: 0.7rem 1.8rem;
+    border-radius: 999px; /* Pílula */
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.cta-button-stepper:hover {
+    background-color: #6a4bff; /* Um roxo mais claro no hover */
+}
+
+
+/* 9. Footer (Rodapé) */
+footer {
+    background-color: var(--cor-azul-escuro);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 2.5rem 0;
+    margin-top: 0; /* Seção de cotação já tem padding */
+}
+
+
+/* 10. Ícone WhatsApp Flutuante */
+.whatsapp-flutuante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366; 
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.whatsapp-flutuante:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
