@@ -12,7 +12,7 @@
     --cor-texto-secundario: #555555;
     --cor-texto-claro: #EFEFEF;
 
-    --cor-roxa-stepper: #5227FF; /* Cor da foto 'stepper' */
+    /* REMOVIDA A COR ROXA */
 
     --font-principal: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -25,6 +25,10 @@
 }
 
 /* 3. Estilos Globais */
+html {
+    scroll-behavior: smooth; /* Para rolagem suave das âncoras */
+}
+
 body {
     font-family: var(--font-principal);
     background-color: var(--cor-branca-leve); 
@@ -34,7 +38,8 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1100px;
+    /* MUDANÇA "MENOS PRESO": Container mais largo */
+    max-width: 1200px; 
     margin: 0 auto; 
 }
 
@@ -61,64 +66,55 @@ section {
     padding: 5rem 0;
 }
 
-/* 4. Header (Cabeçalho) - ATUALIZADO PARA LOGO */
+/* 4. Header (Cabeçalho) */
 header {
-    /* MUDANÇA: Fundo escuro para combinar com a logo */
     background-color: var(--cor-azul-escuro); 
-    padding: 0.5rem 0; /* Ajuste no padding */
+    padding: 0.5rem 0; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky; 
     top: 0;
     z-index: 100;
 }
-
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 header .logo img {
-    height: 45px; /* Ajuste a altura da sua logo */
+    height: 45px;
     width: auto;
-    display: block; /* Remove espaço extra abaixo da imagem */
+    display: block;
 }
-
 header nav ul {
     list-style: none;
     display: flex;
     align-items: center;
 }
-
 header nav li {
     margin-left: 1.8rem;
 }
-
 header nav a {
-    /* MUDANÇA: Cor do texto para branco */
     color: var(--cor-branca-leve);
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s ease;
 }
-
 header nav a:hover {
     color: var(--cor-branca-pura);
 }
-
 .cta-button-nav {
     background-color: var(--cor-azul-principal);
     color: var(--cor-branca-pura) !important;
     padding: 0.6rem 1.2rem;
-    border-radius: 999px; /* Botão pílula */
+    border-radius: 999px;
     transition: background-color 0.3s ease;
 }
 .cta-button-nav:hover {
-    background-color: #00408A; /* Azul mais escuro no hover */
+    background-color: #00408A; 
     color: var(--cor-branca-pura) !important;
 }
 
-/* 5. Seção Hero (Sem mudanças) */
+/* 5. Seção Hero */
 .hero {
     position: relative;
     padding: 0;
@@ -127,7 +123,7 @@ header nav a:hover {
     flex-direction: column;
     justify-content: space-between;
     color: var(--cor-branca-pura);
-    background-image: url('https://images.unsplash.com/photo-1519010470956-6d877008eaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1eDIzN3wyMHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBtb2Rlcm58ZW58MHx8fHwxNzMxNzA5NjMwfDA&ixlib=rb-4.0.3&q=80&w=1920');
+    background-image: url('https://images.unsplash.com/photo-1519010470956-6d877008eaa4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1eDIzN3wyMHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBtb2Rlcm58ZW58MHx8fHwxNzMxNzA5NjMwfDA&ixid=rb-4.0.3&q=80&w=1920');
     background-size: cover;
     background-position: center center;
 }
@@ -188,7 +184,7 @@ header nav a:hover {
 }
 
 
-/* 6. Seção Sobre Nós (Sem mudanças) */
+/* 6. Seção Sobre Nós */
 #sobre {
     background-color: var(--cor-branca-pura);
 }
@@ -201,25 +197,75 @@ header nav a:hover {
 .sobre-imagem {
     height: 450px;
     background-color: #e0e0e0; 
-    background-image: url('https://images.unsplash.com/photo-1556761175-59736f6230ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1eDIzN3wyMHwxfHNlYXJjaHwxfHxvZmZpY2UlMjBtZWV0aW5nfGVufDB8fHx8MTcxNzk2ODk1MHww&ixlib=rb-4.0.3&q=80&w=1080');
+    background-image: url('https://images.unsplash.com/photo-1556761175-59736f6230ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1eDIzN3wyMHwxfHNlYXJjaHwxfHxvZmZpY2UlMjBtZWV0aW5nfGVufDB8fHx8MTcxNzk2ODk1MHww&ixid=rb-4.0.3&q=80&w=1080');
     background-size: cover;
     background-position: center;
     border-radius: 24px;
+    overflow: hidden; /* Para a "nuance" */
+    
+    /* "NUANCE": Transição suave */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.4s ease;
+}
+.sobre-imagem:hover {
+    /* "NUANCE": Efeito de zoom e sombra */
+    transform: scale(1.03); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
 
-/* 7. Seção Diferenciais (ATUALIZADA PARA ACCORDION) */
-#diferenciais {
+/* 7. NOVA SEÇÃO DE SERVIÇOS */
+#servicos {
     background-color: var(--cor-branca-leve);
 }
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.servico-card {
+    background-color: var(--cor-branca-pura);
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    /* "NUANCE": Transição suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.servico-card:hover {
+    /* "NUANCE": Efeito de levantar */
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.servico-card i { /* Estilo do ícone */
+    width: 48px;
+    height: 48px;
+    color: var(--cor-azul-principal);
+    margin-bottom: 1rem;
+}
+.servico-card h4 {
+    font-size: 1.3rem;
+    color: var(--cor-azul-escuro);
+}
 
+
+/* 8. Seção Diferenciais (Accordion) */
+#diferenciais {
+    background-color: var(--cor-branca-pura);
+}
 .diferenciais-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: flex-start;
 }
-
 .diferenciais-texto h2 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -228,7 +274,6 @@ header nav a:hover {
     font-size: 1.2rem;
     max-width: 450px;
 }
-
 .cta-button-outline {
     border: 2px solid var(--cor-azul-principal);
     color: var(--cor-azul-principal);
@@ -245,8 +290,6 @@ header nav a:hover {
     background-color: var(--cor-azul-principal);
     color: var(--cor-branca-pura);
 }
-
-/* --- NOVOS ESTILOS DO ACCORDION --- */
 .accordion {
     width: 100%;
 }
@@ -254,8 +297,13 @@ header nav a:hover {
     background-color: var(--cor-branca-pura);
     border-radius: 12px;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    overflow: hidden; /* Para o radius funcionar no content */
+    border: 1px solid #eee;
+    overflow: hidden; 
+    /* "NUANCE": Transição suave */
+    transition: box-shadow 0.3s ease;
+}
+.accordion-item:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.07);
 }
 .accordion-header {
     background: none;
@@ -270,10 +318,6 @@ header nav a:hover {
     font-weight: 600;
     color: var(--cor-texto-principal);
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.accordion-header:hover {
-    background-color: #f9f9f9;
 }
 .accordion-icon {
     font-size: 1.5rem;
@@ -285,7 +329,7 @@ header nav a:hover {
     transform: rotate(45deg);
 }
 .accordion-content {
-    max-height: 0; /* Começa fechado */
+    max-height: 0; 
     overflow: hidden;
     transition: max-height 0.3s ease-out;
 }
@@ -296,7 +340,7 @@ header nav a:hover {
 }
 
 
-/* 8. NOVA SEÇÃO DE COTAÇÃO (STEPPER) */
+/* 9. SEÇÃO DE COTAÇÃO (STEPPER RE-ESTILIZADO) */
 #cotacao {
     background-color: var(--cor-branca-leve);
     padding: 4rem 0 5rem 0;
@@ -304,8 +348,8 @@ header nav a:hover {
 .stepper-box {
     max-width: 600px;
     margin: 0 auto;
-    /* Visual da foto: escuro, cantos arredondados */
-    background-color: #1A1A23; /* Tom escuro levemente azulado */
+    /* MUDANÇA DE COR: Usando azul escuro da TGL */
+    background-color: var(--cor-azul-escuro); 
     color: #fff;
     border-radius: 24px;
     padding: 2rem 2.5rem;
@@ -320,16 +364,22 @@ header nav a:hover {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: #333;
+    background-color: #333; /* Fundo do passo inativo */
     color: #888;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     flex-shrink: 0;
+    transition: background-color 0.4s ease;
 }
 .step.active {
-    background-color: var(--cor-roxa-stepper);
+    /* MUDANÇA DE COR: Usando azul principal da TGL */
+    background-color: var(--cor-azul-principal); 
+    color: #fff;
+}
+.step.complete { /* Visual para passo concluído */
+    background-color: var(--cor-azul-principal);
     color: #fff;
 }
 .step-line {
@@ -337,47 +387,133 @@ header nav a:hover {
     height: 2px;
     background-color: #333;
     margin: 0 0.5rem;
+    position: relative;
 }
-.stepper-content h2 {
-    color: var(--cor-roxa-stepper); /* Roxo da foto */
+.step-line.complete { /* Linha preenchida */
+    background-color: var(--cor-azul-principal);
+}
+
+/* Estilos do conteúdo dos passos */
+.stepper-content-wrapper {
+    position: relative;
+    overflow: hidden;
+    min-height: 280px; /* Altura mínima para o formulário */
+}
+.stepper-pane {
+    display: none; /* JS vai controlar isso */
+}
+.stepper-pane.active {
+    display: block;
+    animation: fadeIn 0.5s ease; /* Animação de entrada */
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.stepper-box h2 {
+    /* MUDANÇA DE COR: Título branco, mais limpo */
+    color: var(--cor-branca-pura);
     font-size: 1.8rem;
     font-weight: 700;
 }
-.stepper-content p {
+.stepper-box p {
     color: #ccc;
     font-size: 1.1rem;
-    margin-bottom: 0;
+    margin-bottom: 1.5rem;
 }
+
+/* Estilos dos campos do formulário */
+.stepper-form-group {
+    margin-bottom: 1rem;
+}
+.stepper-form-group label {
+    display: block;
+    font-weight: 500;
+    color: #ddd;
+    margin-bottom: 0.5rem;
+}
+.stepper-form-group input,
+.stepper-form-group select,
+.stepper-form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #444;
+    background-color: #2a2a3a; /* Fundo do input */
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: var(--font-principal);
+}
+.stepper-form-group textarea {
+    resize: vertical;
+}
+
+/* Sumário (Passo 3) */
+.stepper-summary {
+    list-style: none;
+    padding-left: 0;
+    color: #ddd;
+}
+.stepper-summary li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+.stepper-summary strong {
+    color: var(--cor-branca-pura);
+}
+
+
+/* Rodapé do Stepper (Botões) */
 .stepper-footer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between; /* Para "Voltar" e "Avançar" */
+    align-items: center;
     margin-top: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 1.5rem;
 }
 .cta-button-stepper {
-    background-color: var(--cor-roxa-stepper);
+    /* MUDANÇA DE COR: Usando azul principal da TGL */
+    background-color: var(--cor-azul-principal);
     color: #fff;
     padding: 0.7rem 1.8rem;
-    border-radius: 999px; /* Pílula */
+    border-radius: 999px; 
     font-weight: 600;
     text-decoration: none;
     transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
 }
 .cta-button-stepper:hover {
-    background-color: #6a4bff; /* Um roxo mais claro no hover */
+    background-color: #00408A; /* Azul mais escuro */
+}
+.cta-button-stepper-back {
+    background: transparent;
+    border: none;
+    color: #aaa;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.cta-button-stepper-back:hover {
+    color: #fff;
 }
 
 
-/* 9. Footer (Rodapé) */
+/* 10. Footer (Rodapé) */
 footer {
     background-color: var(--cor-azul-escuro);
     color: var(--cor-texto-claro);
     text-align: center;
     padding: 2.5rem 0;
-    margin-top: 0; /* Seção de cotação já tem padding */
+    margin-top: 0; 
 }
 
 
-/* 10. Ícone WhatsApp Flutuante */
+/* 11. Ícone WhatsApp Flutuante */
 .whatsapp-flutuante {
     position: fixed;
     bottom: 30px;
