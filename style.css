@@ -534,3 +534,104 @@ footer {
     transform: scale(1.1);
     box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
+/* --- CÓDIGO DE RESPONSIVIDADE --- */
+
+/* 1. Para Tablets (Telas até 1024px) */
+@media (max-width: 1024px) {
+    /* Ajusta grids de 2 colunas para 1 coluna */
+    .sobre-grid,
+    .diferenciais-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* Ajusta o grid de 3 colunas de serviços para 2 colunas */
+    .servicos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Ajusta a imagem da seção "Sobre" */
+    .sobre-imagem {
+        height: 350px;
+        /* Opcional: faz a imagem vir antes do texto no mobile */
+        grid-row-start: 1; 
+    }
+}
+
+
+/* 2. Para Celulares (Telas até 768px) */
+@media (max-width: 768px) {
+    /* Reduz o padding das seções para economizar espaço */
+    section {
+        padding: 3rem 0;
+    }
+
+    /* --- Header --- */
+    header .container {
+        flex-direction: column; /* Empilha logo e navegação */
+        gap: 1rem;
+    }
+    header nav ul {
+        flex-wrap: wrap; /* Permite que os links quebrem a linha */
+        justify-content: center;
+        padding: 0;
+        gap: 0.5rem 1rem; /* Espaçamento entre os links */
+    }
+    header nav li {
+        margin-left: 0; /* Remove a margem da lista */
+    }
+    
+    /* --- Hero Section --- */
+    .hero {
+        min-height: 70vh; /* Altura menor no mobile */
+    }
+    .hero-content {
+        margin-left: 0;
+        padding: 3rem 1.5rem 1rem 1.5rem; /* Ajusta padding */
+        text-align: center; /* Centraliza texto no mobile */
+        max-width: 100%;
+    }
+    .hero h1 {
+        font-size: 2.2rem; /* Fonte bem menor */
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .hero-bottom-bar .container {
+        flex-direction: column; /* Empilha a barra inferior */
+        gap: 1rem;
+        text-align: center;
+    }
+
+    /* --- Seção de Serviços --- */
+    /* Agora com 1 coluna */
+    .servicos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- Stepper de Cotação --- */
+    .stepper-box {
+        padding: 1.5rem; /* Padding menor para caber */
+    }
+    /* Empilha os botões do stepper */
+    .stepper-footer {
+        flex-direction: column; 
+        gap: 1rem;
+    }
+    .cta-button-stepper-back {
+        order: 2; /* Botão "Voltar" vai para baixo */
+    }
+    .cta-button-stepper {
+        order: 1; /* Botão "Avançar" fica em cima */
+        width: 100%; /* Botão principal ocupa 100% */
+        text-align: center;
+    }
+
+    /* --- Ícone do WhatsApp --- */
+    .whatsapp-flutuante {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
