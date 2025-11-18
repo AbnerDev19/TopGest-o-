@@ -3,59 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGL - Soluções em Terceirização</title>
+    <title>TGL - Top Gestão Logística</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
 
-    <a href="#cotacao" class="whatsapp-flutuante" aria-label="Faça uma cotação">
+    <a href="https://wa.me/5561999370708" target="_blank" class="whatsapp-flutuante" aria-label="Fale no WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.626-2.957 6.584-6.591 6.584m-3.108-.983c.19-.09.39-.143.592-.143.201 0 .39.053.533.161.142.108.21.26.21.437s-.068.329-.19.451c-.12.122-.27.182-.42.182-.15 0-.28-.06-.38-.182-.1-.122-.15-.272-.15-.451.001-.177.07-.327.21-.437z"/>
         </svg>
     </a>
 
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="fotos/logo.png" alt="TGL Top Gestão Logo">
+    <div class="card-nav-container">
+        <nav class="card-nav" id="mainNav">
+            <div class="card-nav-top">
+                <div class="hamburger-menu" id="navToggle" role="button" aria-label="Abrir menu" tabindex="0">
+                    <div class="hamburger-line"></div>
+                    <div class="hamburger-line"></div>
+                </div>
+                <div class="logo-container">
+                    <img src="fotos/logo.png" alt="TGL Logo" class="logo">
+                </div>
+                <a href="#cotacao" class="card-nav-cta-button">Cotação</a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#servicos">Serviços</a></li> <li><a href="#diferenciais">Diferenciais</a></li>
-                    <li><a href="#cotacao" class="cta-button-nav">Cotação</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+            <div class="card-nav-content">
+                <div class="nav-card" style="background-color: #0A2A4E; color: #fff;">
+                    <div class="nav-card-label">A TGL</div>
+                    <div class="nav-card-links">
+                        <a href="#inicio" class="nav-card-link"><i data-feather="home"></i> Início</a>
+                        <a href="#sobre" class="nav-card-link"><i data-feather="info"></i> Quem Somos</a>
+                    </div>
+                </div>
+                <div class="nav-card" style="background-color: #0056B3; color: #fff;">
+                    <div class="nav-card-label">Serviços</div>
+                    <div class="nav-card-links">
+                        <a href="#servicos" class="nav-card-link"><i data-feather="truck"></i> Logística</a>
+                        <a href="#servicos" class="nav-card-link"><i data-feather="users"></i> Mão de Obra</a>
+                    </div>
+                </div>
+                <div class="nav-card" style="background-color: #1d1d1f; color: #fff;">
+                    <div class="nav-card-label">Contato</div>
+                    <div class="nav-card-links">
+                        <a href="#cotacao" class="nav-card-link"><i data-feather="mail"></i> Orçamento</a>
+                        <a href="#contato-footer" class="nav-card-link"><i data-feather="phone"></i> Telefones</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
 
     <main>
-        <section id="inicio" class="hero">
-            <div class="hero-content">
-                <h1>Prezando pela excelência</h1>
-                <p>Nos destacamos pela excelência dos nossos serviços de terceirização, pela competência de nossa equipe e pela gestão voltada à satisfação dos nossos clientes.</p>
-            </div>
-            <div class="hero-bottom-bar">
-                <div class="container">
-                    <span>Gerando ideias, aprimorando soluções</span>
-                    <a href="#cotacao" class="cta-button-outline-light">Peça já um orçamento</a>
+        <section id="inicio" class="hero-reference">
+            <div class="hero-grid-bg">
+                <div class="grid-col">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop" alt="Logística">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop" alt="Indústria">
                 </div>
+                <div class="grid-col desktop-only">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop" alt="Gestão">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop" alt="Equipe">
+                </div>
+                <div class="grid-col">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop" alt="Escritório">
+                    <img src="https://images.unsplash.com/photo-1566576912906-220a28c93211?q=80&w=800&auto=format&fit=crop" alt="Limpeza">
+                </div>
+                <div class="grid-col desktop-only">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=800&auto=format&fit=crop" alt="Segurança">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Corporativo">
+                </div>
+            </div>
+
+            <div class="hero-overlay-white"></div>
+
+            <div class="hero-card-center">
+                <h1>Excelência em <br><span class="highlight-text">Terceirização</span></h1>
+                <p>Qualidade, eficiência e tecnologia para elevar o desempenho da sua empresa.</p>
+                <a href="#cotacao" class="hero-btn-action">Ver Soluções</a>
             </div>
         </section>
 
         <section id="sobre">
             <div class="container">
-                <div class="sobre-grid">
-                    <div class="sobre-texto">
-                        <h3>Quem Somos</h3>
-                        <h2>Confiabilidade e Eficiência é o nosso nome</h2>
-                        <p>Na TGL, entendemos que a terceirização vai além de simplesmente fornecer mão de obra. Trata-se de construir parcerias estratégicas que otimizam seus processos e reduzem custos.</p>
-                        <p>Com uma equipe rigorosamente selecionada e treinada, garantimos um padrão de quality superior em todos os serviços prestados.</p>
+                <div class="section-header">
+                    <h3>Sobre a TGL</h3>
+                    <h2>Nossa Identidade</h2>
+                    <p style="max-width: 800px; margin: 0 auto; text-align: center;">
+                        A Top Gestão Empresarial em Serviços de Logística (TGL) é especializada em soluções completas de logística e mão de obra terceirizada. Com foco em ética e transparência, trabalhamos lado a lado com o cliente.
+                    </p>
+                </div>
+
+                <div class="mvv-grid">
+                    <div class="mvv-card">
+                        <div class="icon-box"><i data-feather="target"></i></div>
+                        <h4>Missão</h4>
+                        <p>Oferecer soluções inteligentes e eficientes em logística e serviços, garantindo alto padrão de qualidade, segurança e agilidade.</p>
                     </div>
-                    <div class="sobre-imagem">
-                        </div>
+                    <div class="mvv-card">
+                        <div class="icon-box"><i data-feather="eye"></i></div>
+                        <h4>Visão</h4>
+                        <p>Ser referência nacional em terceirização de mão de obra especializada e serviços em logística, reconhecida pela credibilidade e inovação.</p>
+                    </div>
+                    <div class="mvv-card">
+                        <div class="icon-box"><i data-feather="heart"></i></div>
+                        <h4>Valores</h4>
+                        <ul class="values-list">
+                            <li>Compromisso com qualidade</li>
+                            <li>Ética e transparência</li>
+                            <li>Tecnologia e inovação</li>
+                            <li>Segurança e responsabilidade</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -64,66 +123,34 @@
             <div class="container">
                 <div class="section-header">
                     <h3>O que fazemos</h3>
-                    <h2>Nossas Soluções Completas</h2>
+                    <h2>Soluções Especializadas</h2>
                 </div>
                 
                 <div class="servicos-grid">
                     <div class="servico-card">
-                        <i data-feather="shield"></i>
-                        <h4>Portaria e Controle de Acesso</h4>
-                        <p>Profissionais treinados para garantir a segurança e a ordem do seu patrimônio com cordialidade.</p>
+                        <div class="card-icon-bg"><i data-feather="truck"></i></div>
+                        <h4>Logística e Movimentação</h4>
+                        <p>Operadores de máquinas, motoristas, auxiliares de logística, conferentes, separadores e serviços de carga e descarga.</p>
                     </div>
                     <div class="servico-card">
-                        <i data-feather="trash-2"></i>
-                        <h4>Limpeza e Conservação</h4>
-                        <p>Equipes especializadas para manter ambientes corporativos, industriais e hospitalares impecáveis.</p>
+                        <div class="card-icon-bg"><i data-feather="users"></i></div>
+                        <h4>Mão de Obra Especializada</h4>
+                        <p>Profissionais capacitados para demandas operacionais e administrativas, com foco em desempenho e segurança.</p>
                     </div>
                     <div class="servico-card">
-                        <i data-feather="tool"></i>
-                        <h4>Manutenção Predial</h4>
-                        <p>Serviços de elétrica, hidráulica, e civil para garantir que sua infraestrutura funcione perfeitamente.</p>
+                        <div class="card-icon-bg"><i data-feather="shield"></i></div>
+                        <h4>Portaria e Limpeza</h4>
+                        <p>Controle de acesso, portaria, limpeza e conservação de ambientes corporativos e manutenção predial.</p>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <section id="diferenciais">
-            <div class="container">
-                <div class="diferenciais-grid">
-                    <div class="diferenciais-texto">
-                        <h2>Satisfação garantida</h2>
-                        <p>Serviços com qualidade, prezando pela excelência no atendimento, voltada para satisfação dos nossos clientes.</p>
-                        <a href="#servicos" class="cta-button-outline">Veja todos os serviços</a>
-                    </div>
-                    
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
-                                <span>Segmentos Público e Privado</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Atendemos com a mesma excelência tanto órgãos governamentais quanto empresas privadas, adaptando nossos serviços.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
-                                <span>Transparência e Integridade</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Nossa gestão é baseada em processos claros e compliance rigoroso, garantindo total transparência.</p>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
-                                <span>Ampla Cobertura e Locais de Atuação</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <p>Possuímos estrutura para atender demandas em diversas regiões, com logística e gerenciamento local de alta performance.</p>
-                            </div>
-                        </div>
+                
+                <div class="diferenciais-box">
+                    <h3>Nossos Diferenciais</h3>
+                    <div class="diferenciais-list">
+                        <span><i data-feather="check-circle"></i> Treinamentos constantes</span>
+                        <span><i data-feather="check-circle"></i> Soluções customizadas</span>
+                        <span><i data-feather="check-circle"></i> Melhor custo-benefício</span>
+                        <span><i data-feather="check-circle"></i> Filosofia de parceria</span>
                     </div>
                 </div>
             </div>
@@ -143,37 +170,35 @@
                     <div class="stepper-content-wrapper">
                         <div class="stepper-pane active" data-pane="1">
                             <h2>Solicite sua cotação</h2>
-                            <p>Comece nos dizendo quem você é e o que precisa.</p>
+                            <p>Vamos otimizar seus processos. Quem é você?</p>
                             <div class="stepper-form-group">
-                                <label for="stepper-nome">Seu nome principal</label>
-                                <input type="text" id="stepper-nome" placeholder="Ex: João Silva">
+                                <label for="stepper-nome">Nome completo</label>
+                                <input type="text" id="stepper-nome" placeholder="Seu nome">
                             </div>
                             <div class="stepper-form-group">
-                                <label for="stepper-servico">Qual área de contratação?</label>
+                                <label for="stepper-servico">Serviço de interesse</label>
                                 <select id="stepper-servico">
-                                    <option value="">Selecione um serviço...</option>
-                                    <option value="Portaria">Portaria e Controle de Acesso</option>
+                                    <option value="">Selecione...</option>
+                                    <option value="Logística">Logística / Carga e Descarga</option>
+                                    <option value="Mão de Obra">Mão de Obra Administrativa/Operacional</option>
+                                    <option value="Portaria">Portaria e Segurança</option>
                                     <option value="Limpeza">Limpeza e Conservação</option>
-                                    <option value="Manutenção">Manutenção Predial</option>
-                                    <option value="Logística">Logística Interna</option>
-                                    <option value="Outro">Outro</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="stepper-pane" data-pane="2">
-                            <h2>Detalhes do serviço</h2>
-                            <p>Nos dê algumas observações sobre sua necessidade.</p>
+                            <h2>Detalhes</h2>
+                            <p>Como podemos ajudar especificamente?</p>
                             <div class="stepper-form-group">
-                                <label for="stepper-obs">Observações (opcional)</label>
-                                <textarea id="stepper-obs" rows="4" placeholder="Ex: Preciso de 3 porteiros 12x36 e 2 auxiliares de limpeza..."></textarea>
+                                <label for="stepper-obs">Descreva sua necessidade</label>
+                                <textarea id="stepper-obs" rows="4" placeholder="Ex: Preciso de 5 auxiliares de logística e 2 porteiros..."></textarea>
                             </div>
                         </div>
 
                         <div class="stepper-pane" data-pane="3">
-                            <h2>Quase lá!</h2>
-                            <p>Tudo pronto. Seus dados estão prontos para serem enviados. Clique abaixo para iniciar a conversa em nosso WhatsApp.</p>
-                            <p>Revisão:</p>
+                            <h2>Pronto!</h2>
+                            <p>Clique em "Solicitar via WhatsApp" para falar com nossos representantes.</p>
                             <ul class="stepper-summary">
                                 <li><strong>Nome:</strong> <span id="summary-nome"></span></li>
                                 <li><strong>Serviço:</strong> <span id="summary-servico"></span></li>
@@ -191,14 +216,33 @@
 
     </main>
 
-    <footer>
+    <footer id="contato-footer">
         <div class="container">
-            <p>&copy; 2025 TGL Terceirização de Serviços. Todos os direitos reservados.</p>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>TGL Top Gestão</h4>
+                    <p>Compromisso com a excelência e gestão voltada à satisfação dos nossos clientes.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contatos</h4>
+                    <p><strong>Alessandro Rodrigues</strong><br>
+                    (61) 3703-8181 | (61) 99937-0708</p>
+                    <br>
+                    <p><strong>Cleonildo Santos</strong><br>
+                    (61) 3703-8881 | (61) 98560-3994</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Acesse</h4>
+                    <p><a href="http://www.topgestaotgl.com.br" style="color: #ccc; text-decoration: none;">www.topgestaotgl.com.br</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TGL - Top Gestão Empresarial em Serviços de Logística.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Script do Feather Icons (para os ícones de serviço)
         feather.replace();
     </script>
     <script src="script.js" defer></script>
