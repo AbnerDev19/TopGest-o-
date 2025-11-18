@@ -15,15 +15,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const navLinks = document.querySelectorAll('.nav-card-link');
     
     let isExpanded = false;
-    let tl = null; // Instância da timeline do GSAP
+    let tl = null;
 
-    // Função para calcular a altura dinâmica da navbar
     const calculateHeight = () => {
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
         const topBarHeight = 60;
         const padding = 20;
         
-        // Clona o conteúdo para medir a altura real (hack para altura 'auto' no JS)
         const contentClone = navContent.cloneNode(true);
         contentClone.style.visibility = 'hidden';
         contentClone.style.position = 'absolute';
@@ -33,11 +31,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         
         let contentHeight = contentClone.scrollHeight;
         
-        // Se for desktop, a altura é fixa (ex: 260px) ou dinâmica.
-        // No design original React era fixo desktop e dinâmico mobile.
-        // Vamos fazer dinâmico para ambos para garantir que cabe o conteúdo.
         if (!isMobile) {
-             // No desktop os cards ficam lado a lado, altura deve ser uns 220px-260px
              contentHeight = 200; 
         }
 
@@ -45,48 +39,39 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return topBarHeight + contentHeight + padding;
     };
 
-    // Cria a timeline de animação
     const createTimeline = () => {
-        // Reseta
         if (tl) tl.kill();
         
-        // Define estado inicial
         gsap.set(nav, { height: 60 });
         gsap.set(cards, { y: 50, opacity: 0 });
 
         tl = gsap.timeline({ paused: true });
 
-        // 1. Anima a altura da Nav
         tl.to(nav, {
             height: calculateHeight(),
             duration: 0.4,
             ease: "power3.out"
         });
 
-        // 2. Anima os cards entrando (stagger = efeito cascata)
         tl.to(cards, {
             y: 0,
             opacity: 1,
             duration: 0.4,
             ease: "power3.out",
             stagger: 0.08
-        }, "-=0.2"); // Começa um pouco antes da altura terminar
+        }, "-=0.2");
     };
 
-    // Inicializa a timeline
     createTimeline();
 
-    // Toggle Menu (Clique no Hamburguer)
     navToggle.addEventListener('click', () => {
         if (!isExpanded) {
-            // ABRIR
             navToggle.classList.add('open');
             nav.classList.add('open');
-            createTimeline(); // Recalcula altura caso tela tenha mudado
+            createTimeline(); 
             tl.play();
             isExpanded = true;
         } else {
-            // FECHAR
             navToggle.classList.remove('open');
             tl.reverse();
             tl.eventCallback("onReverseComplete", () => {
@@ -96,7 +81,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 
-    // Fechar menu ao clicar em um link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (isExpanded) {
@@ -110,7 +94,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
-    // Recalcular ao redimensionar a tela
     window.addEventListener('resize', () => {
         if (isExpanded) {
             gsap.to(nav, {
@@ -122,7 +105,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
     // ===============================================
-    // 2. CÓDIGO DO ACCORDION (Existente)
+    // 2. CÓDIGO DO ACCORDION (Diferenciais)
     // ===============================================
     const accordionHeaders = document.querySelectorAll('.accordion-header');
     
@@ -153,7 +136,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
     // ===============================================
-    // 3. CÓDIGO DO STEPPER DE COTAÇÃO (Existente)
+    // 3. CÓDIGO DO STEPPER DE COTAÇÃO
     // ===============================================
     let currentStep = 1;
     const totalSteps = 3;
@@ -222,8 +205,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const nome = inputNome.value;
             const servico = inputServico.value;
             const obs = inputObs.value;
+            // Usando o número do Alessandro Rodrigues como principal no WhatsApp
             const texto = `Olá! Gostaria de fazer uma cotação.\n\n*Nome:* ${nome}\n*Serviço de Interesse:* ${servico}\n*Observações:* ${obs}`;
-            const whatsappLink = `https://wa.me/SEUNUMERO?text=${encodeURIComponent(texto)}`;
+            const whatsappLink = `https://wa.me/5561999370708?text=${encodeURIComponent(texto)}`;
             window.open(whatsappLink, '_blank');
         }
     });
