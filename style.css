@@ -3,14 +3,11 @@
 /* 1. Definição da paleta de cores e fontes */
 :root {
     --cor-branca-leve: #F9F9F9;
-    /* Fundo mais claro para alternância */
     --cor-branca-pura: #FFFFFF;
-    /* Fundo branco */
 
     --cor-azul-principal: #0056B3;
-    /* Azul médio TGL */
     --cor-azul-escuro: #0A2A4E;
-    /* Azul escuro TGL */
+    --cor-azul-card: #1A4B7D; /* Novo azul para os cards, um pouco mais claro */
 
     --cor-texto-principal: #1d1d1f;
     --cor-texto-secundario: #555555;
@@ -43,10 +40,7 @@ body {
     margin: 0 auto;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     color: var(--cor-texto-principal);
     margin-bottom: 0.8rem;
     font-weight: 700;
@@ -284,7 +278,8 @@ section {
     object-fit: cover;
     border-radius: 12px;
     filter: grayscale(100%);
-    transition: filter 0.5s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adicionado box-shadow para relevo */
+    transition: filter 0.5s, box-shadow 0.3s;
 }
 
 .hero-overlay-white {
@@ -313,15 +308,8 @@ section {
 }
 
 @keyframes floatUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-card-center h1 {
@@ -392,7 +380,7 @@ section {
     transform: scale(1.05);
 }
 
-/* --- 7. SEÇÃO SOBRE (MVV) --- */
+/* --- 7. SEÇÃO SOBRE (MVV) - EDITADO PARA AZUL MAIS CLARO --- */
 .mvv-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -401,16 +389,29 @@ section {
 }
 
 .mvv-card {
-    background: #fff;
+    background: var(--cor-azul-card); /* Fundo Azul um pouco mais claro */
+    color: #fff; /* Texto branco */
     padding: 2rem;
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    border-top: 4px solid var(--cor-azul-principal);
+    transition: transform 0.3s;
+}
+
+.mvv-card:hover {
+    transform: translateY(-5px);
+}
+
+.mvv-card h4 {
+    color: #fff; /* Título branco */
+}
+
+.mvv-card p {
+    color: #ddd; /* Texto levemente cinza */
 }
 
 .mvv-card .icon-box {
-    background: var(--cor-branca-leve);
+    background: rgba(255, 255, 255, 0.1); /* Fundo do ícone translúcido */
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -418,7 +419,7 @@ section {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem auto;
-    color: var(--cor-azul-principal);
+    color: #fff; /* Ícone branco */
 }
 
 .values-list {
@@ -432,15 +433,15 @@ section {
 .values-list li {
     margin-bottom: 0.5rem;
     position: relative;
+    color: #ddd;
 }
 
 .values-list li::before {
     content: "•";
-    color: var(--cor-azul-principal);
+    color: #4fabf7; /* Azul claro para destaque */
     font-weight: 800;
     position: absolute;
     left: -1rem;
-    /* Alinha o marcador */
     top: 0;
 }
 
@@ -517,7 +518,7 @@ section {
     color: var(--cor-texto-secundario);
 }
 
-/* --- 9. SEÇÃO SERVIÇOS --- */
+/* --- 9. SEÇÃO SERVIÇOS - EDITADO PARA AZUL MAIS CLARO --- */
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -525,27 +526,36 @@ section {
 }
 
 .servico-card {
-    background: #fff;
+    background: var(--cor-azul-card); /* Fundo Azul um pouco mais claro */
+    color: #fff;
     padding: 2.5rem 2rem;
     border-radius: 16px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
 }
 
 .servico-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.servico-card h4 {
+    color: #fff;
+}
+
+.servico-card p {
+    color: #ddd;
 }
 
 .card-icon-bg {
-    background: rgba(0, 86, 179, 0.1);
+    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
     width: 50px;
     height: 50px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--cor-azul-principal);
+    color: #fff; /* Ícone branco */
     margin-bottom: 1.5rem;
 }
 
@@ -566,15 +576,14 @@ section {
     align-items: center;
     gap: 8px;
     margin-bottom: 5px;
-    color: var(--cor-texto-principal);
+    color: #fff; /* Texto branco */
     font-weight: 500;
 }
 
 .servico-items li i {
     width: 18px;
     height: 18px;
-    color: #28a745;
-    /* Cor verde para check */
+    color: #4cd137; /* Verde vibrante para o check */
 }
 
 
@@ -639,15 +648,8 @@ section {
 }
 
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .stepper-form-group {
@@ -753,7 +755,6 @@ footer {
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 1024px) {
-
     .quem-somos-grid,
     .diferenciais-grid-conteudo {
         grid-template-columns: 1fr;
@@ -763,7 +764,6 @@ footer {
     .quem-somos-imagem {
         height: 350px;
         order: -1;
-        /* Imagem acima do texto no tablet/mobile */
     }
 }
 
