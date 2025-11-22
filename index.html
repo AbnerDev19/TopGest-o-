@@ -281,7 +281,19 @@
 
                         <div class="stepper-pane" data-pane="3">
                             <h2 class="pedido">Pronto!</h2>
-                            <p>Clique em "Solicitar via WhatsApp" para falar com nossos representantes.</p>
+                            <p>Escolha por onde deseja enviar a solicitação:</p>
+                            
+                            <div class="stepper-form-group contact-method-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="contact-method" value="whatsapp" checked>
+                                    <span><i data-feather="message-circle"></i> Via WhatsApp</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="contact-method" value="email">
+                                    <span><i data-feather="mail"></i> Via E-mail (Gmail)</span>
+                                </label>
+                            </div>
+
                             <ul class="stepper-summary">
                                 <li><strong>Nome:</strong> <span id="summary-nome"></span></li>
                                 <li><strong>Serviço:</strong> <span id="summary-servico"></span></li>

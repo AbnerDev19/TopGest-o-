@@ -7,7 +7,7 @@
 
     --cor-azul-principal: #0056B3;
     --cor-azul-escuro: #0A2A4E;
-    --cor-azul-card: #1A4B7D; /* Novo azul para os cards, um pouco mais claro */
+    --cor-azul-card: #1A4B7D;
 
     --cor-texto-principal: #1d1d1f;
     --cor-texto-secundario: #555555;
@@ -40,7 +40,10 @@ body {
     margin: 0 auto;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     color: var(--cor-texto-principal);
     margin-bottom: 0.8rem;
     font-weight: 700;
@@ -278,7 +281,7 @@ section {
     object-fit: cover;
     border-radius: 12px;
     filter: grayscale(100%);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adicionado box-shadow para relevo */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: filter 0.5s, box-shadow 0.3s;
 }
 
@@ -308,8 +311,15 @@ section {
 }
 
 @keyframes floatUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-card-center h1 {
@@ -380,7 +390,7 @@ section {
     transform: scale(1.05);
 }
 
-/* --- 7. SEÇÃO SOBRE (MVV) - EDITADO PARA AZUL MAIS CLARO --- */
+/* --- 7. SEÇÃO SOBRE (MVV) --- */
 .mvv-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -389,8 +399,8 @@ section {
 }
 
 .mvv-card {
-    background: var(--cor-azul-card); /* Fundo Azul um pouco mais claro */
-    color: #fff; /* Texto branco */
+    background: var(--cor-azul-card);
+    color: #fff;
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -403,15 +413,15 @@ section {
 }
 
 .mvv-card h4 {
-    color: #fff; /* Título branco */
+    color: #fff;
 }
 
 .mvv-card p {
-    color: #ddd; /* Texto levemente cinza */
+    color: #ddd;
 }
 
 .mvv-card .icon-box {
-    background: rgba(255, 255, 255, 0.1); /* Fundo do ícone translúcido */
+    background: rgba(255, 255, 255, 0.1);
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -419,7 +429,7 @@ section {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem auto;
-    color: #fff; /* Ícone branco */
+    color: #fff;
 }
 
 .values-list {
@@ -438,7 +448,7 @@ section {
 
 .values-list li::before {
     content: "•";
-    color: #4fabf7; /* Azul claro para destaque */
+    color: #4fabf7;
     font-weight: 800;
     position: absolute;
     left: -1rem;
@@ -518,7 +528,7 @@ section {
     color: var(--cor-texto-secundario);
 }
 
-/* --- 9. SEÇÃO SERVIÇOS - EDITADO PARA AZUL MAIS CLARO --- */
+/* --- 9. SEÇÃO SERVIÇOS --- */
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -526,7 +536,7 @@ section {
 }
 
 .servico-card {
-    background: var(--cor-azul-card); /* Fundo Azul um pouco mais claro */
+    background: var(--cor-azul-card);
     color: #fff;
     padding: 2.5rem 2rem;
     border-radius: 16px;
@@ -548,14 +558,14 @@ section {
 }
 
 .card-icon-bg {
-    background: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
+    background: rgba(255, 255, 255, 0.1);
     width: 50px;
     height: 50px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff; /* Ícone branco */
+    color: #fff;
     margin-bottom: 1.5rem;
 }
 
@@ -576,14 +586,14 @@ section {
     align-items: center;
     gap: 8px;
     margin-bottom: 5px;
-    color: #fff; /* Texto branco */
+    color: #fff;
     font-weight: 500;
 }
 
 .servico-items li i {
     width: 18px;
     height: 18px;
-    color: #4cd137; /* Verde vibrante para o check */
+    color: #4cd137;
 }
 
 
@@ -648,8 +658,15 @@ section {
 }
 
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .stepper-form-group {
@@ -752,9 +769,53 @@ footer {
     transform: scale(1.1);
 }
 
+/* --- 12. NOVOS ESTILOS DO CONTATO (Rádio) --- */
+.contact-method-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.radio-option {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.radio-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilo quando o input está selecionado */
+.radio-option:has(input:checked) {
+    background: var(--cor-azul-principal);
+    border-color: #fff;
+    font-weight: 600;
+}
+
+.radio-option input {
+    width: auto !important;
+    margin: 0;
+    accent-color: #fff;
+}
+
+.radio-option span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 1024px) {
+
     .quem-somos-grid,
     .diferenciais-grid-conteudo {
         grid-template-columns: 1fr;
@@ -840,10 +901,17 @@ footer {
         order: 1;
         width: 100%;
     }
+
+    .contact-method-group {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
 }
-.pedido{
+
+.pedido {
     color: #ddd;
 }
-.escolhas{
+
+.escolhas {
     color: #05182d;
 }

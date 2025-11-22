@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
     // ===============================================
-    // 3. CÓDIGO DO STEPPER DE COTAÇÃO
+    // 3. CÓDIGO DO STEPPER DE COTAÇÃO (ATUALIZADO)
     // ===============================================
     let currentStep = 1;
     const totalSteps = 3;
@@ -184,17 +184,45 @@ document.addEventListener('DOMContentLoaded', (event) => {
             stepperBack.style.display = 'block';
         }
 
+        // Atualiza texto do botão dependendo se é o último passo
         if (stepNumber === totalSteps) {
-            stepperNext.textContent = 'Solicitar via WhatsApp';
             summaryNome.textContent = inputNome.value || 'Não preenchido';
             summaryServico.textContent = inputServico.value || 'Não preenchido';
+            
+            // Verifica a seleção atual para definir o texto do botão
+            const method = document.querySelector('input[name="contact-method"]:checked').value;
+            if (method === 'whatsapp') {
+                stepperNext.textContent = 'Enviar via WhatsApp';
+                stepperNext.style.backgroundColor = '#25D366';
+            } else {
+                stepperNext.textContent = 'Enviar via E-mail';
+                stepperNext.style.backgroundColor = '#EA4335';
+            }
         } else {
             stepperNext.textContent = 'Avançar';
+            stepperNext.style.backgroundColor = ''; // Reseta cor (usa o CSS padrão)
         }
     }
 
+    // Monitorar a mudança de escolha para atualizar o texto do botão em tempo real
+    const radioButtons = document.querySelectorAll('input[name="contact-method"]');
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            if (currentStep === totalSteps) {
+                if (e.target.value === 'whatsapp') {
+                    stepperNext.textContent = 'Enviar via WhatsApp';
+                    stepperNext.style.backgroundColor = '#25D366'; // Verde WhatsApp
+                } else {
+                    stepperNext.textContent = 'Enviar via E-mail';
+                    stepperNext.style.backgroundColor = '#EA4335'; // Vermelho Gmail
+                }
+            }
+        });
+    });
+
     stepperNext.addEventListener('click', () => {
         if (currentStep < totalSteps) {
+            // Validação do passo 1
             if (currentStep === 1 && (inputNome.value === '' || inputServico.value === '')) {
                 alert('Por favor, preencha o nome e o serviço.');
                 return;
@@ -202,13 +230,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
             currentStep++;
             showStep(currentStep);
         } else {
+            // Ação Final (Enviar)
             const nome = inputNome.value;
             const servico = inputServico.value;
             const obs = inputObs.value;
-            // Usando o número do Alessandro Rodrigues como principal no WhatsApp
-            const texto = `Olá! Gostaria de fazer uma cotação.\n\n*Nome:* ${nome}\n*Serviço de Interesse:* ${servico}\n*Observações:* ${obs}`;
-            const whatsappLink = `https://wa.me/5561999370708?text=${encodeURIComponent(texto)}`;
-            window.open(whatsappLink, '_blank');
+            const method = document.querySelector('input[name="contact-method"]:checked').value;
+
+            if (method === 'whatsapp') {
+                // Envio via WhatsApp
+                const texto = `Olá! Gostaria de fazer uma cotação.\n\n*Nome:* ${nome}\n*Serviço de Interesse:* ${servico}\n*Observações:* ${obs}`;
+                const whatsappLink = `https://wa.me/5561999370708?text=${encodeURIComponent(texto)}`;
+                window.open(whatsappLink, '_blank');
+            } else {
+                // Envio via E-mail (Gmail)
+                // IMPORTANTE: Substitua pelo e-mail real abaixo
+                const emailDestino = "tgl.topgestao@gmail.com"; // <--- COLOQUE SEU EMAIL AQUI
+                const assunto = `Cotação TGL: ${servico} - ${nome}`;
+                const corpo = `Olá, gostaria de solicitar um orçamento.\n\nNome: ${nome}\nServiço: ${servico}\n\nDetalhes/Observações:\n${obs}`;
+                
+                // Link mailto universal (abre Gmail se for o padrão, ou Outlook/Apple Mail)
+                const mailtoLink = `mailto:${emailDestino}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+                
+                window.location.href = mailtoLink;
+            }
         }
     });
 
