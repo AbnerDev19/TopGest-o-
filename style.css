@@ -528,7 +528,7 @@ section {
     color: var(--cor-texto-secundario);
 }
 
-/* --- 9. SEÇÃO SERVIÇOS --- */
+/* --- 9. SEÇÃO SERVIÇOS (ATUALIZADO: Cards com Imagens) --- */
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -538,10 +538,14 @@ section {
 .servico-card {
     background: var(--cor-azul-card);
     color: #fff;
-    padding: 2.5rem 2rem;
     border-radius: 16px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: 0.3s;
+    /* Alterações para suportar imagem Full Width no topo */
+    overflow: hidden; 
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
 }
 
 .servico-card:hover {
@@ -549,34 +553,37 @@ section {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
+/* Classe para a imagem do card */
+.servico-card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--cor-azul-principal);
+}
+
+/* Classe para o conteúdo (texto) do card */
+.servico-card-body {
+    padding: 2rem;
+    flex: 1; /* Faz o corpo ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+}
+
 .servico-card h4 {
     color: #fff;
+    margin-top: 0.5rem;
+    font-size: 1.4rem;
 }
 
 .servico-card p {
     color: #ddd;
-}
-
-.card-icon-bg {
-    background: rgba(255, 255, 255, 0.1);
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
+    font-size: 0.95rem;
     margin-bottom: 1.5rem;
-}
-
-.card-icon-bg i {
-    width: 24px;
-    height: 24px;
 }
 
 .servico-items {
     list-style: none;
-    margin-top: 1rem;
+    margin-top: auto; /* Empurra a lista para baixo */
     padding-left: 0;
     font-size: 0.95rem;
 }
@@ -585,7 +592,7 @@ section {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     color: #fff;
     font-weight: 500;
 }
@@ -594,6 +601,11 @@ section {
     width: 18px;
     height: 18px;
     color: #4cd137;
+}
+
+/* Mantido apenas para compatibilidade, caso use a versão sem foto */
+.card-icon-bg {
+    display: none; 
 }
 
 
@@ -825,6 +837,15 @@ footer {
     .quem-somos-imagem {
         height: 350px;
         order: -1;
+    }
+}
+
+@media (max-width: 900px) {
+    /* Ajuste específico para os cards em telas menores */
+    .servicos-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
     }
 }
 
