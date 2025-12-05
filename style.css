@@ -528,84 +528,142 @@ section {
     color: var(--cor-texto-secundario);
 }
 
-/* --- 9. SEÇÃO SERVIÇOS (ATUALIZADO: Cards com Imagens) --- */
+/* --- 9. SEÇÃO SERVIÇOS (REFEITO: DESIGN MODERNO) --- */
+
+/* Grid Principal */
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
+    padding: 0 1rem;
 }
 
+/* O Cartão em si (Fundo branco, arredondado) */
 .servico-card {
-    background: var(--cor-azul-card);
-    color: #fff;
-    border-radius: 16px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-    /* Alterações para suportar imagem Full Width no topo */
-    overflow: hidden; 
-    padding: 0; 
+    background: #FFFFFF;
+    border-radius: 24px; /* Bordas bem arredondadas */
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); /* Sombra suave e elegante */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.03);
+    position: relative;
 }
 
+/* Efeito ao passar o mouse no cartão (Sobe um pouco) */
 .servico-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 50, 100, 0.12);
 }
 
-/* Classe para a imagem do card */
+/* Container da Imagem (Topo do card) */
+.servico-card-img-container {
+    width: 100%;
+    height: 240px; /* Altura fixa para a imagem */
+    position: relative;
+    overflow: hidden;
+}
+
+/* A Imagem */
 .servico-card-img {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-bottom: 4px solid var(--cor-azul-principal);
+    height: 100%;
+    object-fit: cover; /* Garante que a foto preencha sem distorcer */
+    transition: transform 0.6s ease;
 }
 
-/* Classe para o conteúdo (texto) do card */
+/* Zoom na imagem ao passar o mouse */
+.servico-card:hover .servico-card-img {
+    transform: scale(1.1);
+}
+
+/* Corpo do Texto */
 .servico-card-body {
-    padding: 2rem;
-    flex: 1; /* Faz o corpo ocupar o espaço restante */
+    padding: 2.2rem 2rem 2rem 2rem;
+    flex: 1;
     display: flex;
     flex-direction: column;
+    background: #fff;
+    position: relative;
 }
 
-.servico-card h4 {
+/* Ícone Flutuante (Azul) entre a foto e o texto */
+.icon-header {
+    width: 54px;
+    height: 54px;
+    background: var(--cor-azul-principal);
     color: #fff;
-    margin-top: 0.5rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -27px; /* Faz o ícone ficar "metade dentro, metade fora" */
+    right: 2rem;
+    box-shadow: 0 8px 20px rgba(0,86,179, 0.3);
+    z-index: 10;
+}
+
+.icon-header i {
+    width: 24px;
+    height: 24px;
+}
+
+/* Títulos e Textos */
+.servico-card h4 {
+    color: var(--cor-azul-escuro);
     font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .servico-card p {
-    color: #ddd;
+    color: var(--cor-texto-secundario);
     font-size: 0.95rem;
+    line-height: 1.6;
     margin-bottom: 1.5rem;
 }
 
+/* Lista de Itens (Checklist) */
 .servico-items {
     list-style: none;
-    margin-top: auto; /* Empurra a lista para baixo */
+    margin-top: auto;
     padding-left: 0;
-    font-size: 0.95rem;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1.2rem;
 }
 
 .servico-items li {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-    color: #fff;
+    gap: 12px;
+    margin-bottom: 10px;
+    color: var(--cor-texto-principal);
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
+/* Ícone de Check Amarelo Escuro */
 .servico-items li i {
     width: 18px;
     height: 18px;
-    color: #4cd137;
+    color: #E6B800; /* Amarelo escuro conforme solicitado */
+    stroke-width: 2.5px;
 }
 
-/* Mantido apenas para compatibilidade, caso use a versão sem foto */
-.card-icon-bg {
-    display: none; 
+/* Responsividade para Celular */
+@media (max-width: 900px) {
+    .servicos-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .servico-card {
+        margin-bottom: 1.5rem;
+    }
 }
 
 
