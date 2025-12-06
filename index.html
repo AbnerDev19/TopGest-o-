@@ -263,105 +263,100 @@
             </div>
         </section>
 
-        <section id="cotacao" class="bg-gradient-light relative-bg">
+        <section id="cotacao" class="stepper-section">
             <div class="container">
-                <div class="stepper-box">
+                <div class="rb-stepper-container">
                     
-                    <div class="stepper-header">
-                        <h3>Solicite sua Cotação</h3>
-                        <p>Receba uma proposta personalizada para sua empresa.</p>
+                    <div class="rb-step-indicator-row">
+                        <div class="rb-step-wrapper" data-step-indicator="1">
+                            <div class="rb-step-indicator active">
+                                <div class="rb-active-dot"></div>
+                            </div>
+                        </div>
+                        <div class="rb-step-connector">
+                            <div class="rb-step-connector-inner" id="line-1"></div>
+                        </div>
+
+                        <div class="rb-step-wrapper" data-step-indicator="2">
+                            <div class="rb-step-indicator inactive">
+                                <span class="rb-step-number">2</span>
+                            </div>
+                        </div>
+                        <div class="rb-step-connector">
+                            <div class="rb-step-connector-inner" id="line-2"></div>
+                        </div>
+
+                        <div class="rb-step-wrapper" data-step-indicator="3">
+                            <div class="rb-step-indicator inactive">
+                                <span class="rb-step-number">3</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="stepper-nav">
-                        <div class="step active" data-step="1">
-                            <div class="step-circle">1</div>
-                            <div class="step-label">Dados</div>
-                        </div>
-                        <div class="step-line"></div>
-                        <div class="step" data-step="2">
-                            <div class="step-circle">2</div>
-                            <div class="step-label">Detalhes</div>
-                        </div>
-                        <div class="step-line"></div>
-                        <div class="step" data-step="3">
-                            <div class="step-circle">3</div>
-                            <div class="step-label">Envio</div>
-                        </div>
-                    </div>
-                    
-                    <div class="stepper-content-wrapper">
+                    <div class="rb-content-container">
                         
-                        <div class="stepper-pane active" data-pane="1">
-                            <div class="form-grid">
-                                <div class="stepper-form-group">
-                                    <div class="input-wrapper">
-                                        <i data-feather="user"></i>
-                                        <input type="text" id="stepper-nome" placeholder="Nome completo">
-                                    </div>
-                                </div>
-                                <div class="stepper-form-group">
-                                    <div class="input-wrapper">
-                                        <i data-feather="briefcase"></i>
-                                        <select id="stepper-servico">
-                                            <option value="" disabled selected>Serviço de interesse</option>
-                                            <option value="Logística">Logística / Carga e Descarga</option>
-                                            <option value="Mão de Obra">Mão de Obra Adm/Operacional</option>
-                                            <option value="Portaria">Portaria e Segurança</option>
-                                            <option value="Limpeza">Limpeza e Conservação</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stepper-pane" data-pane="2">
-                            <div class="stepper-form-group">
-                                <div class="input-wrapper textarea-wrapper">
-                                    <i data-feather="edit-3"></i>
-                                    <textarea id="stepper-obs" rows="4" placeholder="Descreva sua necessidade (Ex: Turno, localização, quantidade de pessoas...)"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="stepper-pane" data-pane="3">
-                            <div style="text-align: center; margin-bottom: 2rem;">
-                                <h4 style="color: #fff; margin-bottom: 1rem;">Como prefere receber a proposta?</h4>
-                            </div>
+                        <div class="rb-step-content active" data-step="1">
+                            <h2 class="rb-title">Vamos começar</h2>
+                            <p class="rb-subtitle">Informe seus dados principais.</p>
                             
-                            <div class="contact-method-group">
-                                <label class="radio-card">
-                                    <input type="radio" name="contact-method" value="whatsapp" checked>
-                                    <div class="card-content">
-                                        <div class="icon-circle whatsapp"><i data-feather="message-circle"></i></div>
-                                        <div class="radio-text">
-                                            <strong>Via WhatsApp</strong>
-                                            <span>Mais rápido</span>
-                                        </div>
-                                    </div>
-                                </label>
-                                <label class="radio-card">
-                                    <input type="radio" name="contact-method" value="email">
-                                    <div class="card-content">
-                                        <div class="icon-circle email"><i data-feather="mail"></i></div>
-                                        <div class="radio-text">
-                                            <strong>Via E-mail</strong>
-                                            <span>Formalizado</span>
-                                        </div>
-                                    </div>
-                                </label>
+                            <div class="rb-input-group">
+                                <label>Nome Completo</label>
+                                <input type="text" id="rb-nome" placeholder="Seu nome ou da empresa">
                             </div>
 
-                            <div class="summary-preview">
-                                <p><strong><i data-feather="user" style="width:14px;"></i> Nome:</strong> <span id="summary-nome">...</span></p>
-                                <p><strong><i data-feather="briefcase" style="width:14px;"></i> Serviço:</strong> <span id="summary-servico">...</span></p>
+                            <div class="rb-input-group">
+                                <label>Serviço de Interesse</label>
+                                <div class="rb-select-wrapper">
+                                    <select id="rb-servico">
+                                        <option value="" disabled selected>Selecione...</option>
+                                        <option value="Logística">Logística / Carga e Descarga</option>
+                                        <option value="Mão de Obra">Mão de Obra Adm/Operacional</option>
+                                        <option value="Portaria">Portaria e Segurança</option>
+                                        <option value="Limpeza">Limpeza e Conservação</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
+
+                        <div class="rb-step-content" data-step="2">
+                            <h2 class="rb-title">Detalhes</h2>
+                            <p class="rb-subtitle">Explique um pouco sua necessidade.</p>
+                            
+                            <div class="rb-input-group">
+                                <label>Observações</label>
+                                <textarea id="rb-obs" rows="4" placeholder="Ex: Preciso de 5 pessoas para turno noturno..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="rb-step-content" data-step="3">
+                            <h2 class="rb-title">Finalizar</h2>
+                            <p class="rb-subtitle">Como prefere enviar?</p>
+
+                            <div class="rb-radio-group">
+                                <label class="rb-radio-option">
+                                    <input type="radio" name="rb-contact" value="whatsapp" checked>
+                                    <div class="rb-radio-box">
+                                        <i data-feather="message-circle"></i>
+                                        <span>WhatsApp</span>
+                                    </div>
+                                </label>
+                                <label class="rb-radio-option">
+                                    <input type="radio" name="rb-contact" value="email">
+                                    <div class="rb-radio-box">
+                                        <i data-feather="mail"></i>
+                                        <span>E-mail</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
                     </div>
-                    
-                    <div class="stepper-footer">
-                        <button id="stepper-back" class="btn-stepper-secondary" style="display: none;">Voltar</button>
-                        <button id="stepper-next" class="btn-stepper-primary">Avançar <i data-feather="arrow-right"></i></button>
+
+                    <div class="rb-footer">
+                        <button id="rb-btn-back" class="rb-btn-back disabled">Voltar</button>
+                        <button id="rb-btn-next" class="rb-btn-next">Continuar</button>
                     </div>
+
                 </div>
             </div>
         </section>

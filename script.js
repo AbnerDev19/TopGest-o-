@@ -5,7 +5,7 @@ console.log("Script TGL carregado. Projeto iniciado!");
 document.addEventListener('DOMContentLoaded', (event) => {
     
     // ===============================================
-    // 1. LÓGICA DA NOVA NAVBAR (CARD NAV GSAP)
+    // 1. LÓGICA DA NAVBAR (CARD NAV GSAP)
     // ===============================================
     
     const nav = document.getElementById('mainNav');
@@ -134,135 +134,145 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
+    // ===============================================
+    // 3. CÓDIGO DO NOVO STEPPER (REACT BITS STYLE)
+    // ===============================================
 
-    // ===============================================
-    // 3. CÓDIGO DO STEPPER DE COTAÇÃO (ATUALIZADO)
-    // ===============================================
+    // Configurações
     let currentStep = 1;
     const totalSteps = 3;
     
-    const stepperNext = document.getElementById('stepper-next');
-    const stepperBack = document.getElementById('stepper-back');
-    const steps = document.querySelectorAll('.step');
-    const stepLines = document.querySelectorAll('.step-line');
-    const panes = document.querySelectorAll('.stepper-pane');
-    const inputNome = document.getElementById('stepper-nome');
-    const inputServico = document.getElementById('stepper-servico');
-    const inputObs = document.getElementById('stepper-obs');
-    const summaryNome = document.getElementById('summary-nome');
-    const summaryServico = document.getElementById('summary-servico');
+    // Elementos DOM
+    const nextBtn = document.getElementById('rb-btn-next');
+    const backBtn = document.getElementById('rb-btn-back');
+    const contents = document.querySelectorAll('.rb-step-content');
+    const indicators = document.querySelectorAll('.rb-step-indicator');
+    const connectors = document.querySelectorAll('.rb-step-connector-inner');
+    
+    // Inputs
+    const inputNome = document.getElementById('rb-nome');
+    const inputServico = document.getElementById('rb-servico');
+    const inputObs = document.getElementById('rb-obs');
+    const contactRadios = document.querySelectorAll('input[name="rb-contact"]');
 
-    function showStep(stepNumber) {
-        panes.forEach(pane => {
-            pane.classList.remove('active');
-            if (pane.getAttribute('data-pane') == stepNumber) {
-                pane.classList.add('active');
+    // Função Principal de Atualização
+    function updateStepper() {
+        // 1. Atualizar Conteúdo (Show/Hide)
+        contents.forEach(content => {
+            if(content.dataset.step == currentStep) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
             }
         });
 
-        steps.forEach((step, index) => {
+        // 2. Atualizar Indicadores (Bolinhas)
+        indicators.forEach((indicator, index) => {
             const stepNum = index + 1;
-            step.classList.remove('active', 'complete');
-            if (stepNum < stepNumber) {
-                step.classList.add('complete');
-            } else if (stepNum === stepNumber) {
-                step.classList.add('active');
-            }
-        });
-        
-        stepLines.forEach((line, index) => {
-            const stepNum = index + 1;
-            line.classList.remove('complete');
-            if (stepNum < stepNumber) {
-                line.classList.add('complete');
+            // Resetar classes
+            indicator.className = 'rb-step-indicator';
+            indicator.innerHTML = ''; // Limpa conteúdo
+
+            if (stepNum === currentStep) {
+                indicator.classList.add('active');
+                indicator.innerHTML = '<div class="rb-active-dot"></div>';
+            } else if (stepNum < currentStep) {
+                indicator.classList.add('complete');
+                // Ícone de Check (SVG)
+                indicator.innerHTML = `
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:16px; height:16px;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                `;
+            } else {
+                indicator.classList.add('inactive');
+                indicator.innerHTML = `<span class="rb-step-number">${stepNum}</span>`;
             }
         });
 
-        if (stepNumber === 1) {
-            stepperBack.style.display = 'none';
+        // 3. Atualizar Conectores (Linhas Roxas)
+        connectors.forEach((connector, index) => {
+            // A linha 1 conecta passo 1 e 2. Se currentStep > 1, linha 1 preenche.
+            if (currentStep > (index + 1)) {
+                connector.style.width = '100%';
+            } else {
+                connector.style.width = '0%';
+            }
+        });
+
+        // 4. Atualizar Botões
+        if (currentStep === 1) {
+            backBtn.classList.add('disabled');
         } else {
-            stepperBack.style.display = 'flex'; // Mudado para flex para alinhar o ícone
+            backBtn.classList.remove('disabled');
         }
 
-        // Atualiza texto do botão dependendo se é o último passo
-        if (stepNumber === totalSteps) {
-            summaryNome.textContent = inputNome.value || 'Não preenchido';
-            summaryServico.textContent = inputServico.value || 'Não preenchido';
-            
-            // Verifica a seleção atual para definir o texto do botão
-            const method = document.querySelector('input[name="contact-method"]:checked').value;
-            if (method === 'whatsapp') {
-                stepperNext.innerHTML = 'Enviar no WhatsApp <i data-feather="message-circle"></i>';
-                stepperNext.style.backgroundColor = '#25D366';
-            } else {
-                stepperNext.innerHTML = 'Enviar por E-mail <i data-feather="mail"></i>';
-                stepperNext.style.backgroundColor = '#EA4335';
-            }
-            feather.replace(); // Atualiza ícones inseridos dinamicamente
+        // Texto do Botão Next
+        if (currentStep === totalSteps) {
+            updateFinishButtonText(); // Define se é Zap ou Email
         } else {
-            stepperNext.innerHTML = 'Avançar <i data-feather="arrow-right"></i>';
-            stepperNext.style.backgroundColor = ''; // Reseta cor (usa o CSS padrão)
-            feather.replace();
+            nextBtn.textContent = 'Continuar';
+            nextBtn.style.backgroundColor = '#5227FF';
         }
     }
 
-    // Monitorar a mudança de escolha para atualizar o texto do botão em tempo real
-    const radioButtons = document.querySelectorAll('input[name="contact-method"]');
-    radioButtons.forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            if (currentStep === totalSteps) {
-                if (e.target.value === 'whatsapp') {
-                    stepperNext.innerHTML = 'Enviar no WhatsApp <i data-feather="message-circle"></i>';
-                    stepperNext.style.backgroundColor = '#25D366'; 
-                } else {
-                    stepperNext.innerHTML = 'Enviar por E-mail <i data-feather="mail"></i>';
-                    stepperNext.style.backgroundColor = '#EA4335'; 
-                }
-                feather.replace();
-            }
+    // Função auxiliar para mudar texto do botão final
+    function updateFinishButtonText() {
+        const method = document.querySelector('input[name="rb-contact"]:checked').value;
+        if (method === 'whatsapp') {
+            nextBtn.innerHTML = 'Enviar no WhatsApp <i data-feather="message-circle"></i>';
+            nextBtn.style.backgroundColor = '#25D366';
+        } else {
+            nextBtn.innerHTML = 'Enviar por E-mail <i data-feather="mail"></i>';
+            nextBtn.style.backgroundColor = '#EA4335';
+        }
+        feather.replace();
+    }
+
+    // Event Listeners para Radios (Mudar botão em tempo real)
+    contactRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (currentStep === totalSteps) updateFinishButtonText();
         });
     });
 
-    stepperNext.addEventListener('click', () => {
+    // Botão Avançar
+    nextBtn.addEventListener('click', () => {
         if (currentStep < totalSteps) {
-            // Validação do passo 1
-            if (currentStep === 1 && (inputNome.value === '' || inputServico.value === '')) {
-                alert('Por favor, preencha o nome e o serviço.');
-                return;
+            // Validação Simples
+            if (currentStep === 1) {
+                if (!inputNome.value || !inputServico.value) {
+                    alert('Por favor, preencha seu nome e escolha o serviço.');
+                    return;
+                }
             }
             currentStep++;
-            showStep(currentStep);
+            updateStepper();
         } else {
             // Ação Final (Enviar)
             const nome = inputNome.value;
             const servico = inputServico.value;
             const obs = inputObs.value;
-            const method = document.querySelector('input[name="contact-method"]:checked').value;
+            const method = document.querySelector('input[name="rb-contact"]:checked').value;
 
             if (method === 'whatsapp') {
-                // Envio via WhatsApp
-                const texto = `Olá! Gostaria de fazer uma cotação.\n\n*Nome:* ${nome}\n*Serviço de Interesse:* ${servico}\n*Observações:* ${obs}`;
-                const whatsappLink = `https://wa.me/5561999370708?text=${encodeURIComponent(texto)}`;
-                window.open(whatsappLink, '_blank');
+                const texto = `*Nova Cotação TGL*\n\n*Nome:* ${nome}\n*Serviço:* ${servico}\n*Obs:* ${obs}`;
+                window.open(`https://wa.me/5561999370708?text=${encodeURIComponent(texto)}`, '_blank');
             } else {
-                // Envio via E-mail (Gmail)
-                const emailDestino = "tgl.topgestao@gmail.com"; 
-                const assunto = `Cotação TGL: ${servico} - ${nome}`;
-                const corpo = `Olá, gostaria de solicitar um orçamento.\n\nNome: ${nome}\nServiço: ${servico}\n\nDetalhes/Observações:\n${obs}`;
-                
-                const mailtoLink = `mailto:${emailDestino}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
-                
-                window.location.href = mailtoLink;
+                const mailto = `mailto:tgl.topgestao@gmail.com?subject=Cotação ${servico}&body=Nome: ${nome}%0D%0AObs: ${obs}`;
+                window.location.href = mailto;
             }
         }
     });
 
-    stepperBack.addEventListener('click', () => {
+    // Botão Voltar
+    backBtn.addEventListener('click', () => {
         if (currentStep > 1) {
             currentStep--;
-            showStep(currentStep);
+            updateStepper();
         }
     });
 
-    showStep(currentStep);
+    // Inicializar
+    updateStepper();
 });
