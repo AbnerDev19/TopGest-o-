@@ -17,8 +17,9 @@
     --cor-texto-principal: #1d1d1f;
     --cor-texto-secundario: #555555;
     
-    /* Amarelo Escuro (Destaque) */
+    /* Amarelo Destaque (Ajustado para ser mais escuro e elegante) */
     --cor-amarelo-destaque: #E6B800;
+    --cor-amarelo-hover: #CC9900;
 
     --font-principal: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -703,7 +704,10 @@ section {
     stroke-width: 3px;
 }
 
-/* --- 10. COTAÇÃO (REFEITO & OTIMIZADO) --- */
+
+/* =================================================================
+   10. COTAÇÃO (FORMULÁRIO)
+   ================================================================= */
 
 #cotacao {
     padding: 6rem 0;
@@ -711,32 +715,32 @@ section {
     z-index: 10;
 }
 
-/* Container Principal do Formulário */
+/* Container Principal */
 .stepper-box {
-    background: linear-gradient(145deg, #061f3d, #0A2A4E);
+    background: linear-gradient(145deg, #0A2A4E, #0d3b6e); /* Azul escuro rico */
     border-radius: 20px;
-    padding: 3rem; /* Padding reduzido para ficar mais elegante */
-    max-width: 800px;
+    padding: 4rem 3rem; 
+    max-width: 950px; 
     margin: 0 auto;
-    box-shadow: 0 20px 50px rgba(5, 24, 45, 0.4);
+    box-shadow: 0 30px 60px rgba(5, 24, 45, 0.4);
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stepper-header {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3.5rem;
 }
 
 .stepper-header h3 {
     color: #fff;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
 }
 
 .stepper-header p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
 }
 
 /* Navegação (Steps) */
@@ -744,8 +748,11 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     position: relative;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .step {
@@ -754,36 +761,38 @@ section {
     align-items: center;
     z-index: 2;
     cursor: default;
+    min-width: 80px;
 }
 
-.step span {
-    width: 40px; height: 40px; /* Bolinhas menores e mais delicadas */
+.step-circle {
+    width: 48px; height: 48px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     color: rgba(255, 255, 255, 0.6);
     display: flex; align-items: center; justify-content: center;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
     border: 2px solid transparent;
 }
 
 .step-label {
-    margin-top: 8px;
-    font-size: 0.75rem;
+    margin-top: 10px;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.5);
     font-weight: 600;
 }
 
-/* Estado Ativo/Completo - Usando seu tom de amarelo */
-.step.active span,
-.step.complete span {
+/* Estados Ativo/Completo */
+.step.active .step-circle,
+.step.complete .step-circle {
     background: var(--cor-amarelo-destaque);
     color: #0A2A4E;
-    box-shadow: 0 0 15px rgba(230, 184, 0, 0.4);
+    box-shadow: 0 0 20px rgba(230, 184, 0, 0.5);
     transform: scale(1.1);
+    border-color: #fff;
 }
 
 .step.active .step-label,
@@ -793,180 +802,197 @@ section {
 
 /* Linha conectora */
 .step-line {
-    flex: 1; height: 2px;
-    background: rgba(255, 255, 255, 0.1);
-    margin: -20px 10px 0 10px; /* Ajuste fino para alinhar com o centro da bolinha */
+    flex: 1; height: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: -25px 5px 0 5px;
+    border-radius: 10px;
 }
 
 .step-line.complete { background: var(--cor-amarelo-destaque); }
 
 /* --- FORMULÁRIO --- */
+
 .stepper-content-wrapper {
-    min-height: 220px; /* Evita pulos de altura na troca de steps */
+    min-height: 250px; 
 }
 
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem; /* Gap mais fechado para coesão */
+    gap: 2rem;
 }
 
 .stepper-form-group {
     margin-bottom: 1.5rem;
 }
 
-.stepper-form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-/* Wrapper do Input para alinhar ícone perfeitamente */
+/* Wrapper do Input */
 .input-wrapper {
     position: relative;
     width: 100%;
 }
 
+/* Ícone dentro do input - CENTRALIZADO */
 .input-wrapper i {
     position: absolute;
-    left: 14px;
+    left: 16px;
     top: 50%;
-    transform: translateY(-50%); /* Centralização vertical perfeita */
-    color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    color: var(--cor-azul-escuro);
     width: 20px; height: 20px;
     pointer-events: none;
-    transition: color 0.3s;
+    z-index: 5;
+    opacity: 0.6;
 }
 
-/* Ajuste específico para o ícone da textarea que deve ficar no topo */
-.textarea-wrapper i {
-    top: 16px;
-    transform: none;
-}
-
+/* INPUTS */
 .stepper-form-group input,
 .stepper-form-group select,
 .stepper-form-group textarea {
     width: 100%;
-    /* Padding calibrado: Top/Bottom menores, Left maior para o ícone */
-    padding: 0.8rem 1rem 0.8rem 2.8rem; 
+    padding: 1rem 1rem 1rem 3rem; /* Espaço à esquerda para o ícone */
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.2);
-    color: #fff;
+    border: 2px solid transparent;
+    background: #F0F4F8;
+    color: #1a202c;
     font-family: inherit;
-    font-size: 1rem;
+    font-size: 1.05rem;
     transition: all 0.3s ease;
     outline: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.stepper-form-group input::placeholder,
+.stepper-form-group textarea::placeholder {
+    color: #8898aa;
 }
 
 /* Foco */
 .stepper-form-group input:focus,
 .stepper-form-group select:focus,
 .stepper-form-group textarea:focus {
-    background: rgba(0, 0, 0, 0.3);
+    background: #fff;
     border-color: var(--cor-amarelo-destaque);
-    box-shadow: 0 0 0 3px rgba(230, 184, 0, 0.1);
+    box-shadow: 0 0 0 4px rgba(230, 184, 0, 0.2);
 }
 
 .input-wrapper:focus-within i {
-    color: var(--cor-amarelo-destaque);
+    opacity: 1;
+    color: var(--cor-azul-principal);
 }
 
-option { background-color: #0A2A4E; color: #fff; }
+option { background-color: #fff; color: #333; }
 
 /* --- STEP 3: SELEÇÃO DE CONTATO --- */
 .contact-method-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .radio-card { cursor: pointer; position: relative; }
 .radio-card input { display: none; }
 
 .card-content {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
     padding: 1.5rem;
-    display: flex; align-items: center; justify-content: center;
-    gap: 12px;
+    display: flex; align-items: center; justify-content: flex-start;
+    gap: 15px;
     transition: all 0.3s;
 }
 
 .icon-circle {
-    width: 45px; height: 45px;
+    width: 50px; height: 50px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    flex-shrink: 0;
 }
 
 .icon-circle.whatsapp { background: rgba(37, 211, 102, 0.2); color: #25D366; }
 .icon-circle.email { background: rgba(234, 67, 53, 0.2); color: #ea4335; }
 
+.radio-text {
+    display: flex; flex-direction: column;
+}
+
+.radio-text strong { color: #fff; font-size: 1.1rem; }
+.radio-text span { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+
+/* Estado Selecionado */
 .radio-card input:checked + .card-content {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     border-color: var(--cor-amarelo-destaque);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
 }
 
+/* Resumo */
 .summary-preview {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 1.2rem;
-    border-radius: 10px;
-    border-left: 4px solid var(--cor-amarelo-destaque);
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 5px solid var(--cor-amarelo-destaque);
+    font-size: 1rem;
+    color: #fff;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.summary-preview p { margin: 0.5rem 0; }
+.summary-preview p { margin: 0.8rem 0; display: flex; align-items: center; gap: 10px;}
 
 /* Rodapé do Form */
 .stepper-footer {
     display: flex;
-    justify-content: flex-end; /* Botões alinhados à direita */
+    justify-content: space-between;
     gap: 1rem;
-    margin-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 1.5rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 2rem;
 }
 
+#stepper-next { margin-left: auto; }
+
 .btn-stepper-primary, .btn-stepper-secondary {
-    padding: 0.9rem 2rem;
+    padding: 1rem 2.5rem;
     border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: 0.3s;
     display: flex; align-items: center; justify-content: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .btn-stepper-primary {
     background: var(--cor-amarelo-destaque);
     color: #05182d;
     border: none;
-    box-shadow: 0 4px 15px rgba(230, 184, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(230, 184, 0, 0.3);
 }
 
 .btn-stepper-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(230, 184, 0, 0.4);
+    background: var(--cor-amarelo-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(230, 184, 0, 0.45);
 }
 
 .btn-stepper-secondary {
     background: transparent;
     color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-stepper-secondary:hover {
     border-color: #fff;
     color: #fff;
+    background: rgba(255,255,255,0.05);
 }
 
 /* Animação Fade */
@@ -977,21 +1003,21 @@ option { background-color: #0A2A4E; color: #fff; }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
-    .stepper-box { padding: 2rem 1.5rem; }
+    .stepper-box { padding: 2.5rem 1.5rem; }
     .form-grid { grid-template-columns: 1fr; gap: 0; }
     .contact-method-group { grid-template-columns: 1fr; gap: 1rem; }
-    
-    .stepper-footer {
-        flex-direction: column-reverse;
-        gap: 1rem;
-    }
-    .btn-stepper-primary, .btn-stepper-secondary { width: 100%; }
+    .stepper-footer { flex-direction: column-reverse; gap: 1rem; }
+    .btn-stepper-primary, .btn-stepper-secondary { width: 100%; margin: 0; }
+    #stepper-next { margin-left: 0; }
+    .stepper-nav { margin-bottom: 2rem; }
+    .step-circle { width: 40px; height: 40px; font-size: 1rem; }
+    .step-label { font-size: 0.7rem; }
 }
 
 /* --- 11. FOOTER --- */
@@ -1060,16 +1086,5 @@ footer {
     .mvv-grid, .servicos-grid, .footer-content {
         grid-template-columns: 1fr; gap: 2.5rem;
     }
-    
-    /* No Mobile, removemos o grid lado-a-lado do form para ficar empilhado */
-    .form-grid { grid-template-columns: 1fr; gap: 0; }
-    .stepper-footer { flex-direction: column; gap: 1rem; }
-    .btn-stepper-primary, .btn-stepper-secondary { width: 100%; }
-}
-
-@media (max-width: 600px) {
-    .stepper-box { padding: 2.5rem 1.5rem; }
-    .contact-method-group { grid-template-columns: 1fr; }
-    .stepper-nav { padding: 0; }
-    .step-label { display: none; }
+    .hero-card-center { padding: 2.5rem 2rem; }
 }

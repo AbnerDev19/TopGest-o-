@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (stepNumber === 1) {
             stepperBack.style.display = 'none';
         } else {
-            stepperBack.style.display = 'block';
+            stepperBack.style.display = 'flex'; // Mudado para flex para alinhar o ícone
         }
 
         // Atualiza texto do botão dependendo se é o último passo
@@ -192,15 +192,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
             // Verifica a seleção atual para definir o texto do botão
             const method = document.querySelector('input[name="contact-method"]:checked').value;
             if (method === 'whatsapp') {
-                stepperNext.textContent = 'Enviar via WhatsApp';
+                stepperNext.innerHTML = 'Enviar no WhatsApp <i data-feather="message-circle"></i>';
                 stepperNext.style.backgroundColor = '#25D366';
             } else {
-                stepperNext.textContent = 'Enviar via E-mail';
+                stepperNext.innerHTML = 'Enviar por E-mail <i data-feather="mail"></i>';
                 stepperNext.style.backgroundColor = '#EA4335';
             }
+            feather.replace(); // Atualiza ícones inseridos dinamicamente
         } else {
-            stepperNext.textContent = 'Avançar';
+            stepperNext.innerHTML = 'Avançar <i data-feather="arrow-right"></i>';
             stepperNext.style.backgroundColor = ''; // Reseta cor (usa o CSS padrão)
+            feather.replace();
         }
     }
 
@@ -210,12 +212,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         radio.addEventListener('change', (e) => {
             if (currentStep === totalSteps) {
                 if (e.target.value === 'whatsapp') {
-                    stepperNext.textContent = 'Enviar via WhatsApp';
-                    stepperNext.style.backgroundColor = '#25D366'; // Verde WhatsApp
+                    stepperNext.innerHTML = 'Enviar no WhatsApp <i data-feather="message-circle"></i>';
+                    stepperNext.style.backgroundColor = '#25D366'; 
                 } else {
-                    stepperNext.textContent = 'Enviar via E-mail';
-                    stepperNext.style.backgroundColor = '#EA4335'; // Vermelho Gmail
+                    stepperNext.innerHTML = 'Enviar por E-mail <i data-feather="mail"></i>';
+                    stepperNext.style.backgroundColor = '#EA4335'; 
                 }
+                feather.replace();
             }
         });
     });
@@ -243,12 +246,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 window.open(whatsappLink, '_blank');
             } else {
                 // Envio via E-mail (Gmail)
-                // IMPORTANTE: Substitua pelo e-mail real abaixo
-                const emailDestino = "tgl.topgestao@gmail.com"; // <--- COLOQUE SEU EMAIL AQUI
+                const emailDestino = "tgl.topgestao@gmail.com"; 
                 const assunto = `Cotação TGL: ${servico} - ${nome}`;
                 const corpo = `Olá, gostaria de solicitar um orçamento.\n\nNome: ${nome}\nServiço: ${servico}\n\nDetalhes/Observações:\n${obs}`;
                 
-                // Link mailto universal (abre Gmail se for o padrão, ou Outlook/Apple Mail)
                 const mailtoLink = `mailto:${emailDestino}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
                 
                 window.location.href = mailtoLink;
