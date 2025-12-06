@@ -266,71 +266,104 @@
             </div>
         </section>
 
-        <section id="cotacao" class="bg-gradient-light">
+        <section id="cotacao" class="bg-gradient-light relative-bg">
             <div class="container">
-                <div class="stepper-box sr-up">
+                <div class="stepper-box">
+                    
+                    <div class="stepper-header">
+                        <h3>Solicite sua Cotação</h3>
+                        <p>Preencha os dados abaixo para receber uma proposta personalizada.</p>
+                    </div>
+
                     <div class="stepper-nav">
-                        <div class="step active" data-step="1">1</div>
+                        <div class="step active" data-step="1">
+                            <span>1</span>
+                            <div class="step-label">Dados</div>
+                        </div>
                         <div class="step-line"></div>
-                        <div class="step" data-step="2">2</div>
+                        <div class="step" data-step="2">
+                            <span>2</span>
+                            <div class="step-label">Detalhes</div>
+                        </div>
                         <div class="step-line"></div>
-                        <div class="step" data-step="3">3</div>
+                        <div class="step" data-step="3">
+                            <span>3</span>
+                            <div class="step-label">Envio</div>
+                        </div>
                     </div>
                     
                     <div class="stepper-content-wrapper">
+                        
                         <div class="stepper-pane active" data-pane="1">
-                            <h2 class="pedido">Solicite sua cotação</h2>
-                            <p class="text-white-50">Vamos otimizar seus processos. Quem é você?</p>
-                            <div class="stepper-form-group">
-                                <label for="stepper-nome">Nome completo</label>
-                                <input type="text" id="stepper-nome" placeholder="Seu nome">
-                            </div>
-                            <div class="stepper-form-group">
-                                <label for="stepper-servico">Serviço de interesse</label>
-                                <select id="stepper-servico">
-                                    <option value="" class="escolhas">Selecione...</option>
-                                    <option value="Logística" class="escolhas">Logística / Carga e Descarga</option>
-                                    <option value="Mão de Obra" class="escolhas">Mão de Obra Administrativa/Operacional</option>
-                                    <option value="Portaria" class="escolhas">Portaria e Segurança</option>
-                                    <option value="Limpeza" class="escolhas">Limpeza e Conservação</option>
-                                </select>
+                            <div class="form-grid">
+                                <div class="stepper-form-group">
+                                    <label for="stepper-nome">Nome completo</label>
+                                    <div class="input-wrapper">
+                                        <i data-feather="user"></i>
+                                        <input type="text" id="stepper-nome" placeholder="Como podemos te chamar?">
+                                    </div>
+                                </div>
+                                <div class="stepper-form-group">
+                                    <label for="stepper-servico">Serviço de interesse</label>
+                                    <div class="input-wrapper">
+                                        <i data-feather="briefcase"></i>
+                                        <select id="stepper-servico">
+                                            <option value="" disabled selected>Selecione uma opção...</option>
+                                            <option value="Logística">Logística / Carga e Descarga</option>
+                                            <option value="Mão de Obra">Mão de Obra Adm/Operacional</option>
+                                            <option value="Portaria">Portaria e Segurança</option>
+                                            <option value="Limpeza">Limpeza e Conservação</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="stepper-pane" data-pane="2">
-                            <h2 class="pedido">Detalhes</h2>
-                            <p class="text-white-50">Como podemos ajudar especificamente?</p>
                             <div class="stepper-form-group">
                                 <label for="stepper-obs">Descreva sua necessidade</label>
-                                <textarea id="stepper-obs" rows="4" placeholder="Ex: Preciso de 5 auxiliares de logística e 2 porteiros..."></textarea>
+                                <div class="input-wrapper textarea-wrapper">
+                                    <i data-feather="edit-3" style="margin-top: 15px;"></i>
+                                    <textarea id="stepper-obs" rows="5" placeholder="Ex: Preciso de 5 auxiliares de logística para o turno da noite e 2 porteiros 12x36..."></textarea>
+                                </div>
                             </div>
                         </div>
 
                         <div class="stepper-pane" data-pane="3">
-                            <h2 class="pedido">Pronto!</h2>
-                            <p class="text-white-50">Escolha por onde deseja enviar a solicitação:</p>
-                            
-                            <div class="stepper-form-group contact-method-group">
-                                <label class="radio-option">
-                                    <input type="radio" name="contact-method" value="whatsapp" checked>
-                                    <span><i data-feather="message-circle"></i> Via WhatsApp</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="contact-method" value="email">
-                                    <span><i data-feather="mail"></i> Via E-mail (Gmail)</span>
-                                </label>
-                            </div>
+                            <div class="confirmation-box">
+                                <div class="confirmation-header">
+                                    <h4>Quase lá!</h4>
+                                    <p style="margin-bottom: 2rem; color: rgba(255,255,255,0.7);">Escolha como prefere enviar sua solicitação:</p>
+                                </div>
+                                
+                                <div class="contact-method-group">
+                                    <label class="radio-card">
+                                        <input type="radio" name="contact-method" value="whatsapp" checked>
+                                        <div class="card-content">
+                                            <div class="icon-circle whatsapp"><i data-feather="message-circle"></i></div>
+                                            <span>Via WhatsApp</span>
+                                        </div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="contact-method" value="email">
+                                        <div class="card-content">
+                                            <div class="icon-circle email"><i data-feather="mail"></i></div>
+                                            <span>Via E-mail</span>
+                                        </div>
+                                    </label>
+                                </div>
 
-                            <ul class="stepper-summary">
-                                <li><strong>Nome:</strong> <span id="summary-nome"></span></li>
-                                <li><strong>Serviço:</strong> <span id="summary-servico"></span></li>
-                            </ul>
+                                <div class="summary-preview">
+                                    <p><strong>Nome:</strong> <span id="summary-nome">...</span></p>
+                                    <p><strong>Serviço:</strong> <span id="summary-servico">...</span></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="stepper-footer">
-                        <button id="stepper-back" class="cta-button-stepper-back" style="display: none;">Voltar</button>
-                        <button id="stepper-next" class="cta-button-stepper">Avançar</button>
+                        <button id="stepper-back" class="btn-stepper-secondary" style="display: none;">Voltar</button>
+                        <button id="stepper-next" class="btn-stepper-primary">Avançar <i data-feather="arrow-right"></i></button>
                     </div>
                 </div>
             </div>
