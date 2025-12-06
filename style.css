@@ -703,88 +703,86 @@ section {
     stroke-width: 3px;
 }
 
-/* --- 10. COTAÇÃO (STEPPER REDESIGN & CORREÇÕES) --- */
+/* --- 10. COTAÇÃO (REFEITO & OTIMIZADO) --- */
 
 #cotacao {
-    padding: 7rem 0; /* Mais espaço vertical na seção */
+    padding: 6rem 0;
+    position: relative;
+    z-index: 10;
 }
 
-/* Card Principal do Formulário */
+/* Container Principal do Formulário */
 .stepper-box {
-    background: linear-gradient(145deg, #05182d, #0A2A4E); /* Azul Profundo */
-    border-radius: 24px;
-    padding: 4rem 3.5rem; /* Mais padding interno para não ficar espremido */
-    max-width: 850px; /* Um pouco mais largo */
+    background: linear-gradient(145deg, #061f3d, #0A2A4E);
+    border-radius: 20px;
+    padding: 3rem; /* Padding reduzido para ficar mais elegante */
+    max-width: 800px;
     margin: 0 auto;
-    box-shadow: 0 30px 70px rgba(5, 24, 45, 0.45);
+    box-shadow: 0 20px 50px rgba(5, 24, 45, 0.4);
     color: #fff;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .stepper-header {
     text-align: center;
-    margin-bottom: 3.5rem; /* Mais espaço entre título e passos */
+    margin-bottom: 2.5rem;
 }
 
 .stepper-header h3 {
     color: #fff;
-    font-size: 2.2rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
 }
 
 .stepper-header p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
 }
 
-/* Navegação (Bolinhas) */
+/* Navegação (Steps) */
 .stepper-nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
     position: relative;
-    padding: 0 1rem;
 }
 
 .step {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     z-index: 2;
+    cursor: default;
 }
 
 .step span {
-    width: 50px; height: 50px;
+    width: 40px; height: 40px; /* Bolinhas menores e mais delicadas */
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.6);
     display: flex; align-items: center; justify-content: center;
     font-weight: 700;
-    font-size: 1.2rem;
-    transition: all 0.4s ease;
+    font-size: 1rem;
+    transition: all 0.3s ease;
     border: 2px solid transparent;
 }
 
 .step-label {
-    margin-top: 12px;
-    font-size: 0.85rem;
+    margin-top: 8px;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: rgba(255, 255, 255, 0.4);
     font-weight: 600;
-    transition: color 0.4s;
 }
 
-/* Estado Ativo e Completo - AMARELO */
+/* Estado Ativo/Completo - Usando seu tom de amarelo */
 .step.active span,
 .step.complete span {
     background: var(--cor-amarelo-destaque);
     color: #0A2A4E;
-    box-shadow: 0 0 20px rgba(230, 184, 0, 0.5); /* Brilho amarelo */
+    box-shadow: 0 0 15px rgba(230, 184, 0, 0.4);
     transform: scale(1.1);
 }
 
@@ -795,87 +793,96 @@ section {
 
 /* Linha conectora */
 .step-line {
-    flex: 1; height: 3px;
+    flex: 1; height: 2px;
     background: rgba(255, 255, 255, 0.1);
-    margin: -25px 15px 0 15px;
-    border-radius: 3px;
-    transition: background 0.4s;
+    margin: -20px 10px 0 10px; /* Ajuste fino para alinhar com o centro da bolinha */
 }
 
 .step-line.complete { background: var(--cor-amarelo-destaque); }
 
-/* CORREÇÃO DO GRID (Para não ficar tudo perto) */
-.form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Lado a lado no desktop */
-    gap: 2rem; /* Espaço generoso entre colunas */
+/* --- FORMULÁRIO --- */
+.stepper-content-wrapper {
+    min-height: 220px; /* Evita pulos de altura na troca de steps */
 }
 
-/* Inputs e Labels com mais espaço */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem; /* Gap mais fechado para coesão */
+}
+
 .stepper-form-group {
-    margin-bottom: 2rem; /* Mais espaço vertical entre grupos */
+    margin-bottom: 1.5rem;
 }
 
 .stepper-form-group label {
     display: block;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
     font-weight: 500;
-    font-size: 1rem;
 }
 
+/* Wrapper do Input para alinhar ícone perfeitamente */
 .input-wrapper {
     position: relative;
-    display: flex; align-items: center;
+    width: 100%;
 }
 
 .input-wrapper i {
-    position: absolute; left: 16px;
-    color: rgba(255, 255, 255, 0.4);
-    width: 22px; height: 22px;
-    transition: 0.3s;
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%); /* Centralização vertical perfeita */
+    color: rgba(255, 255, 255, 0.5);
+    width: 20px; height: 20px;
     pointer-events: none;
+    transition: color 0.3s;
+}
+
+/* Ajuste específico para o ícone da textarea que deve ficar no topo */
+.textarea-wrapper i {
+    top: 16px;
+    transform: none;
 }
 
 .stepper-form-group input,
 .stepper-form-group select,
 .stepper-form-group textarea {
     width: 100%;
-    padding: 1.1rem 1.1rem 1.1rem 3.5rem; /* Mais padding para conforto */
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(0, 0, 0, 0.25);
+    /* Padding calibrado: Top/Bottom menores, Left maior para o ícone */
+    padding: 0.8rem 1rem 0.8rem 2.8rem; 
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
     color: #fff;
     font-family: inherit;
-    font-size: 1.05rem;
+    font-size: 1rem;
     transition: all 0.3s ease;
     outline: none;
 }
 
-.textarea-wrapper i { top: 18px; }
-
-/* Foco nos Inputs */
+/* Foco */
 .stepper-form-group input:focus,
 .stepper-form-group select:focus,
 .stepper-form-group textarea:focus {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.3);
     border-color: var(--cor-amarelo-destaque);
-    box-shadow: 0 0 0 4px rgba(230, 184, 0, 0.15);
+    box-shadow: 0 0 0 3px rgba(230, 184, 0, 0.1);
 }
 
-.stepper-form-group input:focus + i,
 .input-wrapper:focus-within i {
     color: var(--cor-amarelo-destaque);
 }
 
 option { background-color: #0A2A4E; color: #fff; }
 
-/* Passo 3 (Radio Cards) - Mais espaço */
+/* --- STEP 3: SELEÇÃO DE CONTATO --- */
 .contact-method-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem; /* Mais espaço entre os cards */
-    margin-bottom: 2.5rem;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .radio-card { cursor: pointer; position: relative; }
@@ -883,104 +890,108 @@ option { background-color: #0A2A4E; color: #fff; }
 
 .card-content {
     background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 18px;
-    padding: 2rem;
-    display: flex; flex-direction: column; align-items: center;
-    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px;
     transition: all 0.3s;
 }
 
 .icon-circle {
-    width: 60px; height: 60px;
+    width: 45px; height: 45px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem;
-    margin-bottom: 5px;
+    font-size: 1.2rem;
 }
 
 .icon-circle.whatsapp { background: rgba(37, 211, 102, 0.2); color: #25D366; }
 .icon-circle.email { background: rgba(234, 67, 53, 0.2); color: #ea4335; }
 
 .radio-card input:checked + .card-content {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
     border-color: var(--cor-amarelo-destaque);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .summary-preview {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 1.5rem;
-    border-radius: 14px;
-    margin-top: 1.5rem;
-    border-left: 5px solid var(--cor-amarelo-destaque);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.2rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--cor-amarelo-destaque);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-.summary-preview p {
-    margin: 0.8rem 0;
-    color: rgba(255, 255, 255, 0.95);
-    font-size: 1.05rem;
-}
+.summary-preview p { margin: 0.5rem 0; }
 
-/* Botões do Rodapé */
+/* Rodapé do Form */
 .stepper-footer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 3.5rem;
-    gap: 1.5rem;
+    justify-content: flex-end; /* Botões alinhados à direita */
+    gap: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+}
+
+.btn-stepper-primary, .btn-stepper-secondary {
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px;
 }
 
 .btn-stepper-primary {
-    background: linear-gradient(135deg, #FFD700, #E6B800); /* Gradiente Amarelo */
+    background: var(--cor-amarelo-destaque);
     color: #05182d;
     border: none;
-    padding: 1.1rem 3rem;
-    border-radius: 50px;
-    font-weight: 800;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: flex; align-items: center; justify-content: center;
-    gap: 12px;
-    flex: 1;
-    box-shadow: 0 5px 15px rgba(230, 184, 0, 0.25);
+    box-shadow: 0 4px 15px rgba(230, 184, 0, 0.3);
 }
 
 .btn-stepper-primary:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(230, 184, 0, 0.4);
-    filter: brightness(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 184, 0, 0.4);
 }
 
 .btn-stepper-secondary {
     background: transparent;
-    color: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 1.1rem 2.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-stepper-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff; border-color: #fff;
+    border-color: #fff;
+    color: #fff;
 }
 
-/* Animações e Controle */
-.stepper-pane { display: none; }
-
+/* Animação Fade */
+.stepper-pane { display: none; opacity: 0; }
 .stepper-pane.active {
     display: block;
-    animation: fadeSlideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation: fadeIn 0.5s ease forwards;
 }
 
-@keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(30px); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .stepper-box { padding: 2rem 1.5rem; }
+    .form-grid { grid-template-columns: 1fr; gap: 0; }
+    .contact-method-group { grid-template-columns: 1fr; gap: 1rem; }
+    
+    .stepper-footer {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    .btn-stepper-primary, .btn-stepper-secondary { width: 100%; }
 }
 
 /* --- 11. FOOTER --- */
@@ -988,6 +999,13 @@ footer {
     background-color: #05182d;
     color: #a0aec0;
     padding: 5rem 0 2rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
 .footer-link {
@@ -1021,7 +1039,7 @@ footer {
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* --- RESPONSIVIDADE --- */
+/* --- RESPONSIVIDADE GERAL --- */
 @media (max-width: 1024px) {
     .quem-somos-grid, .diferenciais-grid-conteudo {
         grid-template-columns: 1fr; gap: 3rem;

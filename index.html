@@ -9,7 +9,6 @@
     <script src="https://unpkg.com/feather-icons"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
@@ -272,7 +271,7 @@
                     
                     <div class="stepper-header">
                         <h3>Solicite sua Cotação</h3>
-                        <p>Preencha os dados abaixo para receber uma proposta personalizada.</p>
+                        <p>Receba uma proposta personalizada para sua empresa.</p>
                     </div>
 
                     <div class="stepper-nav">
@@ -300,7 +299,7 @@
                                     <label for="stepper-nome">Nome completo</label>
                                     <div class="input-wrapper">
                                         <i data-feather="user"></i>
-                                        <input type="text" id="stepper-nome" placeholder="Como podemos te chamar?">
+                                        <input type="text" id="stepper-nome" placeholder="Seu nome">
                                     </div>
                                 </div>
                                 <div class="stepper-form-group">
@@ -308,7 +307,7 @@
                                     <div class="input-wrapper">
                                         <i data-feather="briefcase"></i>
                                         <select id="stepper-servico">
-                                            <option value="" disabled selected>Selecione uma opção...</option>
+                                            <option value="" disabled selected>Selecione...</option>
                                             <option value="Logística">Logística / Carga e Descarga</option>
                                             <option value="Mão de Obra">Mão de Obra Adm/Operacional</option>
                                             <option value="Portaria">Portaria e Segurança</option>
@@ -323,40 +322,37 @@
                             <div class="stepper-form-group">
                                 <label for="stepper-obs">Descreva sua necessidade</label>
                                 <div class="input-wrapper textarea-wrapper">
-                                    <i data-feather="edit-3" style="margin-top: 15px;"></i>
-                                    <textarea id="stepper-obs" rows="5" placeholder="Ex: Preciso de 5 auxiliares de logística para o turno da noite e 2 porteiros 12x36..."></textarea>
+                                    <i data-feather="edit-3"></i>
+                                    <textarea id="stepper-obs" rows="4" placeholder="Ex: Preciso de auxiliares para o turno da noite..."></textarea>
                                 </div>
                             </div>
                         </div>
 
                         <div class="stepper-pane" data-pane="3">
-                            <div class="confirmation-box">
-                                <div class="confirmation-header">
-                                    <h4>Quase lá!</h4>
-                                    <p style="margin-bottom: 2rem; color: rgba(255,255,255,0.7);">Escolha como prefere enviar sua solicitação:</p>
-                                </div>
-                                
-                                <div class="contact-method-group">
-                                    <label class="radio-card">
-                                        <input type="radio" name="contact-method" value="whatsapp" checked>
-                                        <div class="card-content">
-                                            <div class="icon-circle whatsapp"><i data-feather="message-circle"></i></div>
-                                            <span>Via WhatsApp</span>
-                                        </div>
-                                    </label>
-                                    <label class="radio-card">
-                                        <input type="radio" name="contact-method" value="email">
-                                        <div class="card-content">
-                                            <div class="icon-circle email"><i data-feather="mail"></i></div>
-                                            <span>Via E-mail</span>
-                                        </div>
-                                    </label>
-                                </div>
+                            <div style="text-align: center; margin-bottom: 1.5rem;">
+                                <h4 style="color: #fff; margin-bottom: 0.5rem;">Como prefere enviar?</h4>
+                            </div>
+                            
+                            <div class="contact-method-group">
+                                <label class="radio-card">
+                                    <input type="radio" name="contact-method" value="whatsapp" checked>
+                                    <div class="card-content">
+                                        <div class="icon-circle whatsapp"><i data-feather="message-circle"></i></div>
+                                        <span>WhatsApp</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="contact-method" value="email">
+                                    <div class="card-content">
+                                        <div class="icon-circle email"><i data-feather="mail"></i></div>
+                                        <span>E-mail</span>
+                                    </div>
+                                </label>
+                            </div>
 
-                                <div class="summary-preview">
-                                    <p><strong>Nome:</strong> <span id="summary-nome">...</span></p>
-                                    <p><strong>Serviço:</strong> <span id="summary-servico">...</span></p>
-                                </div>
+                            <div class="summary-preview">
+                                <p><strong>Nome:</strong> <span id="summary-nome">...</span></p>
+                                <p><strong>Serviço:</strong> <span id="summary-servico">...</span></p>
                             </div>
                         </div>
                     </div>
