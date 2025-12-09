@@ -190,9 +190,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         });
 
-        // 3. Atualizar Conectores (Linhas Roxas)
+        // 3. Atualizar Conectores (Linhas Roxas/Amarelas)
         connectors.forEach((connector, index) => {
-            // A linha 1 conecta passo 1 e 2. Se currentStep > 1, linha 1 preenche.
             if (currentStep > (index + 1)) {
                 connector.style.width = '100%';
             } else {
@@ -212,7 +211,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             updateFinishButtonText(); // Define se é Zap ou Email
         } else {
             nextBtn.textContent = 'Continuar';
-            nextBtn.style.backgroundColor = '#5227FF';
+            nextBtn.style.backgroundColor = '#5227FF'; // Cor padrão do botão (pode ajustar para o amarelo se preferir)
         }
     }
 
@@ -248,6 +247,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
             currentStep++;
             updateStepper();
+
         } else {
             // Ação Final (Enviar)
             const nome = inputNome.value;
@@ -257,9 +257,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             if (method === 'whatsapp') {
                 const texto = `*Nova Cotação TGL*\n\n*Nome:* ${nome}\n*Serviço:* ${servico}\n*Obs:* ${obs}`;
-                window.open(`https://wa.me/5561999370708?text=${encodeURIComponent(texto)}`, '_blank');
+                window.open(`https://wa.me/5561999614193?text=${encodeURIComponent(texto)}`, '_blank');
             } else {
-                const mailto = `mailto:tgl.topgestao@gmail.com?subject=Cotação ${servico}&body=Nome: ${nome}%0D%0AObs: ${obs}`;
+                const mailto = `mailto:contato@tgl.com.br?subject=Cotação ${servico}&body=Nome: ${nome}%0D%0AObs: ${obs}`;
                 window.location.href = mailto;
             }
         }
