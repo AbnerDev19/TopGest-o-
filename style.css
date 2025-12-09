@@ -17,7 +17,7 @@
     --cor-texto-principal: #1d1d1f;
     --cor-texto-secundario: #555555;
 
-    /* Amarelo Destaque (Solicitado) */
+    /* Amarelo Destaque */
     --cor-amarelo-destaque: #E6B800;
     --cor-amarelo-hover: #CC9900;
 
@@ -1076,20 +1076,25 @@ option {
     box-shadow: 0 6px 20px rgba(230, 184, 0, 0.4);
 }
 
-/* --- 11. FOOTER --- */
+/* --- 11. FOOTER (CORRIGIDO PARA CONTRASTE) --- */
 footer {
     background-color: #05182d;
-    color: #a0aec0;
+    color: #fff; /* Fundo escuro com texto branco */
     padding: 5rem 0 2rem 0;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    margin-bottom: 3rem;
+/* Títulos do footer brancos */
+footer h4 {
+    color: #ffffff;
+    margin-bottom: 1.2rem;
 }
 
+/* Texto de parágrafos mais claros (cinza-azulado muito claro) */
+footer p {
+    color: #e2e8f0; 
+}
+
+/* Links do footer */
 .footer-link {
     color: #fff;
     text-decoration: none;
@@ -1098,6 +1103,13 @@ footer {
 
 .footer-link:hover {
     color: #4fabf7;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
 /* WhatsApp Pulsante */

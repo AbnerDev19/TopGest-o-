@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             updateFinishButtonText(); // Define se é Zap ou Email
         } else {
             nextBtn.textContent = 'Continuar';
-            nextBtn.style.backgroundColor = '#5227FF'; // Cor padrão do botão (pode ajustar para o amarelo se preferir)
+            nextBtn.style.backgroundColor = '#5227FF'; // Cor padrão do botão
         }
     }
 
@@ -257,8 +257,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             if (method === 'whatsapp') {
                 const texto = `*Nova Cotação TGL*\n\n*Nome:* ${nome}\n*Serviço:* ${servico}\n*Obs:* ${obs}`;
+                // WHATSAPP SCRIPT CORRIGIDO
                 window.open(`https://wa.me/5561999614193?text=${encodeURIComponent(texto)}`, '_blank');
             } else {
+                // E-MAIL SCRIPT CORRIGIDO
                 const mailto = `mailto:contato@tgl.com.br?subject=Cotação ${servico}&body=Nome: ${nome}%0D%0AObs: ${obs}`;
                 window.location.href = mailto;
             }
