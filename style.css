@@ -1,4 +1,4 @@
-/* style.css - VERSÃO "SAFIRA GLASS" (AZUL VIBRANTE E CONFORTÁVEL) */
+/* style.css - VERSÃO CORRIGIDA E FINAL */
 
 
 /* =========================================
@@ -6,77 +6,59 @@
    ========================================= */
 
 :root {
-    /* --- CORES DA MARCA (TGL) --- */
-    --cor-azul-principal: #0056B3;
-    --cor-amarelo-destaque: #E6B800;
-    /* Amarelo Ouro */
     --font-principal: 'Inter', system-ui, -apple-system, sans-serif;
-    /* --- TEMA LIGHT (PADRÃO - Mantido Limpo) --- */
+    /* Cores Principais */
+    --cor-azul-principal: #0056B3;
+    --cor-amarelo-destaque: #D97706;
+    /* Ouro Queimado */
+    /* --- TEMA LIGHT (Padrão) --- */
     --bg-body: #F0F7FF;
-    /* Azulzinho gelo muito leve no fundo light */
     --bg-section-alt: linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%);
     --bg-card: #FFFFFF;
     --card-border: 1px solid #e2e8f0;
     --card-shadow: 0 10px 30px rgba(0, 50, 100, 0.05);
-    /* Sombra azulada */
     --card-blur: none;
     --text-primary: #102A43;
-    /* Azul quase preto para texto */
     --text-secondary: #486581;
-    /* Azul acinzentado */
     --text-accent: var(--cor-azul-principal);
-    --nav-bg: rgba(255, 255, 255, 0.9);
+    --nav-bg: rgba(255, 255, 255, 0.95);
     --nav-border: rgba(226, 232, 240, 0.8);
     --accordion-bg: #FFFFFF;
     --input-bg: rgba(0, 50, 100, 0.03);
     --glow-color: rgba(0, 86, 179, 0.2);
-    --orb-1: rgba(0, 86, 179, 0.1);
-    --orb-2: rgba(33, 150, 243, 0.1);
-    --pattern-opacity: 0.4;
+    --orb-1: rgba(0, 86, 179, 0.15);
+    --orb-2: rgba(33, 150, 243, 0.15);
     --pattern-color: #bcccdc;
+    --pattern-opacity: 0.4;
 }
 
 
-/* --- TEMA DARK (AGORA SIM: AZUL SAFIRA!) --- */
+/* --- TEMA DARK (Azul Safira) --- */
 
 [data-theme="blue-dark"] {
-    /* Fundo: Gradiente Rico e Saturado (Nada de Cinza!) */
-    /* Vai de um Azul Petróleo Profundo para um Azul Noite */
     --bg-body: #0F2542;
     --bg-section-alt: linear-gradient(180deg, #132D50 0%, #0F2542 100%);
-    /* Cards: Vidro Azulado Translúcido */
-    /* O truque: um pouco de azul na transparência, não branco */
     --bg-card: rgba(30, 60, 90, 0.45);
     --card-border: 1px solid rgba(100, 181, 246, 0.2);
-    /* Borda Ciano Suave */
-    --card-shadow: 0 20px 50px rgba(0, 20, 40, 0.4);
-    --card-blur: blur(16px);
-    /* Textos no Dark */
+    --card-shadow: 0 20px 50px rgba(0, 10, 20, 0.4);
+    --card-blur: blur(12px);
     --text-primary: #FFFFFF;
     --text-secondary: #D9E2EC;
-    /* Branco gelo, alto contraste */
     --text-accent: #4FC3F7;
-    /* Ciano Vibrante para links e destaques */
-    /* Elementos UI */
     --nav-bg: rgba(15, 37, 66, 0.85);
-    /* Nav Azul Escura */
     --nav-border: rgba(100, 181, 246, 0.15);
     --accordion-bg: rgba(30, 60, 90, 0.3);
     --input-bg: rgba(0, 20, 40, 0.3);
-    /* Brilhos */
-    --glow-color: rgba(79, 195, 247, 0.4);
-    /* Glow Ciano */
-    /* Fundo decorativo */
+    --glow-color: rgba(79, 195, 247, 0.3);
+    --orb-1: rgba(0, 86, 179, 0.4);
+    --orb-2: rgba(3, 169, 244, 0.3);
     --pattern-color: rgba(255, 255, 255, 0.15);
-    --pattern-opacity: 0.2;
-    /* Orbs mais vivas */
-    --orb-1: rgba(0, 86, 179, 0.5);
-    --orb-2: rgba(3, 169, 244, 0.4);
+    --pattern-opacity: 0.15;
 }
 
 
 /* =========================================
-   2. RESET E ESTRUTURA BÁSICA
+   2. RESET E ESTRUTURA
    ========================================= */
 
 * {
@@ -93,18 +75,17 @@ html {
 body {
     font-family: var(--font-principal);
     background: var(--bg-body);
-    /* Fundo fixo melhora a sensação de profundidade do gradiente */
     background-attachment: fixed;
     color: var(--text-secondary);
     line-height: 1.6;
-    overflow-x: hidden;
-    transition: background 0.5s ease, color 0.5s ease;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 h1,
@@ -149,11 +130,11 @@ section {
     background: var(--cor-amarelo-destaque);
     margin-top: 5px;
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(230, 184, 0, 0.5);
 }
 
 .modern-subtitle-center {
     text-align: center;
+    display: block;
 }
 
 .modern-subtitle-center::after {
@@ -170,24 +151,10 @@ section {
     letter-spacing: -1px;
 }
 
-.section-desc {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
 
 /* =========================================
-   3. ELEMENTOS GRÁFICOS (FUNDO)
+   3. ELEMENTOS VISUAIS
    ========================================= */
-
-.bg-white {
-    background-color: transparent;
-    position: relative;
-}
-
-
-/* Transparente para pegar o gradiente do body */
 
 .bg-gradient-light {
     background: var(--bg-section-alt);
@@ -210,9 +177,6 @@ section {
     z-index: 0;
     pointer-events: none;
 }
-
-
-/* Orbs Flutuantes */
 
 .visual-orb {
     position: absolute;
@@ -239,17 +203,17 @@ section {
 }
 
 @keyframes orbFloat {
-    0% {
+    from {
         transform: translate(0, 0);
     }
-    100% {
+    to {
         transform: translate(40px, 50px);
     }
 }
 
 
 /* =========================================
-   4. NAVBAR & BOTÕES
+   4. NAVBAR
    ========================================= */
 
 .card-nav-container {
@@ -263,7 +227,7 @@ section {
 }
 
 .card-nav {
-    height: 60px;
+    height: 70px;
     background-color: var(--nav-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -271,43 +235,17 @@ section {
     border-radius: 1.2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: height 0.4s ease, background 0.4s ease;
+    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-nav-top {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 1.5rem;
-    z-index: 2;
-}
-
-.hamburger-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.hamburger-line {
-    width: 24px;
-    height: 2px;
-    background-color: var(--text-primary);
-    transition: 0.3s;
-}
-
-.hamburger-menu.open .hamburger-line:first-child {
-    transform: translateY(4px) rotate(45deg);
-}
-
-.hamburger-menu.open .hamburger-line:last-child {
-    transform: translateY(-4px) rotate(-45deg);
+    position: relative;
+    z-index: 5;
 }
 
 .logo {
@@ -315,12 +253,15 @@ section {
     width: auto;
 }
 
-
-/* Botão Tema */
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
 
 .theme-toggle-btn {
     background: transparent;
-    border: 2px solid var(--nav-border);
+    border: 1px solid var(--nav-border);
     color: var(--text-primary);
     width: 40px;
     height: 40px;
@@ -333,13 +274,9 @@ section {
 }
 
 .theme-toggle-btn:hover {
-    color: var(--cor-amarelo-destaque);
     border-color: var(--cor-amarelo-destaque);
-    box-shadow: 0 0 15px rgba(230, 184, 0, 0.4);
+    color: var(--cor-amarelo-destaque);
 }
-
-
-/* Botão Cotação Nav */
 
 .card-nav-cta-button {
     background: var(--text-accent);
@@ -354,34 +291,21 @@ section {
 }
 
 .card-nav-cta-button:hover {
-    transform: scale(1.05);
     filter: brightness(1.1);
+    transform: scale(1.05);
 }
-
-[data-theme="blue-dark"] .card-nav-cta-button {
-    color: #0F2542;
-    /* Texto escuro no botão claro para contraste */
-    font-weight: 800;
-}
-
-
-/* Dropdown Nav */
 
 .card-nav-content {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0.8rem;
+    padding: 1rem;
     display: flex;
     gap: 10px;
-    visibility: hidden;
+    opacity: 0;
     pointer-events: none;
+    transition: 0.3s;
 }
 
 .card-nav.open .card-nav-content {
-    visibility: visible;
+    opacity: 1;
     pointer-events: auto;
 }
 
@@ -391,60 +315,79 @@ section {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 10px;
     transition: transform 0.3s;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--nav-border);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-card:hover {
     transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-card-brand {
+    background: linear-gradient(135deg, #0A2A4E, #163b66);
+    color: white;
+}
+
+.nav-card-solutions {
+    background: linear-gradient(135deg, #0056B3, #004494);
+    color: white;
+}
+
+.nav-card-contact {
+    background: linear-gradient(135deg, #1d1d1f, #333);
+    color: white;
 }
 
 .nav-card-label {
-    color: #fff;
     font-weight: 700;
-    margin-bottom: 10px;
+    opacity: 0.9;
 }
 
 .nav-card-links a {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     display: flex;
+    align-items: center;
     gap: 8px;
-    margin-bottom: 8px;
+    margin-top: 5px;
 }
 
 .nav-card-links a:hover {
-    color: #fff;
-    transform: translateX(5px);
+    color: white;
+    padding-left: 5px;
+    transition: 0.2s;
 }
 
 
-/* Botão Outline (Seções) */
+/* Hamburger */
 
-.cta-button-outline {
-    border: 2px solid var(--text-accent);
-    color: var(--text-accent);
-    padding: 0.9rem 2.2rem;
-    border-radius: 50px;
-    font-weight: 700;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 1rem;
+.hamburger-menu {
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
     transition: 0.3s;
 }
 
-.cta-button-outline:hover {
-    background-color: var(--text-accent);
-    color: var(--bg-body);
-    box-shadow: 0 0 25px var(--glow-color);
+.hamburger-menu.open .hamburger-line:first-child {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.open .hamburger-line:last-child {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 
 /* =========================================
-   5. HERO SECTION
+   5. HERO
    ========================================= */
 
 .hero-reference {
@@ -453,7 +396,6 @@ section {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: transparent;
 }
 
 .hero-grid-bg {
@@ -466,12 +408,8 @@ section {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     transform: rotate(-8deg);
-    z-index: 0;
     opacity: 0.2;
-}
-
-[data-theme="blue-dark"] .hero-grid-bg {
-    opacity: 0.25;
+    z-index: 0;
 }
 
 .grid-col {
@@ -485,6 +423,14 @@ section {
     animation-direction: alternate-reverse;
 }
 
+.grid-col img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: grayscale(100%);
+}
+
 @keyframes scroll {
     from {
         transform: translateY(0);
@@ -494,19 +440,10 @@ section {
     }
 }
 
-.grid-col img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 20px;
-    filter: grayscale(100%);
-}
-
 .hero-overlay-gradient {
     position: absolute;
     inset: 0;
-    /* Gradiente radial para focar no centro */
-    background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, var(--bg-body) 85%);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, var(--bg-body) 80%);
     z-index: 1;
     pointer-events: none;
 }
@@ -521,7 +458,7 @@ section {
     padding: 3.5rem 4rem;
     border-radius: 40px;
     text-align: center;
-    max-width: 700px;
+    max-width: 800px;
     box-shadow: var(--card-shadow);
 }
 
@@ -549,15 +486,14 @@ section {
 }
 
 .hero-btn-action:hover {
-    transform: translateY(-4px);
     background: var(--text-accent);
-    color: var(--bg-body);
-    box-shadow: 0 10px 30px var(--glow-color);
+    color: white;
+    transform: translateY(-3px);
 }
 
 
 /* =========================================
-   6. SEÇÕES E CARDS (GLASS EFFECT)
+   6. QUEM SOMOS (CORREÇÃO DA IMAGEM)
    ========================================= */
 
 .quem-somos-grid {
@@ -567,33 +503,44 @@ section {
     align-items: center;
 }
 
+
+/* FIX 1: LIMITAR ALTURA E USAR OBJECT-FIT NA FOTO */
+
 .quem-somos-imagem {
-    height: 500px;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
-    border: var(--card-border);
+    width: 100%;
+    height: auto;
 }
 
 .quem-somos-imagem img {
     width: 100%;
-    height: 100%;
+    /* Define uma altura máxima para não estourar */
+    max-height: 500px;
+    /* Garante que a imagem preencha o espaço sem deformar */
     object-fit: cover;
+    border-radius: 30px;
+    box-shadow: var(--card-shadow);
 }
 
 
-/* Cards Genéricos */
+/* =========================================
+   7. CARDS E SERVIÇOS
+   ========================================= */
+
+.mvv-grid,
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
 
 .mvv-card,
 .servico-card {
     background: var(--bg-card);
     backdrop-filter: var(--card-blur);
-    -webkit-backdrop-filter: var(--card-blur);
-    padding: 3rem 2rem;
+    border: var(--card-border);
     border-radius: 24px;
     box-shadow: var(--card-shadow);
-    border: var(--card-border);
-    text-align: center;
+    padding: 2.5rem 2rem;
     transition: 0.4s;
     position: relative;
     overflow: hidden;
@@ -603,32 +550,20 @@ section {
 .servico-card:hover {
     transform: translateY(-8px);
     border-color: var(--text-accent);
-    box-shadow: 0 15px 40px var(--glow-color);
 }
-
-.mvv-grid,
-.servicos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-
-/* Ícones */
 
 .icon-box,
 .icon-header {
-    width: 70px;
-    height: 70px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem auto;
+    margin-bottom: 1.5rem;
     font-size: 1.8rem;
     background: rgba(0, 0, 0, 0.05);
     color: var(--text-accent);
-    border: 1px solid var(--nav-border);
     transition: 0.3s;
 }
 
@@ -638,13 +573,9 @@ section {
 
 .mvv-card:hover .icon-box {
     background: var(--text-accent);
-    color: var(--bg-body);
-    transform: scale(1.1) rotate(10deg);
-    border-color: transparent;
+    color: white;
+    transform: rotate(10deg);
 }
-
-
-/* Serviços Específico */
 
 .servico-card {
     padding: 0;
@@ -656,7 +587,6 @@ section {
     height: 200px;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid var(--nav-border);
 }
 
 .servico-card-img {
@@ -671,28 +601,26 @@ section {
 }
 
 .servico-card-body {
-    padding: 2rem;
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
     flex: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 .icon-header {
     position: absolute;
-    top: -35px;
-    right: 20px;
+    top: -32px;
+    left: 2rem;
     background: var(--text-accent);
-    color: var(--bg-body);
-    box-shadow: 0 5px 15px var(--glow-color);
-    border: none;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 4px solid var(--bg-card);
 }
 
 .servico-items {
     list-style: none;
-    margin-top: auto;
+    margin-top: 1.5rem;
     padding-top: 1rem;
     border-top: 1px solid var(--nav-border);
-    text-align: left;
 }
 
 .servico-items li {
@@ -708,16 +636,30 @@ section {
     width: 18px;
 }
 
+.cta-button-outline {
+    border: 2px solid var(--text-accent);
+    color: var(--text-accent);
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: 0.3s;
+}
 
-/* =========================================
-   7. ACORDEÃO E STEPPER
-   ========================================= */
+.cta-button-outline:hover {
+    background: var(--text-accent);
+    color: var(--bg-body);
+}
+
+
+/* Acordeão */
 
 .diferenciais-grid-conteudo {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
-    align-items: start;
+    gap: 4rem;
 }
 
 .accordion-item {
@@ -726,12 +668,7 @@ section {
     border-radius: 16px;
     margin-bottom: 1rem;
     overflow: hidden;
-    transition: 0.3s;
     backdrop-filter: var(--card-blur);
-}
-
-.accordion-item:hover {
-    border-color: var(--text-accent);
 }
 
 .accordion-header {
@@ -757,16 +694,11 @@ section {
     justify-content: center;
     background: rgba(0, 0, 0, 0.05);
     color: var(--text-accent);
-    transition: 0.3s;
-}
-
-[data-theme="blue-dark"] .accordion-icon {
-    background: rgba(255, 255, 255, 0.1);
 }
 
 .accordion-header.active .accordion-icon {
     background: var(--text-accent);
-    color: var(--bg-body);
+    color: white;
     transform: rotate(45deg);
 }
 
@@ -777,16 +709,25 @@ section {
 }
 
 .accordion-inner {
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0 1.5rem 1.5rem;
     color: var(--text-secondary);
 }
 
 
-/* STEPPER (Formulário) */
+/* =========================================
+   8. STEPPER (CORREÇÃO DE CENTRALIZAÇÃO)
+   ========================================= */
+
+
+/* FIX 2: ALINHAMENTO CENTRAL GARANTIDO */
 
 .stepper-section {
     display: flex;
     justify-content: center;
+    align-items: center;
+    /* Centraliza verticalmente */
+    flex-direction: column;
+    width: 100%;
 }
 
 .rb-stepper-container {
@@ -797,6 +738,8 @@ section {
     border-radius: 2rem;
     width: 100%;
     max-width: 700px;
+    margin: 0 auto;
+    /* Garante que fique no meio se o flex falhar */
     box-shadow: var(--card-shadow);
 }
 
@@ -814,9 +757,9 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid transparent;
     background: rgba(0, 0, 0, 0.1);
     color: var(--text-secondary);
+    transition: 0.3s;
 }
 
 [data-theme="blue-dark"] .rb-step-indicator {
@@ -825,21 +768,19 @@ section {
 
 .rb-step-indicator.active {
     background: var(--text-accent);
-    color: var(--bg-body);
-    box-shadow: 0 0 15px var(--glow-color);
+    color: white;
     transform: scale(1.1);
-    font-weight: bold;
 }
 
 .rb-step-indicator.complete {
     background: var(--cor-azul-principal);
-    color: #fff;
+    color: white;
 }
 
 .rb-active-dot {
     width: 10px;
     height: 10px;
-    background: var(--bg-body);
+    background: white;
     border-radius: 50%;
 }
 
@@ -851,14 +792,9 @@ section {
     position: relative;
 }
 
-[data-theme="blue-dark"] .rb-step-connector {
-    background: rgba(255, 255, 255, 0.1);
-}
-
 .rb-step-connector-inner {
     position: absolute;
     left: 0;
-    top: 0;
     height: 100%;
     width: 0%;
     background: var(--text-accent);
@@ -904,19 +840,19 @@ section {
     outline: none;
     transition: 0.3s;
     font-family: inherit;
+    margin-bottom: 1rem;
 }
 
 .rb-input-group input:focus,
 .rb-input-group textarea:focus {
     border-color: var(--text-accent);
-    box-shadow: 0 0 15px var(--glow-color);
+    box-shadow: 0 0 10px var(--glow-color);
 }
 
 .rb-radio-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    margin-top: 1rem;
 }
 
 .rb-radio-box {
@@ -926,23 +862,17 @@ section {
     background: var(--input-bg);
     cursor: pointer;
     text-align: center;
-    transition: 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    color: var(--text-secondary);
+    transition: 0.3s;
 }
 
 .rb-radio-option input:checked+.rb-radio-box {
     border-color: var(--text-accent);
-    background: rgba(0, 86, 179, 0.05);
+    background: rgba(0, 86, 179, 0.1);
     color: var(--text-primary);
-    box-shadow: 0 5px 15px var(--glow-color);
-}
-
-[data-theme="blue-dark"] .rb-radio-option input:checked+.rb-radio-box {
-    background: rgba(100, 181, 246, 0.1);
 }
 
 .rb-radio-option input {
@@ -953,8 +883,8 @@ section {
     display: flex;
     justify-content: space-between;
     margin-top: 2rem;
-    padding-top: 1rem;
     border-top: 1px solid var(--nav-border);
+    padding-top: 1rem;
 }
 
 .rb-btn-back {
@@ -964,7 +894,6 @@ section {
     border-radius: 50px;
     cursor: pointer;
     color: var(--text-secondary);
-    font-weight: 600;
 }
 
 .rb-btn-next {
@@ -973,31 +902,27 @@ section {
     padding: 0.8rem 2rem;
     border-radius: 50px;
     cursor: pointer;
-    color: var(--bg-body);
+    color: white;
     font-weight: 700;
     transition: 0.3s;
 }
 
 .rb-btn-next:hover {
-    box-shadow: 0 5px 20px var(--glow-color);
     transform: translateY(-2px);
+    box-shadow: 0 5px 20px var(--glow-color);
 }
 
 
 /* =========================================
-   8. FOOTER & EXTRAS
+   9. FOOTER & RESPONSIVO
    ========================================= */
 
 footer {
-    background: linear-gradient(180deg, transparent 0%, var(--bg-section-alt) 100%);
-    color: var(--text-primary);
-    padding: 5rem 0 2rem 0;
+    background: #02040a;
+    padding: 5rem 0 2rem;
     margin-top: 4rem;
-    border-top: 1px solid var(--nav-border);
-}
-
-[data-theme="blue-dark"] footer {
-    background: rgba(15, 37, 66, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #94A3B8;
 }
 
 .footer-content {
@@ -1007,18 +932,24 @@ footer {
     margin-bottom: 3rem;
 }
 
+footer h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
 .footer-link {
-    color: var(--text-secondary);
+    color: inherit;
     text-decoration: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
     transition: 0.3s;
+    margin-bottom: 10px;
 }
 
 .footer-link:hover {
     color: var(--text-accent);
 }
-
-
-/* WhatsApp */
 
 .whatsapp-flutuante {
     position: fixed;
@@ -1027,7 +958,7 @@ footer {
     width: 60px;
     height: 60px;
     background: #25D366;
-    color: #fff;
+    color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1042,33 +973,20 @@ footer {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
     }
     70% {
-        box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 15px transparent;
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 0 transparent;
     }
 }
-
-
-/* Responsividade */
 
 @media (max-width: 1024px) {
     .quem-somos-grid,
     .diferenciais-grid-conteudo {
         grid-template-columns: 1fr;
-        gap: 3rem;
     }
     .quem-somos-imagem {
         order: -1;
-        height: 350px;
-    }
-}
-
-@media (max-width: 900px) {
-    .servicos-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-        margin: 0 auto;
     }
 }
 
@@ -1077,28 +995,22 @@ footer {
         font-size: 2.5rem;
     }
     .hero-card-center {
-        padding: 2.5rem 1.5rem;
+        padding: 2rem 1.5rem;
     }
     .mvv-grid,
     .servicos-grid,
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
     }
-    .card-nav-cta-button,
-    .desktop-only {
+    .desktop-only,
+    .card-nav-cta-button {
         display: none;
-    }
-    .rb-footer {
-        flex-direction: column-reverse;
-        gap: 1rem;
-    }
-    .rb-btn-next,
-    .rb-btn-back {
-        width: 100%;
-        justify-content: center;
     }
     .nav-actions {
         margin-right: 40px;
+    }
+    /* Ajuste mobile para imagem */
+    .quem-somos-imagem img {
+        max-height: 300px;
     }
 }
