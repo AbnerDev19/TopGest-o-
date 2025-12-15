@@ -9,8 +9,8 @@
     --font-principal: 'Inter', system-ui, -apple-system, sans-serif;
     /* Cores Principais */
     --cor-azul-principal: #0056B3;
+    /* Amarelo Escuro/Ouro (Conforme solicitado anteriormente) */
     --cor-amarelo-destaque: #D97706;
-    /* Ouro Queimado */
     /* --- TEMA LIGHT (Padrão) --- */
     --bg-body: #F0F7FF;
     --bg-section-alt: linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%);
@@ -30,6 +30,19 @@
     --orb-2: rgba(33, 150, 243, 0.15);
     --pattern-color: #bcccdc;
     --pattern-opacity: 0.4;
+}
+
+
+/* Garante que o tema light funcione explicitamente se necessário */
+
+[data-theme="light"] {
+    --bg-body: #F0F7FF;
+    --bg-section-alt: linear-gradient(180deg, #FFFFFF 0%, #F0F7FF 100%);
+    --bg-card: #FFFFFF;
+    --card-border: 1px solid #e2e8f0;
+    --card-shadow: 0 10px 30px rgba(0, 50, 100, 0.05);
+    --text-primary: #102A43;
+    /* ... demais variáveis herdam do :root */
 }
 
 
@@ -235,7 +248,7 @@ section {
     border-radius: 1.2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Ajustado para não animar a altura via CSS puro, deixa o GSAP cuidar */
 }
 
 .card-nav-top {
@@ -301,12 +314,8 @@ section {
     gap: 10px;
     opacity: 0;
     pointer-events: none;
-    transition: 0.3s;
-}
-
-.card-nav.open .card-nav-content {
-    opacity: 1;
-    pointer-events: auto;
+    /* Garante que não interfira quando fechado */
+    /* A transição será feita via GSAP, mas mantemos aqui por segurança */
 }
 
 .nav-card {
@@ -493,7 +502,7 @@ section {
 
 
 /* =========================================
-   6. QUEM SOMOS (CORREÇÃO DA IMAGEM)
+   6. SEÇÕES INTERNAS
    ========================================= */
 
 .quem-somos-grid {
@@ -503,9 +512,6 @@ section {
     align-items: center;
 }
 
-
-/* FIX 1: LIMITAR ALTURA E USAR OBJECT-FIT NA FOTO */
-
 .quem-somos-imagem {
     width: 100%;
     height: auto;
@@ -513,18 +519,11 @@ section {
 
 .quem-somos-imagem img {
     width: 100%;
-    /* Define uma altura máxima para não estourar */
     max-height: 500px;
-    /* Garante que a imagem preencha o espaço sem deformar */
     object-fit: cover;
     border-radius: 30px;
     box-shadow: var(--card-shadow);
 }
-
-
-/* =========================================
-   7. CARDS E SERVIÇOS
-   ========================================= */
 
 .mvv-grid,
 .servicos-grid {
@@ -715,17 +714,13 @@ section {
 
 
 /* =========================================
-   8. STEPPER (CORREÇÃO DE CENTRALIZAÇÃO)
+   7. STEPPER
    ========================================= */
-
-
-/* FIX 2: ALINHAMENTO CENTRAL GARANTIDO */
 
 .stepper-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Centraliza verticalmente */
     flex-direction: column;
     width: 100%;
 }
@@ -739,7 +734,6 @@ section {
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
-    /* Garante que fique no meio se o flex falhar */
     box-shadow: var(--card-shadow);
 }
 
@@ -914,7 +908,7 @@ section {
 
 
 /* =========================================
-   9. FOOTER & RESPONSIVO
+   8. FOOTER & RESPONSIVO
    ========================================= */
 
 footer {
@@ -1009,7 +1003,6 @@ footer h4 {
     .nav-actions {
         margin-right: 40px;
     }
-    /* Ajuste mobile para imagem */
     .quem-somos-imagem img {
         max-height: 300px;
     }
