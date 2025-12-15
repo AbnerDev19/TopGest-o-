@@ -1,11 +1,11 @@
-// script.js
+// script.js - Lógica Completa
 
 console.log("Script TGL carregado. Projeto iniciado!");
 
 document.addEventListener('DOMContentLoaded', (event) => {
 
     // ===============================================
-    // 0. LÓGICA DO TEMA (DARK / BLUE MODE)
+    // 0. TEMA (LIGHT / BLUE DARK)
     // ===============================================
     const themeBtn = document.getElementById('themeToggleBtn');
     const htmlElement = document.documentElement;
@@ -40,13 +40,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     // ===============================================
-    // 1. LÓGICA DA NAVBAR
+    // 1. NAVBAR (Animação GSAP)
     // ===============================================
     const nav = document.getElementById('mainNav');
     const navToggle = document.getElementById('navToggle');
-    const navContent = document.querySelector('.card-nav-content');
     const cards = document.querySelectorAll('.nav-card');
     const navLinks = document.querySelectorAll('.nav-card-link');
+    const navContent = document.querySelector('.card-nav-content');
 
     let isExpanded = false;
     let tl = null;
@@ -55,18 +55,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
         const topBarHeight = 60;
         const padding = 20;
+        let contentHeight = 200; // Altura padrão desktop
 
-        const contentClone = navContent.cloneNode(true);
-        contentClone.style.visibility = 'hidden';
-        contentClone.style.position = 'absolute';
-        contentClone.style.height = 'auto';
-        contentClone.style.width = nav.offsetWidth + 'px';
-        document.body.appendChild(contentClone);
-
-        let contentHeight = contentClone.scrollHeight;
-        if (!isMobile) contentHeight = 200;
-
-        document.body.removeChild(contentClone);
+        if (isMobile) {
+            // Em mobile, calcula altura real
+            const clone = navContent.cloneNode(true);
+            clone.style.visibility = 'hidden';
+            clone.style.position = 'absolute';
+            clone.style.height = 'auto';
+            clone.style.width = nav.offsetWidth + 'px';
+            document.body.appendChild(clone);
+            contentHeight = clone.scrollHeight;
+            document.body.removeChild(clone);
+        }
         return topBarHeight + contentHeight + padding;
     };
 
@@ -128,7 +129,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     // ===============================================
-    // 2. CÓDIGO DO ACCORDION (FUNCIONAL)
+    // 2. ACCORDION (Lógica Robusta)
     // ===============================================
     const accordionHeaders = document.querySelectorAll('.accordion-header');
 
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     // ===============================================
-    // 3. STEPPER
+    // 3. STEPPER (Formulário)
     // ===============================================
     let currentStep = 1;
     const totalSteps = 3;
@@ -171,14 +172,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const contactRadios = document.querySelectorAll('input[name="rb-contact"]');
 
     function updateStepper() {
+        // Atualiza Conteúdo
         contents.forEach(content => {
-            if (content.dataset.step == currentStep) {
-                content.classList.add('active');
-            } else {
-                content.classList.remove('active');
-            }
+            if (content.dataset.step == currentStep) content.classList.add('active');
+            else content.classList.remove('active');
         });
 
+        // Atualiza Indicadores
         indicators.forEach((indicator, index) => {
             const stepNum = index + 1;
             indicator.className = 'rb-step-indicator';
@@ -199,21 +199,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         });
 
+        // Atualiza Conectores
         connectors.forEach((connector, index) => {
-            if (currentStep > (index + 1)) {
-                connector.style.width = '100%';
-            } else {
-                connector.style.width = '0%';
-            }
+            if (currentStep > (index + 1)) connector.style.width = '100%';
+            else connector.style.width = '0%';
         });
 
+        // Botões
         if (currentStep === 1) backBtn.classList.add('disabled');
         else backBtn.classList.remove('disabled');
 
         if (currentStep === totalSteps) updateFinishButtonText();
         else {
             nextBtn.textContent = 'Continuar';
-            nextBtn.style.backgroundColor = '#5227FF';
+            nextBtn.style.backgroundColor = '#0056B3';
         }
     }
 
