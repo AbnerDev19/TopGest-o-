@@ -179,7 +179,6 @@ section {
 }
 
 [data-theme="blue-dark"] .bg-pattern-dot {
-    /* Dots sutis claros no fundo azul */
     background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
     opacity: 0.3;
 }
@@ -543,7 +542,6 @@ section {
 }
 
 [data-theme="blue-dark"] .hero-overlay-gradient {
-    /* Gradiente azul escuro com transparência no centro */
     background: radial-gradient(circle at center, rgba(11, 22, 44, 0.4) 0%, rgba(11, 22, 44, 0.95) 85%);
 }
 
@@ -702,7 +700,6 @@ section {
 }
 
 [data-theme="blue-dark"] .mvv-card:hover {
-    /* Glow mais forte no hover */
     box-shadow: 0 0 30px rgba(33, 150, 243, 0.25);
     border-color: #4fabf7;
 }
@@ -1027,7 +1024,6 @@ section {
 }
 
 [data-theme="blue-dark"] .rb-stepper-container {
-    /* Gradiente azul profundo */
     background: linear-gradient(145deg, #15223E, #0F1D38);
     border: 1px solid #2d4a77;
     box-shadow: 0 0 30px rgba(33, 150, 243, 0.15);
@@ -1332,7 +1328,6 @@ option {
 
 footer {
     background-color: #0A2A4E;
-    /* Azul escuro da marca */
     color: #fff;
     padding: 5rem 0 2rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1340,7 +1335,6 @@ footer {
 
 [data-theme="blue-dark"] footer {
     background-color: #050B16;
-    /* Um azul quase preto, mas não preto */
     border-top: 1px solid #1F2E4D;
 }
 
