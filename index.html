@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TGL - Top Gestão Logística</title>
     <link rel="stylesheet" href="style.css">
-    
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
-<body>
 
+<body>
     <a href="https://wa.me/5561999614193" target="_blank" class="whatsapp-flutuante" aria-label="Fale no WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.626-2.957 6.584-6.591 6.584m-3.108-.983c.19-.09.39-.143.592-.143.201 0 .39.053.533.161.142.108.21.26.21.437s-.068.329-.19.451c-.12.122-.27.182-.42.182-.15 0-.28-.06-.38-.182-.1-.122-.15-.272-.15-.451.001-.177.07-.327.21-.437z"/>
         </svg>
     </a>
-
     <div class="card-nav-container">
         <nav class="card-nav" id="mainNav">
             <div class="card-nav-top">
@@ -27,7 +26,12 @@
                 <div class="logo-container">
                     <img src="fotos/logo.png" alt="TGL Logo" class="logo">
                 </div>
-                <a href="#cotacao" class="card-nav-cta-button">Cotação</a>
+                <div class="nav-actions" style="display: flex; align-items: center; gap: 15px;">
+                    <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Alternar Cores">
+                        <i data-feather="moon"></i>
+                    </button>
+                    <a href="#cotacao" class="card-nav-cta-button">Cotação</a>
+                </div>
             </div>
             <div class="card-nav-content">
                 <div class="nav-card" style="background: linear-gradient(135deg, #0A2A4E, #163b66); color: #fff;">
@@ -54,37 +58,17 @@
             </div>
         </nav>
     </div>
-
     <main>
         <section id="inicio" class="hero-reference">
             <div class="visual-orb orb-1"></div>
             <div class="visual-orb orb-2"></div>
-
             <div class="hero-grid-bg">
-                <div class="grid-col">
-                    <img src="fotos/logistica2.jpeg" alt="Logística">
-                    <img src="fotos/limpeza.jpeg" alt="Limpeza">
-                    <img src="fotos/porteiro1.jpeg" alt="Portaria">
-                </div>
-                <div class="grid-col desktop-only">
-                    <img src="fotos/porteiro2.jpeg" alt="Portaria">
-                    <img src="fotos/logistica1.jpeg" alt="Logística">
-                    <img src="fotos/limpeza1.jpeg" alt="Limpeza">
-                </div>
-                <div class="grid-col">
-                    <img src="fotos/logistica3.jpeg" alt="Estoque">
-                    <img src="fotos/limpeza2.jpeg" alt="Limpeza">
-                    <img src="fotos/porteiro3.jpeg" alt="Segurança">
-                </div>
-                <div class="grid-col desktop-only">
-                    <img src="fotos/logistica2.jpeg" alt="Logística">
-                    <img src="fotos/limpeza.jpeg" alt="Limpeza">
-                    <img src="fotos/porteiro1.jpeg" alt="Portaria">
-                </div>
+                <div class="grid-col"><img src="fotos/logistica2.jpeg"><img src="fotos/limpeza.jpeg"><img src="fotos/porteiro1.jpeg"></div>
+                <div class="grid-col desktop-only"><img src="fotos/porteiro2.jpeg"><img src="fotos/logistica1.jpeg"><img src="fotos/limpeza1.jpeg"></div>
+                <div class="grid-col"><img src="fotos/logistica3.jpeg"><img src="fotos/limpeza2.jpeg"><img src="fotos/porteiro3.jpeg"></div>
+                <div class="grid-col desktop-only"><img src="fotos/logistica2.jpeg"><img src="fotos/limpeza.jpeg"><img src="fotos/porteiro1.jpeg"></div>
             </div>
-
             <div class="hero-overlay-gradient"></div>
-
             <div class="hero-card-center reveal-hero">
                 <h1>Excelência em <br><span class="highlight-text">Terceirização</span></h1>
                 <p>Qualidade, eficiência e tecnologia para elevar o desempenho da sua empresa.</p>
@@ -93,49 +77,37 @@
                 </div>
             </div>
         </section>
-
-        <section id="quem-somos" class="bg-gradient-light">
+        <section id="quem-somos" class="bg-gradient-light section-bg-transition">
             <div class="container">
                 <div class="quem-somos-grid">
                     <div class="quem-somos-texto sr-left">
                         <h3 class="modern-subtitle">QUEM SOMOS</h3>
                         <h2>Confiabilidade e Eficiência é o nosso nome</h2>
                         <p>Na TGL, entendemos que a terceirização vai além de simplesmente fornecer mão de obra. Trata-se de construir parcerias estratégicas que otimizam seus processos e reduzem custos.</p>
-                        
-                        <p><strong>Estamos no mercado há mais de 14 anos, atuando em várias frentes, empresas de Varejos, Mineradora, Agro, Clínicas Médicas entre outros áreas.</strong></p>
-                        
-                        <p>A Top Gestão Empresarial em Serviços de Logística (TGL) é especializada em oferecer soluções completas em logística, serviços operacionais e mão de obra terceirizada.</p>
+                        <p><strong>Estamos no mercado há mais de 14 anos, atuando em várias frentes.</strong></p>
                         <a href="#diferenciais" class="cta-button-outline">Nossos Diferenciais</a>
                     </div>
-                    <div class="quem-somos-imagem sr-right">
-                        <img src="fotos/logistica2.jpeg" alt="Equipe TGL">
-                    </div>
+                    <div class="quem-somos-imagem sr-right"><img src="fotos/logistica2.jpeg"></div>
                 </div>
             </div>
         </section>
-
-        <section id="sobre" class="bg-white relative-bg">
+        <section id="sobre" class="bg-white relative-bg section-bg-transition">
             <div class="bg-pattern-dot"></div>
-
             <div class="container">
                 <div class="section-header sr-up">
                     <h3 class="modern-subtitle-center">Nossa Essência</h3>
                     <h2>Missão, Visão e Valores</h2>
-                    <p style="max-width: 800px; margin: 0 auto; text-align: center;">
-                        A TGL atua com foco em qualidade, eficiência e tecnologia, entregando resultados de alto nível.
-                    </p>
                 </div>
-
                 <div class="mvv-grid">
                     <div class="mvv-card sr-up-delay-1">
                         <div class="icon-box"><i data-feather="target"></i></div>
                         <h4>Missão</h4>
-                        <p>Oferecer soluções inteligentes em logística e serviços, garantindo qualidade e segurança.</p>
+                        <p>Oferecer soluções inteligentes em logística e serviços.</p>
                     </div>
                     <div class="mvv-card sr-up-delay-2">
                         <div class="icon-box"><i data-feather="eye"></i></div>
                         <h4>Visão</h4>
-                        <p>Ser referência nacional em terceirização e logística, reconhecida pela inovação.</p>
+                        <p>Ser referência nacional em terceirização.</p>
                     </div>
                     <div class="mvv-card sr-up-delay-3">
                         <div class="icon-box"><i data-feather="award"></i></div>
@@ -143,135 +115,92 @@
                         <ul class="values-list">
                             <li>Compromisso com qualidade</li>
                             <li>Ética e transparência</li>
-                            <li>Tecnologia e inovação</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="diferenciais" class="bg-gradient-light">
+        <section id="diferenciais" class="bg-gradient-light section-bg-transition">
             <div class="container">
                 <div class="diferenciais-grid-conteudo">
                     <div class="diferenciais-texto-acordeao sr-left">
                         <h3 class="modern-subtitle">DIFERENCIAIS</h3>
                         <h2>Satisfação garantida</h2>
-                        
-                        <p>Entregamos serviços de alta performance com foco total na excelência do atendimento e na plena satisfação dos nossos clientes.</p>
-                        
-                        <a href="#servicos" class="cta-button-outline">Ver todos os serviços</a>
+                        <p>Entregamos serviços de alta performance com foco total na excelência.</p>
                     </div>
-                    
                     <div class="accordion sr-right">
                         <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
-                                <span>Profissionais Qualificados</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
+                            <button class="accordion-header" aria-expanded="false"><span>Profissionais Qualificados</span><span class="accordion-icon">+</span></button>
                             <div class="accordion-content">
-                                <p>Nossa equipe passa por uma seleção criteriosa e treinamentos constantes, garantindo profissionais preparados para manter o mais alto nível de serviço.</p>
+                                <div class="accordion-inner">
+                                    <p>Seleção criteriosa e treinamentos constantes.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
-                                <span>Soluções Customizadas</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
+                            <button class="accordion-header" aria-expanded="false"><span>Soluções Customizadas</span><span class="accordion-icon">+</span></button>
                             <div class="accordion-content">
-                                <p>Desenvolvemos estratégias personalizadas e adaptáveis, desenhadas para atender exclusivamente às demandas do seu negócio com máxima eficiência.</p>
+                                <div class="accordion-inner">
+                                    <p>Estratégias personalizadas e adaptáveis.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
-                                <span>Parceria Estratégica</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
+                            <button class="accordion-header" aria-expanded="false"><span>Parceria Estratégica</span><span class="accordion-icon">+</span></button>
                             <div class="accordion-content">
-                                <p>Atuamos como uma extensão do seu negócio, alinhando interesses e agindo estrategicamente para impulsionar seus resultados e garantir seu sucesso.</p>
+                                <div class="accordion-inner">
+                                    <p>Atuamos como uma extensão do seu negócio.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="servicos" class="bg-white relative-bg">
-             <div class="bg-pattern-dot"></div>
-             
+        <section id="servicos" class="bg-white relative-bg section-bg-transition">
+            <div class="bg-pattern-dot"></div>
             <div class="container">
                 <div class="section-header sr-up">
                     <h3 class="modern-subtitle-center">O que fazemos</h3>
-                    <h2>Nossas Soluções Completas</h2>
-                    <p style="max-width: 800px; margin: 0 auto; text-align: center;">
-                        A TGL oferece uma experiência completa. Conheça nossas principais áreas de atuação:
-                    </p>
+                    <h2>Nossas Soluções</h2>
                 </div>
-                
                 <div class="servicos-grid">
                     <div class="servico-card sr-up-delay-1">
-                        <div class="servico-card-img-container">
-                            <img src="fotos/logistica2.jpeg" alt="Soluções em Logística" class="servico-card-img">
+                        <div class="servico-card-img-container"><img src="fotos/logistica2.jpeg" class="servico-card-img">
                             <div class="card-overlay"></div>
                         </div>
                         <div class="servico-card-body">
-                            <div class="icon-header">
-                                <i data-feather="truck"></i>
-                            </div>
-                            <h4>Soluções em Logística</h4>
-                            <p>Gestão completa da cadeia logística com tecnologia e eficiência operacional.</p>
-                            <ul class="servico-items">
-                                <li><i data-feather="check-circle"></i> Movimentação de Materiais</li>
-                                <li><i data-feather="check-circle"></i> Operadores de Máquinas</li>
-                                <li><i data-feather="check-circle"></i> Carga e Descarga</li>
-                            </ul>
+                            <div class="icon-header"><i data-feather="truck"></i></div>
+                            <h4>Logística</h4>
+                            <p>Gestão da cadeia logística.</p>
                         </div>
                     </div>
-
                     <div class="servico-card sr-up-delay-2">
-                        <div class="servico-card-img-container">
-                            <img src="fotos/logistica1.jpeg" alt="Mão de Obra Especializada" class="servico-card-img">
+                        <div class="servico-card-img-container"><img src="fotos/logistica1.jpeg" class="servico-card-img">
                             <div class="card-overlay"></div>
                         </div>
                         <div class="servico-card-body">
-                            <div class="icon-header">
-                                <i data-feather="users"></i>
-                            </div>
-                            <h4>Mão de Obra Especializada</h4>
-                            <p>Profissionais treinados para demandas operacionais e administrativas.</p>
-                            <ul class="servico-items">
-                                <li><i data-feather="check-circle"></i> Treinamentos Específicos</li>
-                                <li><i data-feather="check-circle"></i> Capacitação Prática</li>
-                                <li><i data-feather="check-circle"></i> Avaliação Contínua</li>
-                            </ul>
+                            <div class="icon-header"><i data-feather="users"></i></div>
+                            <h4>Mão de Obra</h4>
+                            <p>Profissionais treinados.</p>
                         </div>
                     </div>
-
                     <div class="servico-card sr-up-delay-3">
-                        <div class="servico-card-img-container">
-                            <img src="fotos/limpeza2.jpeg" alt="Limpeza e Conservação" class="servico-card-img">
+                        <div class="servico-card-img-container"><img src="fotos/limpeza2.jpeg" class="servico-card-img">
                             <div class="card-overlay"></div>
                         </div>
                         <div class="servico-card-body">
-                            <div class="icon-header">
-                                <i data-feather="shield"></i>
-                            </div>
-                            <h4>Facilities & Limpeza</h4>
-                            <p>Manutenção impecável de ambientes e controle de acesso rigoroso.</p>
-                            <ul class="servico-items">
-                                <li><i data-feather="check-circle"></i> Limpeza Profissional</li>
-                                <li><i data-feather="check-circle"></i> Conservação Predial</li>
-                                <li><i data-feather="check-circle"></i> Portaria e Controle</li>
-                            </ul>
+                            <div class="icon-header"><i data-feather="shield"></i></div>
+                            <h4>Facilities</h4>
+                            <p>Limpeza e Portaria.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section id="cotacao" class="stepper-section">
+        <section id="cotacao" class="stepper-section section-bg-transition">
             <div class="container">
                 <div class="rb-stepper-container">
-                    
                     <div class="rb-step-indicator-row">
                         <div class="rb-step-wrapper" data-step-indicator="1">
                             <div class="rb-step-indicator active">
@@ -279,128 +208,59 @@
                             </div>
                         </div>
                         <div class="rb-step-connector">
-                            <div class="rb-step-connector-inner" id="line-1"></div>
+                            <div class="rb-step-connector-inner"></div>
                         </div>
-
                         <div class="rb-step-wrapper" data-step-indicator="2">
-                            <div class="rb-step-indicator inactive">
-                                <span class="rb-step-number">2</span>
-                            </div>
+                            <div class="rb-step-indicator inactive"><span class="rb-step-number">2</span></div>
                         </div>
                         <div class="rb-step-connector">
-                            <div class="rb-step-connector-inner" id="line-2"></div>
+                            <div class="rb-step-connector-inner"></div>
                         </div>
-
                         <div class="rb-step-wrapper" data-step-indicator="3">
-                            <div class="rb-step-indicator inactive">
-                                <span class="rb-step-number">3</span>
-                            </div>
+                            <div class="rb-step-indicator inactive"><span class="rb-step-number">3</span></div>
                         </div>
                     </div>
-
                     <div class="rb-content-container">
-                        
                         <div class="rb-step-content active" data-step="1">
                             <h2 class="rb-title">Vamos começar</h2>
-                            <p class="rb-subtitle">Informe seus dados principais.</p>
-                            
-                            <div class="rb-input-group">
-                                <label>Nome Completo</label>
-                                <input type="text" id="rb-nome" placeholder="Seu nome ou da empresa">
-                            </div>
-
-                            <div class="rb-input-group">
-                                <label>Serviço de Interesse</label>
-                                <div class="rb-select-wrapper">
-                                    <select id="rb-servico">
-                                        <option value="" disabled selected>Selecione...</option>
-                                        <option value="Logística">Logística / Carga e Descarga</option>
-                                        <option value="Mão de Obra">Mão de Obra Adm/Operacional</option>
-                                        <option value="Portaria">Portaria e Segurança</option>
-                                        <option value="Limpeza">Limpeza e Conservação</option>
-                                    </select>
-                                </div>
+                            <div class="rb-input-group"><label>Nome</label><input type="text" id="rb-nome"></div>
+                            <div class="rb-input-group"><label>Serviço</label>
+                                <div class="rb-select-wrapper"><select id="rb-servico"><option value="Logística">Logística</option><option value="Mão de Obra">Mão de Obra</option></select></div>
                             </div>
                         </div>
-
                         <div class="rb-step-content" data-step="2">
                             <h2 class="rb-title">Detalhes</h2>
-                            <p class="rb-subtitle">Explique um pouco sua necessidade.</p>
-                            
-                            <div class="rb-input-group">
-                                <label>Observações</label>
-                                <textarea id="rb-obs" rows="4" placeholder="Ex: Preciso de 5 pessoas para turno noturno..."></textarea>
-                            </div>
+                            <div class="rb-input-group"><label>Obs</label><textarea id="rb-obs"></textarea></div>
                         </div>
-
                         <div class="rb-step-content" data-step="3">
                             <h2 class="rb-title">Finalizar</h2>
-                            <p class="rb-subtitle">Como prefere enviar?</p>
-
                             <div class="rb-radio-group">
-                                <label class="rb-radio-option">
-                                    <input type="radio" name="rb-contact" value="whatsapp" checked>
-                                    <div class="rb-radio-box">
-                                        <i data-feather="message-circle"></i>
-                                        <span>WhatsApp</span>
-                                    </div>
-                                </label>
-                                <label class="rb-radio-option">
-                                    <input type="radio" name="rb-contact" value="email">
-                                    <div class="rb-radio-box">
-                                        <i data-feather="mail"></i>
-                                        <span>E-mail</span>
-                                    </div>
-                                </label>
+                                <label class="rb-radio-option"><input type="radio" name="rb-contact" value="whatsapp" checked><div class="rb-radio-box"><span>WhatsApp</span></div></label>
+                                <label class="rb-radio-option"><input type="radio" name="rb-contact" value="email"><div class="rb-radio-box"><span>E-mail</span></div></label>
                             </div>
                         </div>
-
                     </div>
-
-                    <div class="rb-footer">
-                        <button id="rb-btn-back" class="rb-btn-back disabled">Voltar</button>
-                        <button id="rb-btn-next" class="rb-btn-next">Continuar</button>
-                    </div>
-
+                    <div class="rb-footer"><button id="rb-btn-back" class="rb-btn-back disabled">Voltar</button><button id="rb-btn-next" class="rb-btn-next">Continuar</button></div>
                 </div>
             </div>
         </section>
     </main>
-
     <footer id="contato-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
-                    <h4>TGL Top Gestão</h4>
-                    <p>Compromisso com a excelência e gestão voltada à satisfação dos nossos clientes.</p>
+                    <h4>TGL</h4>
                 </div>
                 <div class="footer-col">
                     <h4>Contatos</h4>
-                    <p style="margin-bottom: 10px;">
-                        <a href="mailto:contato@tgl.com.br" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                            <i data-feather="mail" style="width: 18px;"></i> contato@tgl.com.br
-                        </a>
-                    </p>
-                    <p>
-                        <a href="https://wa.me/5561999614193" target="_blank" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                            <i data-feather="phone" style="width: 18px;"></i> +55 61 99961-4193
-                        </a>
-                    </p>
                 </div>
-                <div class="footer-col">
-                    <h4>Acesse</h4>
-                    <p><a href="http://www.topgestaotgl.com.br" target="_blank" class="footer-link">www.topgestaotgl.com.br</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 TGL - Top Gestão Empresarial em Serviços de Logística.</p>
             </div>
         </div>
     </footer>
-
     <script>
         feather.replace();
     </script>
     <script src="script.js" defer></script>
 </body>
+
 </html>

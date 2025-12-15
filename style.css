@@ -1,30 +1,66 @@
 /* style.css */
 
+
 /* 1. Definição da paleta de cores e fontes */
+
 :root {
+    /* Cores Primitivas */
     --cor-branca-pura: #FFFFFF;
-
-    /* Azul Principal: Vibrante */
+    /* Paleta Azul TGL */
     --cor-azul-principal: #0056B3;
-    --cor-azul-brilho: #0069d9;
-
-    /* Azul Escuro: Profundo */
+    --cor-azul-brilho: #2196F3;
+    /* Azul mais vivo para glow */
     --cor-azul-escuro: #0A2A4E;
-
-    /* Azul Card (fundo sutil) */
-    --cor-azul-card: #f0f4f8;
-
+    /* Tons Neutros */
     --cor-texto-principal: #1d1d1f;
     --cor-texto-secundario: #555555;
-
-    /* Amarelo Destaque */
+    /* Amarelo Destaque (Marca) */
     --cor-amarelo-destaque: #E6B800;
-    --cor-amarelo-hover: #CC9900;
-
     --font-principal: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* --- TEMA PADRÃO (LIGHT) --- */
+    --bg-body: #ffffff;
+    --bg-section-alt: linear-gradient(180deg, #f0f7ff 0%, #e6f0ff 100%);
+    --bg-card: #ffffff;
+    --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    --card-border: 1px solid #e2e8f0;
+    --text-body-primary: var(--cor-texto-principal);
+    --text-body-secondary: var(--cor-texto-secundario);
+    --border-color: #e2e8f0;
+    --nav-bg: rgba(255, 255, 255, 0.9);
+    --nav-border: rgba(255, 255, 255, 0.6);
+    --nav-link-color: var(--cor-azul-escuro);
+    --accordion-bg: #ffffff;
 }
 
+
+/* --- TEMA AZUL PROFUNDO (NAVY BLUE / GOOGLE ONE STYLE) --- */
+
+[data-theme="blue-dark"] {
+    /* Fundo: Azul Profundo (Não é preto!) */
+    --bg-body: #0B162C;
+    /* Seções: Um tom levemente diferente para contraste */
+    --bg-section-alt: #0F1D38;
+    /* Cards: Azul um pouco mais claro para destacar do fundo */
+    --bg-card: #15223E;
+    /* Sombra/Glow: Azul celeste suave */
+    --card-shadow: 0 8px 30px rgba(33, 150, 243, 0.15);
+    /* Borda: Azul vibrante estilo Google One, mas sutil */
+    --card-border: 1px solid #2d4a77;
+    /* Textos */
+    --text-body-primary: #FFFFFF;
+    --text-body-secondary: #B0C4DE;
+    /* Azul acinzentado claro para leitura */
+    --border-color: #2d4a77;
+    /* Nav */
+    --nav-bg: rgba(15, 29, 56, 0.9);
+    --nav-border: rgba(33, 150, 243, 0.3);
+    --nav-link-color: #FFFFFF;
+    --accordion-bg: #15223E;
+}
+
+
 /* 2. Reset Básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -38,10 +74,11 @@ html {
 
 body {
     font-family: var(--font-principal);
-    background-color: var(--cor-branca-pura);
-    color: var(--cor-texto-secundario);
+    background-color: var(--bg-body);
+    color: var(--text-body-secondary);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .container {
@@ -54,12 +91,15 @@ h1,
 h2,
 h3,
 h4 {
-    color: var(--cor-texto-principal);
+    color: var(--text-body-primary);
     margin-bottom: 0.8rem;
     font-weight: 700;
+    transition: color 0.5s ease;
 }
 
+
 /* SUBTÍTULOS ESTILIZADOS */
+
 .modern-subtitle,
 .modern-subtitle-center {
     font-size: 0.85rem;
@@ -70,6 +110,12 @@ h4 {
     margin-bottom: 1rem;
     position: relative;
     display: inline-block;
+}
+
+[data-theme="blue-dark"] .modern-subtitle,
+[data-theme="blue-dark"] .modern-subtitle-center {
+    color: #4fabf7;
+    /* Azul claro neon */
 }
 
 .modern-subtitle::after {
@@ -93,7 +139,13 @@ h4 {
 p {
     margin-bottom: 1.2rem;
     font-size: 1.05rem;
-    color: #4a5568;
+    color: var(--text-body-secondary);
+}
+
+.section-desc {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 section {
@@ -101,14 +153,18 @@ section {
     position: relative;
 }
 
+.section-bg-transition {
+    transition: background 0.5s ease;
+}
+
+
 /* 3. Elementos Decorativos & Fundos */
 
 .bg-white {
-    background-color: var(--cor-branca-pura);
+    background-color: var(--bg-body);
     position: relative;
 }
 
-/* Padrão de bolinhas sutil para dar textura */
 .bg-pattern-dot {
     position: absolute;
     top: 0;
@@ -122,17 +178,24 @@ section {
     pointer-events: none;
 }
 
+[data-theme="blue-dark"] .bg-pattern-dot {
+    /* Dots sutis claros no fundo azul */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1.5px, transparent 1.5px);
+    opacity: 0.3;
+}
+
 .relative-bg>* {
     position: relative;
     z-index: 1;
 }
 
-/* Gradiente de Fundo mais "Vivo" */
 .bg-gradient-light {
-    background: linear-gradient(180deg, #F0F4F8 0%, #E6F0FF 100%);
+    background: var(--bg-section-alt);
 }
 
+
 /* Seção cabeçalho */
+
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -142,10 +205,12 @@ section {
     font-size: 2.5rem;
     font-weight: 800;
     letter-spacing: -1px;
-    color: var(--cor-azul-escuro);
+    color: var(--text-body-primary);
 }
 
+
 /* Botão de Contorno */
+
 .cta-button-outline {
     border: 2px solid var(--cor-azul-principal);
     color: var(--cor-azul-principal);
@@ -161,6 +226,11 @@ section {
     letter-spacing: 0.5px;
 }
 
+[data-theme="blue-dark"] .cta-button-outline {
+    border-color: #4fabf7;
+    color: #4fabf7;
+}
+
 .cta-button-outline:hover {
     background-color: var(--cor-azul-principal);
     color: var(--cor-branca-pura);
@@ -168,7 +238,15 @@ section {
     transform: translateY(-2px);
 }
 
-/* --- 4. NAVBAR (Glassmorphism) --- */
+[data-theme="blue-dark"] .cta-button-outline:hover {
+    background-color: #4fabf7;
+    color: #0B162C;
+    box-shadow: 0 0 20px rgba(79, 171, 247, 0.4);
+}
+
+
+/* --- 4. NAVBAR --- */
+
 .card-nav-container {
     position: fixed;
     top: 1.5rem;
@@ -181,15 +259,15 @@ section {
 
 .card-nav {
     height: 60px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: var(--nav-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--nav-border);
     border-radius: 1.2rem;
-    box-shadow: 0 10px 30px rgba(0, 20, 60, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
-    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .card-nav-top {
@@ -205,6 +283,9 @@ section {
     z-index: 2;
 }
 
+
+/* Menu Hamburguer */
+
 .hamburger-menu {
     display: flex;
     flex-direction: column;
@@ -216,7 +297,7 @@ section {
 .hamburger-line {
     width: 24px;
     height: 2px;
-    background-color: var(--cor-texto-principal);
+    background-color: var(--text-body-primary);
     transition: 0.3s;
 }
 
@@ -233,7 +314,38 @@ section {
     width: auto;
 }
 
-/* Botão Navbar com Gradiente */
+
+/* Botão de Tema */
+
+.theme-toggle-btn {
+    background: transparent;
+    border: 2px solid rgba(128, 128, 128, 0.2);
+    color: var(--text-body-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(128, 128, 128, 0.1);
+    transform: rotate(15deg);
+}
+
+[data-theme="blue-dark"] .theme-toggle-btn {
+    border-color: #4fabf7;
+    color: #E6B800;
+    /* Lua amarela */
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* Botão Navbar Cotação */
+
 .card-nav-cta-button {
     background: linear-gradient(135deg, var(--cor-azul-principal), #004494);
     color: white;
@@ -250,6 +362,15 @@ section {
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 86, 179, 0.35);
 }
+
+[data-theme="blue-dark"] .card-nav-cta-button {
+    background: linear-gradient(135deg, #4fabf7, #2196F3);
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(33, 150, 243, 0.4);
+}
+
+
+/* Conteudo Nav */
 
 .card-nav-content {
     position: absolute;
@@ -307,7 +428,9 @@ section {
     transform: translateX(5px);
 }
 
+
 /* --- 5. HERO SECTION --- */
+
 .hero-reference {
     position: relative;
     height: 100vh;
@@ -320,7 +443,10 @@ section {
     background: #f8fafc;
 }
 
-/* Orbs de fundo (Vivos) */
+[data-theme="blue-dark"] .hero-reference {
+    background: #0B162C;
+}
+
 .visual-orb {
     position: absolute;
     border-radius: 50%;
@@ -351,7 +477,6 @@ section {
     0% {
         transform: translate(0, 0);
     }
-
     100% {
         transform: translate(40px, 50px);
     }
@@ -387,7 +512,6 @@ section {
     from {
         transform: translateY(0);
     }
-
     to {
         transform: translateY(-50px);
     }
@@ -403,6 +527,10 @@ section {
     transition: filter 0.5s;
 }
 
+[data-theme="blue-dark"] .grid-col img {
+    opacity: 0.3;
+}
+
 .hero-overlay-gradient {
     position: absolute;
     top: 0;
@@ -412,6 +540,11 @@ section {
     background: radial-gradient(circle at center, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.95) 80%);
     backdrop-filter: blur(4px);
     z-index: 1;
+}
+
+[data-theme="blue-dark"] .hero-overlay-gradient {
+    /* Gradiente azul escuro com transparência no centro */
+    background: radial-gradient(circle at center, rgba(11, 22, 44, 0.4) 0%, rgba(11, 22, 44, 0.95) 85%);
 }
 
 .hero-card-center {
@@ -428,11 +561,18 @@ section {
     max-width: 700px;
 }
 
+[data-theme="blue-dark"] .hero-card-center {
+    background: rgba(21, 34, 62, 0.7);
+    /* Azul glass */
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 50px rgba(33, 150, 243, 0.15);
+}
+
 .hero-card-center h1 {
     font-size: 3.5rem;
     line-height: 1.1;
     margin-bottom: 1.2rem;
-    color: var(--cor-texto-principal);
+    color: var(--text-body-primary);
 }
 
 .highlight-text {
@@ -441,10 +581,16 @@ section {
     -webkit-text-fill-color: transparent;
 }
 
+[data-theme="blue-dark"] .highlight-text {
+    background: linear-gradient(90deg, #fff, #4fabf7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .hero-card-center p {
     font-size: 1.25rem;
     margin-bottom: 2.5rem;
-    color: #4a5568;
+    color: var(--text-body-secondary);
 }
 
 .hero-btn-action {
@@ -466,7 +612,20 @@ section {
     box-shadow: 0 15px 35px rgba(0, 86, 179, 0.35);
 }
 
+[data-theme="blue-dark"] .hero-btn-action {
+    background: #E6B800;
+    color: #0B162C;
+    box-shadow: 0 0 20px rgba(230, 184, 0, 0.3);
+}
+
+[data-theme="blue-dark"] .hero-btn-action:hover {
+    background: #fff;
+    color: #0B162C;
+}
+
+
 /* --- 6. QUEM SOMOS --- */
+
 .quem-somos-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -478,6 +637,7 @@ section {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     line-height: 1.15;
+    color: var(--text-body-primary);
 }
 
 .quem-somos-imagem {
@@ -499,7 +659,9 @@ section {
     transform: scale(1.05);
 }
 
+
 /* --- 7. MVV (Missão/Visão) --- */
+
 .mvv-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -508,18 +670,20 @@ section {
 }
 
 .mvv-card {
-    background: #fff;
+    background: var(--bg-card);
     padding: 3rem 2rem;
     border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--card-shadow);
     text-align: center;
     transition: all 0.3s ease;
-    border: 1px solid #edf2f7;
+    border: var(--card-border);
     position: relative;
     overflow: hidden;
 }
 
+
 /* Detalhe colorido no topo */
+
 .mvv-card::before {
     content: '';
     position: absolute;
@@ -534,7 +698,13 @@ section {
 
 .mvv-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 50, 100, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 50, 100, 0.15);
+}
+
+[data-theme="blue-dark"] .mvv-card:hover {
+    /* Glow mais forte no hover */
+    box-shadow: 0 0 30px rgba(33, 150, 243, 0.25);
+    border-color: #4fabf7;
 }
 
 .mvv-card:hover::before {
@@ -545,6 +715,10 @@ section {
     color: var(--cor-azul-escuro);
     font-size: 1.4rem;
     margin-bottom: 1rem;
+}
+
+[data-theme="blue-dark"] .mvv-card h4 {
+    color: #fff;
 }
 
 .mvv-card .icon-box {
@@ -561,10 +735,20 @@ section {
     transition: transform 0.3s;
 }
 
+[data-theme="blue-dark"] .mvv-card .icon-box {
+    background: rgba(33, 150, 243, 0.1);
+    color: #4fabf7;
+}
+
 .mvv-card:hover .icon-box {
     transform: scale(1.1) rotate(5deg);
     background: var(--cor-azul-principal);
     color: #fff;
+}
+
+[data-theme="blue-dark"] .mvv-card:hover .icon-box {
+    background: #4fabf7;
+    color: #0B162C;
 }
 
 .values-list {
@@ -576,7 +760,7 @@ section {
 
 .values-list li {
     margin-bottom: 0.8rem;
-    color: #555;
+    color: var(--text-body-secondary);
     position: relative;
 }
 
@@ -590,7 +774,9 @@ section {
     line-height: 1;
 }
 
+
 /* --- 8. DIFERENCIAIS --- */
+
 .diferenciais-grid-conteudo {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -599,17 +785,22 @@ section {
 }
 
 .accordion-item {
-    background-color: var(--cor-branca-pura);
+    background-color: var(--accordion-bg);
     border-radius: 16px;
     margin-bottom: 1.5rem;
-    border: 1px solid #e2e8f0;
+    border: var(--card-border);
     overflow: hidden;
     transition: all 0.3s ease;
+    box-shadow: var(--card-shadow);
 }
 
 .accordion-item:hover {
     border-color: var(--cor-azul-principal);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="blue-dark"] .accordion-item:hover {
+    border-color: #4fabf7;
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.2);
 }
 
 .accordion-header {
@@ -623,7 +814,7 @@ section {
     text-align: left;
     font-size: 1.15rem;
     font-weight: 700;
-    color: var(--cor-texto-principal);
+    color: var(--text-body-primary);
     cursor: pointer;
 }
 
@@ -641,27 +832,36 @@ section {
     justify-content: center;
 }
 
-.accordion-header[aria-expanded="true"] .accordion-icon {
+[data-theme="blue-dark"] .accordion-icon {
+    background: rgba(33, 150, 243, 0.1);
+    color: #4fabf7;
+}
+
+.accordion-header.active .accordion-icon {
     transform: rotate(45deg);
     background: var(--cor-azul-principal);
     color: #fff;
+}
+
+[data-theme="blue-dark"] .accordion-header.active .accordion-icon {
+    background: #4fabf7;
+    color: #0B162C;
 }
 
 .accordion-content {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out;
-    background-color: var(--cor-branca-pura);
+    background-color: var(--accordion-bg);
 }
 
-.accordion-content p {
+.accordion-inner {
     padding: 0 1.8rem 1.8rem 1.8rem;
-    margin-bottom: 0;
-    line-height: 1.7;
-    color: #666;
 }
+
 
 /* --- 9. SERVIÇOS --- */
+
 .servicos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -670,23 +870,25 @@ section {
 }
 
 .servico-card {
-    background: #FFFFFF;
+    background: var(--bg-card);
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--card-shadow);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    border: var(--card-border);
     position: relative;
 }
 
-/* Destaque "Vivo" ao passar o mouse */
 .servico-card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 30px 60px rgba(0, 50, 100, 0.15);
-    /* Borda amarela vibrante embaixo */
     border-bottom: 5px solid var(--cor-amarelo-destaque);
+}
+
+[data-theme="blue-dark"] .servico-card:hover {
+    border-bottom: 5px solid #4fabf7;
+    box-shadow: 0 0 35px rgba(33, 150, 243, 0.3);
 }
 
 .servico-card-img-container {
@@ -721,8 +923,9 @@ section {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: var(--bg-card);
     position: relative;
+    transition: background 0.3s;
 }
 
 .icon-header {
@@ -741,6 +944,12 @@ section {
     z-index: 10;
 }
 
+[data-theme="blue-dark"] .icon-header {
+    background: linear-gradient(135deg, #4fabf7, #2196F3);
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(33, 150, 243, 0.5);
+}
+
 .icon-header i {
     width: 28px;
     height: 28px;
@@ -753,11 +962,15 @@ section {
     margin-bottom: 0.8rem;
 }
 
+[data-theme="blue-dark"] .servico-card h4 {
+    color: #fff;
+}
+
 .servico-items {
     list-style: none;
     margin-top: auto;
     padding-left: 0;
-    border-top: 1px solid #f0f4f8;
+    border-top: 1px solid var(--border-color);
     padding-top: 1.5rem;
 }
 
@@ -766,7 +979,7 @@ section {
     align-items: center;
     gap: 12px;
     margin-bottom: 12px;
-    color: var(--cor-texto-principal);
+    color: var(--text-body-primary);
     font-weight: 500;
     font-size: 0.95rem;
 }
@@ -778,24 +991,30 @@ section {
     stroke-width: 3px;
 }
 
+[data-theme="blue-dark"] .servico-items li i {
+    color: #4fabf7;
+}
+
+
 /* =========================================
-   NOVO ESTILO STEPPER (TGL BRANDED - REACT BITS STYLE)
+   STEPPER
    ========================================= */
 
-/* Fundo da seção */
 .stepper-section {
     padding: 6rem 0;
     background: #f0f4f8;
     display: flex;
     justify-content: center;
+    transition: background 0.5s;
 }
 
-/* Container Principal (Card Azul Escuro TGL) */
+[data-theme="blue-dark"] .stepper-section {
+    background: #0B162C;
+}
+
 .rb-stepper-container {
     background: linear-gradient(145deg, #0A2A4E, #05182d);
-    /* Azul TGL Gradiente */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    /* Borda sutil */
     border-radius: 2rem;
     padding: 2.5rem;
     width: 100%;
@@ -803,12 +1022,20 @@ section {
     margin: 0 auto;
     color: #fff;
     box-shadow: 0 25px 50px -12px rgba(10, 42, 78, 0.5);
-    /* Sombra azulada */
     position: relative;
     overflow: hidden;
 }
 
-/* --- INDICADORES (BOLINHAS) --- */
+[data-theme="blue-dark"] .rb-stepper-container {
+    /* Gradiente azul profundo */
+    background: linear-gradient(145deg, #15223E, #0F1D38);
+    border: 1px solid #2d4a77;
+    box-shadow: 0 0 30px rgba(33, 150, 243, 0.15);
+}
+
+
+/* Indicadores */
+
 .rb-step-indicator-row {
     display: flex;
     align-items: center;
@@ -833,26 +1060,26 @@ section {
     border: 2px solid transparent;
 }
 
-/* Estado Inativo */
 .rb-step-indicator.inactive {
     background-color: rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* Estado Ativo (AMARELO TGL) */
 .rb-step-indicator.active {
     background-color: #E6B800;
-    /* Amarelo da marca */
     color: #0A2A4E;
-    /* Texto azul escuro para contraste */
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(230, 184, 0, 0.4);
 }
 
-/* Estado Completo */
+[data-theme="blue-dark"] .rb-step-indicator.active {
+    background-color: #4fabf7;
+    color: #0B162C;
+    box-shadow: 0 0 15px rgba(79, 171, 247, 0.5);
+}
+
 .rb-step-indicator.complete {
     background-color: #0056B3;
-    /* Azul vibrante */
     color: #fff;
 }
 
@@ -868,7 +1095,6 @@ section {
     font-weight: 700;
 }
 
-/* Linhas Conectoras */
 .rb-step-connector {
     flex: 1;
     height: 3px;
@@ -885,11 +1111,16 @@ section {
     bottom: 0;
     width: 0%;
     background: #E6B800;
-    /* Linha preenche de amarelo */
     transition: width 0.4s ease;
 }
 
-/* --- CONTEÚDO (INPUTS) --- */
+[data-theme="blue-dark"] .rb-step-connector-inner {
+    background: #4fabf7;
+}
+
+
+/* Conteúdo (Inputs) */
+
 .rb-content-container {
     min-height: 280px;
     position: relative;
@@ -909,7 +1140,6 @@ section {
         opacity: 0;
         transform: translateY(10px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -928,7 +1158,6 @@ section {
     font-size: 1.05rem;
 }
 
-/* Inputs Estilizados (Fundo Translucido Azulado) */
 .rb-input-group {
     margin-bottom: 1.5rem;
 }
@@ -946,7 +1175,6 @@ section {
 .rb-input-group textarea {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
-    /* Escuro translúcido */
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 1rem;
     border-radius: 12px;
@@ -961,9 +1189,15 @@ section {
 .rb-input-group select:focus,
 .rb-input-group textarea:focus {
     border-color: #E6B800;
-    /* Borda amarela no foco */
     background-color: rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 0 3px rgba(230, 184, 0, 0.15);
+}
+
+[data-theme="blue-dark"] .rb-input-group input:focus,
+[data-theme="blue-dark"] .rb-input-group select:focus,
+[data-theme="blue-dark"] .rb-input-group textarea:focus {
+    border-color: #4fabf7;
+    box-shadow: 0 0 0 3px rgba(79, 171, 247, 0.2);
 }
 
 .rb-input-group input::placeholder,
@@ -971,7 +1205,6 @@ section {
     color: rgba(255, 255, 255, 0.4);
 }
 
-/* Select customizado */
 .rb-select-wrapper {
     position: relative;
 }
@@ -981,7 +1214,6 @@ option {
     color: #fff;
 }
 
-/* Radio Buttons (WhatsApp/Email) */
 .rb-radio-group {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1009,9 +1241,13 @@ option {
 .rb-radio-option input:checked+.rb-radio-box {
     border-color: #E6B800;
     background: rgba(230, 184, 0, 0.1);
-    /* Amarelo bem suave no fundo */
     color: #fff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="blue-dark"] .rb-radio-option input:checked+.rb-radio-box {
+    border-color: #4fabf7;
+    background: rgba(33, 150, 243, 0.15);
 }
 
 .rb-radio-box i {
@@ -1020,7 +1256,13 @@ option {
     color: #E6B800;
 }
 
-/* --- RODAPÉ (BOTÕES) --- */
+[data-theme="blue-dark"] .rb-radio-box i {
+    color: #4fabf7;
+}
+
+
+/* Rodapé do Stepper */
+
 .rb-footer {
     display: flex;
     justify-content: space-between;
@@ -1054,9 +1296,7 @@ option {
 
 .rb-btn-next {
     background-color: #E6B800;
-    /* Botão Amarelo */
-    color: #05182d;
-    /* Texto escuro */
+    color: #051322;
     border: none;
     padding: 0.8rem 2.2rem;
     border-radius: 50px;
@@ -1076,25 +1316,43 @@ option {
     box-shadow: 0 6px 20px rgba(230, 184, 0, 0.4);
 }
 
-/* --- 11. FOOTER (CORRIGIDO PARA CONTRASTE) --- */
-footer {
-    background-color: #05182d;
-    color: #fff; /* Fundo escuro com texto branco */
-    padding: 5rem 0 2rem 0;
+[data-theme="blue-dark"] .rb-btn-next {
+    background-color: #4fabf7;
+    color: #0B162C;
+    box-shadow: 0 0 15px rgba(79, 171, 247, 0.4);
 }
 
-/* Títulos do footer brancos */
+[data-theme="blue-dark"] .rb-btn-next:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+
+/* --- 11. FOOTER --- */
+
+footer {
+    background-color: #0A2A4E;
+    /* Azul escuro da marca */
+    color: #fff;
+    padding: 5rem 0 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="blue-dark"] footer {
+    background-color: #050B16;
+    /* Um azul quase preto, mas não preto */
+    border-top: 1px solid #1F2E4D;
+}
+
 footer h4 {
     color: #ffffff;
     margin-bottom: 1.2rem;
 }
 
-/* Texto de parágrafos mais claros (cinza-azulado muito claro) */
 footer p {
-    color: #e2e8f0; 
+    color: #e2e8f0;
 }
 
-/* Links do footer */
 .footer-link {
     color: #fff;
     text-decoration: none;
@@ -1112,7 +1370,9 @@ footer p {
     margin-bottom: 3rem;
 }
 
-/* WhatsApp Pulsante */
+
+/* WhatsApp Flutuante */
+
 .whatsapp-flutuante {
     position: fixed;
     bottom: 30px;
@@ -1140,25 +1400,23 @@ footer p {
     0% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
     }
-
     70% {
         box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
     }
-
     100% {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
     }
 }
 
-/* --- RESPONSIVIDADE GERAL --- */
-@media (max-width: 1024px) {
 
+/* --- RESPONSIVIDADE --- */
+
+@media (max-width: 1024px) {
     .quem-somos-grid,
     .diferenciais-grid-conteudo {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-
     .quem-somos-imagem {
         height: 350px;
         order: -1;
@@ -1174,45 +1432,39 @@ footer p {
 }
 
 @media (max-width: 768px) {
-
     .card-nav-cta-button,
     .desktop-only {
         display: none;
     }
-
     .hero-card-center h1 {
         font-size: 2.2rem;
     }
-
     .mvv-grid,
     .servicos-grid,
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
-
     .hero-card-center {
         padding: 2.5rem 2rem;
     }
-
-    /* Ajuste Stepper Mobile */
     .rb-stepper-container {
         padding: 1.5rem;
     }
-
     .rb-title {
         font-size: 1.5rem;
     }
-
     .rb-footer {
         flex-direction: column-reverse;
         gap: 1rem;
         align-items: stretch;
     }
-
     .rb-btn-next,
     .rb-btn-back {
         width: 100%;
         justify-content: center;
+    }
+    .nav-actions {
+        margin-right: 40px;
     }
 }
