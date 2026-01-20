@@ -1,371 +1,380 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGL - Top Gestão Logística</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="TGL - Soluções em Logística, Limpeza e Portaria.">
+    <link rel="icon" href="fotos/icone.png" type="image/png">
 
+    <title>TGL - Top Gestão Logística</title>
+
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <a href="https://wa.me/5561999614193" target="_blank" class="whatsapp-flutuante" aria-label="Fale no WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.626-2.957 6.584-6.591 6.584m-3.108-.983c.19-.09.39-.143.592-.143.201 0 .39.053.533.161.142.108.21.26.21.437s-.068.329-.19.451c-.12.122-.27.182-.42.182-.15 0-.28-.06-.38-.182-.1-.122-.15-.272-.15-.451.001-.177.07-.327.21-.437z"/>
-        </svg>
+    <a href="https://wa.me/5561999614193" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <i data-feather="message-circle"></i>
     </a>
 
-    <div class="card-nav-container">
-        <nav class="card-nav" id="mainNav">
-            <div class="card-nav-top">
-                <div class="hamburger-menu" id="navToggle" role="button" aria-label="Abrir menu" tabindex="0">
-                    <div class="hamburger-line"></div>
-                    <div class="hamburger-line"></div>
-                </div>
-                <div class="logo-container">
-                    <img src="fotos/logo.png" alt="TGL Logo" class="logo">
-                </div>
-                <div class="nav-actions">
-                    <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Alternar Cores">
-                        <i data-feather="moon"></i>
-                    </button>
-                    <a href="#cotacao" class="card-nav-cta-button">Cotação</a>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo">
+                <img src="fotos/logo.png" alt="TGL Logo" class="logo-img">
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#hero">Início</a>
+                <a href="#mvv">A TGL</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#contato" class="btn-quote-nav">Cotação Online</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-btn">
+                    <i data-feather="moon" class="moon-icon"></i>
+                    <i data-feather="sun" class="sun-icon"></i>
+                </button>
+                <div class="menu-toggle" id="menuToggle">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
                 </div>
             </div>
-            <div class="card-nav-content">
-                <div class="nav-card nav-card-brand">
-                    <div class="nav-card-label">A TGL</div>
-                    <div class="nav-card-links">
-                        <a href="#inicio" class="nav-card-link"><i data-feather="home"></i> Início</a>
-                        <a href="#quem-somos" class="nav-card-link"><i data-feather="info"></i> Quem Somos</a>
-                    </div>
-                </div>
-                <div class="nav-card nav-card-solutions">
-                    <div class="nav-card-label">Soluções</div>
-                    <div class="nav-card-links">
-                        <a href="#servicos" class="nav-card-link"><i data-feather="truck"></i> Logística</a>
-                        <a href="#servicos" class="nav-card-link"><i data-feather="users"></i> Mão de Obra</a>
-                    </div>
-                </div>
-                <div class="nav-card nav-card-contact">
-                    <div class="nav-card-label">Contato</div>
-                    <div class="nav-card-links">
-                        <a href="#cotacao" class="nav-card-link"><i data-feather="mail"></i> Orçamento</a>
-                        <a href="#contato-footer" class="nav-card-link"><i data-feather="phone"></i> Fale Conosco</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
-    <main>
-        <section id="inicio" class="hero-reference">
-            <div class="visual-orb orb-1"></div>
-            <div class="visual-orb orb-2"></div>
+    <section id="hero" class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1 id="typewriter-headline" class="typewriter-container"></h1>
+                
+                <div class="reveal-up">
+                    <p class="lead">A Top Gestão Logística (TGL) nasceu para redefinir o conceito de terceirização. Mais do que fornecer mão de obra, construímos parcerias estratégicas.</p>
+                    <p class="lead">Com mais de 14 anos de mercado, desenvolvemos expertise em frentes críticas, atendendo grandes empresas do Varejo, Mineração e Saúde.</p>
+                    <div class="hero-btns">
+                        <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+                        <a href="#servicos" class="btn btn-outline">Nossos Serviços</a>
+                    </div>
+                </div>
 
-            <div class="hero-grid-bg">
-                <div class="grid-col">
-                    <img src="fotos/logistica2.jpeg" alt="Logística">
-                    <img src="fotos/limpeza.jpeg" alt="Limpeza">
-                    <img src="fotos/porteiro1.jpeg" alt="Portaria">
-                </div>
-                <div class="grid-col desktop-only">
-                    <img src="fotos/porteiro2.jpeg" alt="Portaria">
-                    <img src="fotos/logistica1.jpeg" alt="Logística">
-                    <img src="fotos/limpeza1.jpeg" alt="Limpeza">
-                </div>
-                <div class="grid-col">
-                    <img src="fotos/logistica3.jpeg" alt="Estoque">
-                    <img src="fotos/limpeza2.jpeg" alt="Limpeza">
-                    <img src="fotos/porteiro3.jpeg" alt="Segurança">
-                </div>
-                <div class="grid-col desktop-only">
-                    <img src="fotos/logistica2.jpeg" alt="Logística">
-                    <img src="fotos/limpeza.jpeg" alt="Limpeza">
-                    <img src="fotos/porteiro1.jpeg" alt="Portaria">
+                <div class="hero-stats reveal-up">
+                    <div class="stat-item">
+                        <span class="stat-number">
+                            +<span class="count-up" data-target="14">0</span>
+                        </span>
+                        <span class="stat-desc">Anos de Mercado</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">
+                            <span class="count-up" data-target="100">0</span>%
+                        </span>
+                        <span class="stat-desc">Clientes Satisfeitos</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="hero-overlay-gradient"></div>
-
-            <div class="hero-card-center reveal-hero">
-                <h1>Excelência em <br><span class="highlight-text">Terceirização</span></h1>
-                <p>Potencialize sua operação com a TGL. Unimos mais de uma década de experiência, tecnologia de ponta e capital humano qualificado.</p>
-                <div class="hero-actions">
-                    <a href="#quem-somos" class="hero-btn-action">Conheça a TGL</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="quem-somos" class="bg-gradient-light section-bg-transition">
-            <div class="container">
-                <div class="quem-somos-grid">
-                    <div class="quem-somos-texto">
-                        <h3 class="modern-subtitle">QUEM SOMOS</h3>
-                        <h2>Confiabilidade e Eficiência</h2>
-                        <p>A Top Gestão Logística (TGL) nasceu para redefinir o conceito de terceirização. Mais do que fornecer mão de obra, construímos parcerias estratégicas.</p>
-                        <p><strong>Com mais de 14 anos de mercado</strong>, desenvolvemos expertise em frentes críticas, atendendo grandes empresas do Varejo, Mineração e Saúde.</p>
-                        <a href="#diferenciais" class="cta-button-outline">Nossos Diferenciais</a>
+            <div class="hero-visual reveal-right">
+                <div class="gallery-mosaic">
+                    <div class="gallery-item item-main">
+                        <img src="fotos/logistica2.jpeg" alt="Logística">
+                        <div class="gallery-overlay">Logística</div>
                     </div>
-                    <div class="quem-somos-imagem">
-                        <img src="fotos/logistica2.jpeg" alt="Equipe TGL em operação">
+                    <div class="gallery-item item-top">
+                        <img src="fotos/porteiro2.jpeg" alt="Portaria">
+                        <div class="gallery-overlay">Segurança</div>
+                    </div>
+                    <div class="gallery-item item-bottom-1">
+                        <img src="fotos/limpeza2.jpeg" alt="Limpeza">
+                        <div class="gallery-overlay">Limpeza</div>
+                    </div>
+                    <div class="gallery-item item-bottom-2">
+                        <img src="fotos/logistica3.jpeg" alt="Estoque">
+                        <div class="gallery-overlay">Estoque</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="sobre" class="relative-bg section-bg-transition">
-            <div class="bg-pattern-dot"></div>
-            <div class="container">
-                <div class="section-header">
-                    <h3 class="modern-subtitle-center">Nossa Essência</h3>
-                    <h2>Missão, Visão e Valores</h2>
-                    <p class="section-desc">Nossos pilares fundamentais guiam cada decisão para a excelência.</p>
+    <section id="mvv" class="section-pad bg-light-dots">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h3 class="pre-title">NOSSA ESSÊNCIA</h3>
+                <h2 class="section-title">Missão, Visão e Valores</h2>
+                <p class="section-subtitle">Nossos pilares fundamentais guiam cada decisão para a excelência.</p>
+            </div>
+
+            <div class="mvv-grid reveal-up">
+                <div class="mvv-card">
+                    <div class="mvv-icon-circle"><i data-feather="target"></i></div>
+                    <h3>Missão</h3>
+                    <p>Oferecer soluções inteligentes em logística e serviços, superando expectativas com agilidade.</p>
                 </div>
-                <div class="mvv-grid">
-                    <div class="mvv-card">
-                        <div class="icon-box"><i data-feather="target"></i></div>
-                        <h4>Missão</h4>
-                        <p>Oferecer soluções inteligentes em logística e serviços, superando expectativas com agilidade.</p>
+                <div class="mvv-card">
+                    <div class="mvv-icon-circle"><i data-feather="eye"></i></div>
+                    <h3>Visão</h3>
+                    <p>Ser referência nacional em gestão de terceirização, destacando-se pela inovação constante.</p>
+                </div>
+                <div class="mvv-card">
+                    <div class="mvv-icon-circle"><i data-feather="award"></i></div>
+                    <h3>Valores</h3>
+                    <ul class="mvv-list">
+                        <li>Qualidade Intransigente</li>
+                        <li>Ética e Transparência</li>
+                        <li>Inovação Tecnológica</li>
+                        <li>Valorização Humana</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="section-pad bg-white">
+        <div class="container">
+            <div class="section-header text-center reveal-up">
+                <h3 class="pre-title">O QUE FAZEMOS</h3>
+                <h2 class="section-title">Nossas Soluções</h2>
+            </div>
+
+            <div class="services-grid reveal-up">
+                <div class="service-card">
+                    <div class="card-header-img">
+                        <img src="fotos/logistica3.jpeg" alt="Logística">
+                        <div class="card-icon-float"><i data-feather="truck"></i></div>
                     </div>
-                    <div class="mvv-card">
-                        <div class="icon-box"><i data-feather="eye"></i></div>
-                        <h4>Visão</h4>
-                        <p>Ser referência nacional em gestão de terceirização, destacando-se pela inovação constante.</p>
+                    <div class="card-body">
+                        <h3>Logística</h3>
+                        <p>Gestão de armazéns, estoque, movimentação e carga/descarga com eficiência.</p>
+                        <div class="card-divider"></div>
+                        <ul class="card-check-list">
+                            <li><i data-feather="check-circle"></i> Intralogística</li>
+                            <li><i data-feather="check-circle"></i> Gestão de Estoque</li>
+                        </ul>
                     </div>
-                    <div class="mvv-card">
-                        <div class="icon-box"><i data-feather="award"></i></div>
-                        <h4>Valores</h4>
-                        <ul class="values-list">
-                            <li>Qualidade Intransigente</li>
-                            <li>Ética e Transparência</li>
-                            <li>Inovação Tecnológica</li>
-                            <li>Valorização Humana</li>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-header-img">
+                        <img src="fotos/logistica1.jpeg" alt="Mão de Obra">
+                        <div class="card-icon-float"><i data-feather="users"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Mão de Obra</h3>
+                        <p>Terceirização inteligente para áreas administrativas e operacionais.</p>
+                        <div class="card-divider"></div>
+                        <ul class="card-check-list">
+                            <li><i data-feather="check-circle"></i> Apoio Administrativo</li>
+                            <li><i data-feather="check-circle"></i> Flexibilidade</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-header-img">
+                        <img src="fotos/limpeza.jpeg" alt="Facilities">
+                        <div class="card-icon-float"><i data-feather="shield"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Facilities</h3>
+                        <p>Limpeza técnica, portaria e conservação predial para um ambiente seguro.</p>
+                        <div class="card-divider"></div>
+                        <ul class="card-check-list">
+                            <li><i data-feather="check-circle"></i> Limpeza Técnica</li>
+                            <li><i data-feather="check-circle"></i> Portaria 24h</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="diferenciais" class="bg-gradient-light section-bg-transition">
-            <div class="container">
-                <div class="diferenciais-grid-conteudo">
-                    <div class="diferenciais-texto-acordeao">
-                        <h3 class="modern-subtitle">DIFERENCIAIS</h3>
-                        <h2>Por que escolher a TGL?</h2>
-                        <p>Não entregamos apenas serviços; entregamos tranquilidade para que sua empresa foque no negócio principal.</p>
-                        <a href="#servicos" class="cta-button-outline">Ver serviços</a>
+    <section id="diferenciais" class="section-pad bg-light-dots">
+        <div class="container">
+            <div class="diferenciais-layout">
+                <div class="diferenciais-text reveal-left">
+                    <h3 class="pre-title">DIFERENCIAIS</h3>
+                    <h2 class="section-title">Por que escolher a TGL?</h2>
+                    <p>Não entregamos apenas serviços; entregamos tranquilidade para que sua empresa foque no negócio principal.</p>
+                    <a href="#servicos" class="btn btn-outline-blue">Ver serviços</a>
+                </div>
+
+                <div class="diferenciais-accordion reveal-right">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Profissionais Qualificados</span>
+                            <i data-feather="plus" class="acc-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Recrutamento rigoroso e treinamentos contínuos garantem equipes de alta performance.</p>
+                        </div>
                     </div>
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
-                                <span>Profissionais Qualificados</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p>Recrutamento rigoroso e treinamentos contínuos garantem equipes de alta performance.</p>
-                                </div>
-                            </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Soluções Customizadas</span>
+                            <i data-feather="plus" class="acc-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Estratégias operacionais desenhadas sob medida para a sua necessidade específica.</p>
                         </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
-                                <span>Soluções Customizadas</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p>Estratégias operacionais desenhadas sob medida para a sua necessidade específica.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-header" aria-expanded="false">
-                                <span>Parceria Estratégica</span>
-                                <span class="accordion-icon">+</span>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p>Gestão proativa e dedicada para impulsionar seus resultados.</p>
-                                </div>
-                            </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Parceria Estratégica</span>
+                            <i data-feather="plus" class="acc-icon"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Gestão proativa e dedicada para impulsionar seus resultados e reduzir custos.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="servicos" class="relative-bg section-bg-transition">
-            <div class="bg-pattern-dot"></div>
-            <div class="container">
-                <div class="section-header">
-                    <h3 class="modern-subtitle-center">O que fazemos</h3>
-                    <h2>Nossas Soluções</h2>
-                </div>
-                <div class="servicos-grid">
-                    <div class="servico-card">
-                        <div class="servico-card-img-container">
-                            <img src="fotos/logistica2.jpeg" alt="Logística" class="servico-card-img">
-                            <div class="card-overlay"></div>
+    <section id="contato" class="section-pad bg-clean-gradient quote-section">
+        <div class="container">
+            <div class="quote-grid">
+                <div class="quote-info reveal-left">
+                    <h2 class="dark-text">Vamos conversar?</h2>
+                    <p class="dark-text-light">Preencha o formulário para receber uma proposta personalizada ou entre em contato direto pelos nossos canais.</p>
+
+                    <div class="contact-methods">
+                        <div class="method">
+                            <div class="method-icon"><i data-feather="phone-call"></i></div>
+                            <div>
+                                <span>Ligue para nós</span>
+                                <strong>(61) 3201-8881</strong>
+                            </div>
                         </div>
-                        <div class="servico-card-body">
-                            <div class="icon-header"><i data-feather="truck"></i></div>
-                            <h4>Logística</h4>
-                            <p>Gestão de armazéns, estoque, movimentação e carga/descarga com eficiência.</p>
-                            <ul class="servico-items">
-                                <li><i data-feather="check-circle"></i> Intralogística</li>
-                                <li><i data-feather="check-circle"></i> Gestão de Estoque</li>
-                            </ul>
+                        <div class="method">
+                            <div class="method-icon"><i data-feather="message-circle"></i></div>
+                            <div>
+                                <span>WhatsApp</span>
+                                <strong>(61) 99961-4193</strong>
+                            </div>
                         </div>
-                    </div>
-                    <div class="servico-card">
-                        <div class="servico-card-img-container">
-                            <img src="fotos/logistica1.jpeg" alt="Mão de Obra" class="servico-card-img">
-                            <div class="card-overlay"></div>
-                        </div>
-                        <div class="servico-card-body">
-                            <div class="icon-header"><i data-feather="users"></i></div>
-                            <h4>Mão de Obra</h4>
-                            <p>Terceirização inteligente para áreas administrativas e operacionais.</p>
-                            <ul class="servico-items">
-                                <li><i data-feather="check-circle"></i> Apoio Administrativo</li>
-                                <li><i data-feather="check-circle"></i> Flexibilidade</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="servico-card">
-                        <div class="servico-card-img-container">
-                            <img src="fotos/limpeza2.jpeg" alt="Limpeza" class="servico-card-img">
-                            <div class="card-overlay"></div>
-                        </div>
-                        <div class="servico-card-body">
-                            <div class="icon-header"><i data-feather="shield"></i></div>
-                            <h4>Facilities</h4>
-                            <p>Limpeza técnica, portaria e conservação predial para um ambiente seguro.</p>
-                            <ul class="servico-items">
-                                <li><i data-feather="check-circle"></i> Limpeza Técnica</li>
-                                <li><i data-feather="check-circle"></i> Portaria 24h</li>
-                            </ul>
+                        <div class="method">
+                            <div class="method-icon"><i data-feather="mail"></i></div>
+                            <div>
+                                <span>E-mail</span>
+                                <strong>contato@topgestaologistica.com.br</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="cotacao" class="stepper-section section-bg-transition">
-            <div class="container">
-                <div class="rb-stepper-container">
-                    <div class="rb-step-indicator-row">
-                        <div class="rb-step-wrapper">
-                            <div class="rb-step-indicator active">
-                                <div class="rb-active-dot"></div>
-                            </div>
-                        </div>
-                        <div class="rb-step-connector">
-                            <div class="rb-step-connector-inner" id="line-1"></div>
-                        </div>
-                        <div class="rb-step-wrapper">
-                            <div class="rb-step-indicator inactive"><span class="rb-step-number">2</span></div>
-                        </div>
-                        <div class="rb-step-connector">
-                            <div class="rb-step-connector-inner" id="line-2"></div>
-                        </div>
-                        <div class="rb-step-wrapper">
-                            <div class="rb-step-indicator inactive"><span class="rb-step-number">3</span></div>
-                        </div>
+                <div class="quote-box reveal-right">
+                    <div class="stepper-header">
+                        <div class="step-dot active" data-step="1">1</div>
+                        <div class="step-line"></div>
+                        <div class="step-dot" data-step="2">2</div>
+                        <div class="step-line"></div>
+                        <div class="step-dot" data-step="3">3</div>
                     </div>
 
-                    <div class="rb-content-container">
-                        <div class="rb-step-content active" data-step="1">
-                            <h2 class="rb-title">Solicitar Cotação</h2>
-                            <p class="rb-subtitle">Primeiro passo para otimizar sua operação.</p>
-                            <div class="rb-input-group">
-                                <label>Nome Completo / Empresa</label>
-                                <input type="text" id="rb-nome" placeholder="Digite seu nome ou da empresa">
+                    <form id="quoteForm">
+                        <div class="form-step active" id="step1">
+                            <h4>Seus Dados</h4>
+                            <div class="input-group">
+                                <label>Nome Completo</label>
+                                <input type="text" id="nome" required placeholder="Digite seu nome">
                             </div>
-                            <div class="rb-input-group">
-                                <label>Serviço de Interesse</label>
-                                <div class="rb-select-wrapper">
-                                    <select id="rb-servico">
-                                        <option value="" disabled selected>Selecione uma opção...</option>
-                                        <option value="Logística">Logística / Carga e Descarga</option>
-                                        <option value="Mão de Obra">Mão de Obra Adm/Operacional</option>
-                                        <option value="Portaria">Portaria e Segurança</option>
-                                        <option value="Limpeza">Limpeza e Conservação</option>
-                                        <option value="Outros">Outros / Personalizado</option>
-                                    </select>
-                                </div>
+                            <div class="input-group">
+                                <label>Nome da Empresa</label>
+                                <input type="text" id="empresa" placeholder="Digite o nome da empresa">
+                            </div>
+                            <button type="button" class="btn btn-primary btn-full btn-next" data-next="step2">Próximo</button>
+                        </div>
+
+                        <div class="form-step" id="step2">
+                            <h4>O que você precisa?</h4>
+                            <div class="input-group">
+                                <label>Serviço</label>
+                                <select id="servico" required>
+                                    <option value="" disabled selected>Selecione...</option>
+                                    <option value="Logística">Logística / Carga e Descarga</option>
+                                    <option value="Portaria">Portaria e Segurança</option>
+                                    <option value="Limpeza">Limpeza e Conservação</option>
+                                    <option value="Mão de Obra">Mão de Obra Geral</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Detalhes (Opcional)</label>
+                                <textarea id="mensagem" rows="3" placeholder="Ex: Preciso de 2 porteiros noturnos..."></textarea>
+                            </div>
+                            <div class="btn-row">
+                                <button type="button" class="btn btn-outline btn-prev" data-prev="step1">Voltar</button>
+                                <button type="button" class="btn btn-primary btn-next" data-next="step3">Próximo</button>
                             </div>
                         </div>
 
-                        <div class="rb-step-content" data-step="2">
-                            <h2 class="rb-title">Detalhes da Demanda</h2>
-                            <p class="rb-subtitle">Conte-nos mais sobre sua necessidade.</p>
-                            <div class="rb-input-group">
-                                <label>Descrição / Observações</label>
-                                <textarea id="rb-obs" rows="4" placeholder="Ex: Preciso de equipe noturna, etc..."></textarea>
-                            </div>
-                        </div>
-
-                        <div class="rb-step-content" data-step="3">
-                            <h2 class="rb-title">Finalizar</h2>
-                            <p class="rb-subtitle">Como prefere enviar?</p>
-                            <div class="rb-radio-group">
-                                <label class="rb-radio-option">
-                                    <input type="radio" name="rb-contact" value="whatsapp" checked>
-                                    <div class="rb-radio-box">
-                                        <i data-feather="message-circle"></i>
-                                        <span>WhatsApp</span>
-                                    </div>
+                        <div class="form-step" id="step3">
+                            <h4>Enviar Cotação</h4>
+                            <p class="final-text">Escolha como prefere enviar:</p>
+                            <div class="send-options">
+                                <label class="send-opt selected">
+                                    <input type="radio" name="canal" value="whatsapp" checked>
+                                    <i data-feather="message-circle"></i> WhatsApp
                                 </label>
-                                <label class="rb-radio-option">
-                                    <input type="radio" name="rb-contact" value="email">
-                                    <div class="rb-radio-box">
-                                        <i data-feather="mail"></i>
-                                        <span>E-mail</span>
-                                    </div>
+                                <label class="send-opt">
+                                    <input type="radio" name="canal" value="email">
+                                    <i data-feather="mail"></i> E-mail
                                 </label>
                             </div>
+                            <div class="btn-row">
+                                <button type="button" class="btn btn-outline btn-prev" data-prev="step2">Voltar</button>
+                                <button type="submit" class="btn btn-primary">Enviar Agora</button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="rb-footer">
-                        <button id="rb-btn-back" class="rb-btn-back disabled">Voltar</button>
-                        <button id="rb-btn-next" class="rb-btn-next">Continuar</button>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer id="contato-footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-col">
-                    <h4>TGL Top Gestão</h4>
-                    <p>Compromisso inabalável com a excelência e gestão focada na satisfação do cliente.</p>
+                <div class="footer-brand">
+                    <img src="fotos/logo.png" alt="TGL Logo" class="footer-logo-img">
+                    <p>Compromisso com a qualidade e a eficiência na gestão de serviços terceirizados.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Fale Conosco</h4>
-                    <p><a href="mailto:contato@tgl.com.br" class="footer-link"><i data-feather="mail"></i> contato@tgl.com.br</a></p>
-                    <p><a href="https://wa.me/5561999614193" target="_blank" class="footer-link"><i data-feather="phone"></i> +55 61 99961-4193</a></p>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#mvv">A TGL</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#contato">Cotação</a></li>
+                    </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Institucional</h4>
-                    <p><a href="http://www.topgestaotgl.com.br" target="_blank" class="footer-link">Visite nosso site oficial</a></p>
+                <div class="footer-contact">
+                    <h4>Atendimento</h4>
+                    <p><i data-feather="map-pin"></i> Brasília - DF</p>
+                    <p><i data-feather="phone"></i> (61) 3201-8881</p>
+                    <p><i data-feather="phone"></i> (61) 99961-4193</p>
+                    <p><i data-feather="mail"></i> contato@topgestaologistica.com.br</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 TGL - Top Gestão Empresarial. Todos os direitos reservados.</p>
+                <p>&copy; 2025 TGL Top Gestão. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <script>feather.replace();</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 
