@@ -29,9 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeBtn.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'blue-dark' : 'light';
-            
             html.setAttribute('data-theme', newTheme);
-            
             if(newTheme === 'blue-dark') {
                 if(moonIcon) moonIcon.style.display = 'none';
                 if(sunIcon) sunIcon.style.display = 'block';
@@ -51,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentStepDiv = document.getElementById(`step${currentStep}`);
             const inputs = currentStepDiv.querySelectorAll('input[required], select[required]');
             let isValid = true;
-            
             inputs.forEach(input => {
                 if(!input.value.trim()) {
                     isValid = false;
@@ -60,12 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     input.style.borderColor = '#cbd5e1';
                 }
             });
-
             if(isValid && currentStep < totalSteps) {
                 document.getElementById(`step${currentStep}`).classList.remove('active');
                 document.querySelector(`.step-dot[data-step="${currentStep}"]`).classList.remove('active');
                 document.querySelector(`.step-dot[data-step="${currentStep}"]`).classList.add('completed');
-                
                 currentStep++;
                 document.getElementById(`step${currentStep}`).classList.add('active');
                 document.querySelector(`.step-dot[data-step="${currentStep}"]`).classList.add('active');
@@ -78,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if(currentStep > 1) {
                 document.getElementById(`step${currentStep}`).classList.remove('active');
                 document.querySelector(`.step-dot[data-step="${currentStep}"]`).classList.remove('active');
-                
                 currentStep--;
                 document.getElementById(`step${currentStep}`).classList.add('active');
                 document.querySelector(`.step-dot[data-step="${currentStep}"]`).classList.add('active');
@@ -140,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===============================================
-    // 7. ANIMAÇÕES (Scroll Reveal, Contagem, Typewriter)
+    // 7. ANIMAÇÕES (GSAP)
     // ===============================================
     
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -195,45 +189,51 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // --- C. Efeito Typewriter (Nativo e Robusto) ---
-        // Função que digita texto puro mas respeita tags HTML completas de uma vez
-        const typewriterElement = document.getElementById('typewriter-headline');
+        // --- C. TYPEWRITER PERFEITO E ROBUSTO ---
+        const typewriterEl = document.getElementById('typewriter-headline');
         
-        if (typewriterElement) {
-            // String completa com HTML
-            const fullHTML = 'Excelência em <br><span class="highlight">Gestão e Serviços</span>';
-            typewriterElement.innerHTML = ''; // Limpa inicial
-            typewriterElement.classList.add('cursor-blink'); // Adiciona cursor via CSS
+        if (typewriterEl) {
+            typewriterEl.innerHTML = ""; // Limpa o conteúdo inicial
+            typewriterEl.classList.add('cursor-blink'); // Adiciona cursor
 
+            const textPart1 = "Excelência em ";
+            const textPart2 = "Gestão e Serviços";
+            const speed = 60; // Velocidade de digitação
+            
             let i = 0;
-            const speed = 70; // Velocidade em ms
 
-            function typeWriter() {
-                if (i < fullHTML.length) {
-                    // Se encontrar o início de uma tag, pega ela inteira
-                    if (fullHTML.charAt(i) === '<') {
-                        let tag = '';
-                        while (fullHTML.charAt(i) !== '>') {
-                            tag += fullHTML.charAt(i);
-                            i++;
-                        }
-                        tag += '>'; // Adiciona o fechamento
-                        i++;
-                        typewriterElement.innerHTML += tag; // Adiciona tag inteira
-                    } else {
-                        // Letra normal
-                        typewriterElement.innerHTML += fullHTML.charAt(i);
-                        i++;
-                    }
-                    setTimeout(typeWriter, speed);
+            // Função para digitar a primeira linha
+            function typeLine1() {
+                if (i < textPart1.length) {
+                    typewriterEl.innerHTML += textPart1.charAt(i);
+                    i++;
+                    setTimeout(typeLine1, speed);
                 } else {
-                    // Opcional: remover cursor no final
-                    // typewriterElement.classList.remove('cursor-blink');
+                    // Adiciona a quebra de linha
+                    typewriterEl.innerHTML += "<br>";
+                    // Cria o span para a parte colorida
+                    const span = document.createElement('span');
+                    span.className = "highlight";
+                    typewriterEl.appendChild(span);
+                    
+                    // Inicia a digitação da segunda linha dentro do span
+                    let j = 0;
+                    function typeLine2() {
+                        if (j < textPart2.length) {
+                            span.innerHTML += textPart2.charAt(j);
+                            j++;
+                            setTimeout(typeLine2, speed);
+                        } else {
+                            // Opcional: Remover o cursor no fim
+                            // typewriterEl.classList.remove('cursor-blink');
+                        }
+                    }
+                    setTimeout(typeLine2, speed);
                 }
             }
 
-            // Inicia apenas quando visível (opcional, ou start imediato)
-            setTimeout(typeWriter, 500); 
+            // Inicia o processo
+            setTimeout(typeLine1, 500);
         }
 
     } else {
